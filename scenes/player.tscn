@@ -11,7 +11,7 @@ height = 6.0
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_4flbx")
 
