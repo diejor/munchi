@@ -22,6 +22,10 @@ window/size/viewport_height=180
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[editor]
+
+naming/scene_name_casing=1
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/TileMapDual/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/script-ide/plugin.cfg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://deghq0uhw45c4"]
+[gd_scene load_steps=22 format=4 uid="uid://deghq0uhw45c4"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_44saj"]
 [ext_resource type="TileSet" uid="uid://b5std20g0igm8" path="res://assets/tileset/vanilla.tres" id="2_7mbro"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" uid="uid://cn1ywgre3exxh" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="10_si7kk"]
 [ext_resource type="Script" uid="uid://bv6aw10c23o5m" path="res://addons/gaea/modifiers/2D/carver.gd" id="11_pn65j"]
 [ext_resource type="Script" uid="uid://cobdt6g73o1a8" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="12_5f8cm"]
-[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player.tscn" id="13_gm488"]
+[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="13_gm488"]
+[ext_resource type="PackedScene" uid="uid://is4yofva7ik5" path="res://scenes/ui/ChangeMapButton.tscn" id="14_7mbro"]
+[ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="14_ff6ho"]
 
 [sub_resource type="Resource" id="Resource_jkv2x"]
 script = ExtResource("10_si7kk")
@@ -103,3 +105,20 @@ metadata/_custom_type_script = "uid://34dgcf0kpo3t"
 [node name="Player" parent="." instance=ExtResource("13_gm488")]
 y_sort_enabled = true
 position = Vector2(1, 1)
+
+[node name="CanvasUI" parent="." instance=ExtResource("14_ff6ho")]
+unique_name_in_owner = true
+
+[node name="ChangeMapButton" parent="CanvasUI" instance=ExtResource("14_7mbro")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -31.0
+offset_right = -8.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+map = "uid://bretmee72hayf"
