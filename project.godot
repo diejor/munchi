@@ -13,6 +13,8 @@ config_version=5
 config/name="munchi"
 run/main_scene="uid://deghq0uhw45c4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/use_filter=false
+boot_splash/image="uid://ce5nq5qowlnxv"
 config/icon="res://icon.svg"
 
 [display]
@@ -20,7 +22,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=320
 window/size/viewport_height=180
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 
 [editor]
 

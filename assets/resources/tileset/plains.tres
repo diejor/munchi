@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bbi3n7oxryltk"]
 
 [ext_resource type="Texture2D" uid="uid://daoewvfn018pd" path="res://assets/mystic-woods/tilesets/plains.png" id="1_5tof5"]
+[ext_resource type="Texture2D" uid="uid://dxh5pg8bwb8m4" path="res://assets/mystic-woods/tilesets/grass.png" id="2_nguqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("1_5tof5")
@@ -379,13 +380,9 @@ texture = ExtResource("1_5tof5")
 3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 4, 0, 4, 8, -8, 8)
 3:7/0/terrains_peering_bit/left_side = 1
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eu505"]
-load_path = "res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mj3cp"]
-texture = SubResource("CompressedTexture2D_eu505")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkae6"]
+texture = ExtResource("2_nguqm")
 0:0/0 = 0
-0:0/0/y_sort_origin = -16
 
 [resource]
 physics_layer_0/collision_layer = 1
@@ -395,4 +392,4 @@ terrain_set_0/terrain_0/color = Color(0.5019608, 0.49803922, 1, 1)
 terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.9607843, 0.4392157, 0.2509804, 1)
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
-sources/1 = SubResource("TileSetAtlasSource_mj3cp")
+sources/1 = SubResource("TileSetAtlasSource_wkae6")

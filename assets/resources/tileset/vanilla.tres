@@ -4,13 +4,6 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_maiof"]
 texture = ExtResource("1_ryw7q")
-0:3/0 = 0
-0:3/0/terrain_set = 0
-0:3/0/terrain = 0
-0:3/0/terrains_peering_bit/bottom_right_corner = 0
-0:3/0/terrains_peering_bit/bottom_left_corner = 0
-0:3/0/terrains_peering_bit/top_left_corner = 0
-0:3/0/terrains_peering_bit/top_right_corner = 0
 3:3/0 = 0
 3:3/0/terrain_set = 0
 3:3/0/terrains_peering_bit/bottom_right_corner = 0
@@ -105,6 +98,13 @@ texture = ExtResource("1_ryw7q")
 2:1/0/terrains_peering_bit/bottom_left_corner = 1
 2:1/0/terrains_peering_bit/top_left_corner = 1
 2:1/0/terrains_peering_bit/top_right_corner = 1
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/terrains_peering_bit/bottom_right_corner = 0
+0:3/0/terrains_peering_bit/bottom_left_corner = 0
+0:3/0/terrains_peering_bit/top_left_corner = 0
+0:3/0/terrains_peering_bit/top_right_corner = 0
 
 [resource]
 terrain_set_0/mode = 1
@@ -112,4 +112,4 @@ terrain_set_0/terrain_0/name = "<any>"
 terrain_set_0/terrain_0/color = Color(0.933333, 0.509804, 0.933333, 1)
 terrain_set_0/terrain_1/name = "tileset.png"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-sources/2 = SubResource("TileSetAtlasSource_maiof")
+sources/0 = SubResource("TileSetAtlasSource_maiof")

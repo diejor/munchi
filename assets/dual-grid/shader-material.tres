@@ -7,6 +7,6 @@
 shader = ExtResource("1_hd81n")
 shader_parameter/overlay = ExtResource("2_28brt")
 shader_parameter/fg_color = Color(1, 0, 0, 1)
-shader_parameter/bg_color = Color(0, 0, 0, 1)
+shader_parameter/bg_color = Color(0, 1, 0, 1)
 shader_parameter/tolerance = 0.0
 shader_parameter/tile_size = 136.045
