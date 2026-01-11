@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://6h55aginnmsp"]
 
-[ext_resource type="Texture2D" uid="uid://b12nreyobada4" path="res://assets/dual-grid/shader-atlas.tres" id="1_w18rg"]
+[ext_resource type="Texture2D" uid="uid://ctvp8tarvuw2r" path="res://assets/dual-grid/shader-tileset.png" id="1_gnsar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rovh4"]
-texture = ExtResource("1_w18rg")
+texture = ExtResource("1_gnsar")
 0:3/next_alternative_id = 2
 0:3/0 = 0
 0:3/0/terrain_set = 0

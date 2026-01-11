@@ -1,3 +1,4 @@
 assets:
 * mystic-woods - https://game-endeavor.itch.io/mystic-woods
-* tileset - https://github.com/jess-hammer/dual-grid-tilemap-system-godot
+* madspixel (font) - https://madsrhea.itch.io/madspixel
+* bookxel (font) - https://howyoudoing.itch.io/bookxel

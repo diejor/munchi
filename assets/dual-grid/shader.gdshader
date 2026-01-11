@@ -2,12 +2,16 @@
 
 shader_type canvas_item;
 
-uniform sampler2D overlay: repeat_enable, filter_nearest;
-uniform vec4 fg_color : source_color;
-uniform vec4 bg_color : source_color;
+group_uniforms Foreground;
+uniform sampler2D fg_overlay: repeat_enable, filter_nearest;
+uniform vec4 fg_mask : source_color;
+group_uniforms Background;
+uniform sampler2D bg_overlay: repeat_enable, filter_nearest;
+uniform vec4 bg_mask : source_color;
+group_uniforms;
 uniform float tolerance : hint_range(0, 1);
 
-uniform float tile_size = 16.0;
+uniform float tile_size = 128.0;
 varying vec2 world_position;
 
 void vertex() {
@@ -17,16 +21,19 @@ void vertex() {
 void fragment() {
     vec4 curr_color = texture(TEXTURE, UV);
 
-    float dist_bg = distance(curr_color.rgb, bg_color.rgb);
-    if (dist_bg <= tolerance) {
+    if (curr_color.a <= tolerance) {
         discard;
     }
 
     vec2 scaled_position = world_position / tile_size;
-    vec4 overlay_color = texture(overlay, scaled_position);
+    vec4 fg_overlay_color = texture(fg_overlay, scaled_position);
+	vec4 bg_overlay_color = texture(bg_overlay, scaled_position);
 
-    float dist_fg = distance(curr_color.rgb, fg_color.rgb);
+    float dist_fg = distance(curr_color.rgb, fg_mask.rgb);
+	float dist_bg = distance(curr_color.rgb, bg_mask.rgb);
     if (dist_fg <= tolerance) {
-        COLOR = overlay_color;
-    }
+        COLOR = fg_overlay_color;
+    } else if (dist_bg <= tolerance) {
+		COLOR = bg_overlay_color;
+	}
 }

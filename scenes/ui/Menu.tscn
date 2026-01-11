@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://7eww7ww1n5aw"]
+
+[ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/change_scene_button.gd" id="1_0dynd"]
+[ext_resource type="Script" uid="uid://d2qo5jse23tk6" path="res://scenes/ui/menu.gd" id="1_sh3q5"]
+[ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_vhthp"]
+[ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game-theme.tres" id="3_gcpqa"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_sh3q5")
+
+[node name="CanvasUI" parent="." instance=ExtResource("1_vhthp")]
+
+[node name="Button" type="Button" parent="CanvasUI"]
+offset_left = 35.0
+offset_top = 64.0
+offset_right = 87.0
+offset_bottom = 78.0
+theme = ExtResource("3_gcpqa")
+text = "Play Game"
+script = ExtResource("1_0dynd")
+scene_path = "uid://deghq0uhw45c4"
+
+[connection signal="pressed" from="CanvasUI/Button" to="CanvasUI/Button" method="_on_pressed"]
