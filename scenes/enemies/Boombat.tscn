@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cec3a451xe070"]
+
+[ext_resource type="Texture2D" uid="uid://deb6rdknc7pd8" path="res://assets/propietary/Enemies/Boombat/boombat.png" id="1_1in5k"]
+
+[node name="Boombat" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1in5k")
+offset = Vector2(0, -18)

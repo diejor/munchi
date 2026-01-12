@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmp3riaudjybn"]
+
+[ext_resource type="Texture2D" uid="uid://sgm12w62qhk" path="res://assets/propietary/Enemies/Slime/SlimeRanged/slimeRanged.png" id="1_a0qil"]
+
+[node name="SlimeRanged" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a0qil")
+offset = Vector2(0, -4)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0wqf8iq3tflv"]
+
+[ext_resource type="Texture2D" uid="uid://c2wdbxv2g162o" path="res://assets/propietary/Enemies/Slime/SlimeMelee/slimeMelee.png" id="1_0avok"]
+
+[node name="SlimeMelee" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0avok")
+offset = Vector2(0, -4)
