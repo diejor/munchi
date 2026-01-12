@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://cptpufpq3ks8q"]
+
+[ext_resource type="Script" uid="uid://bbve4twnlvwx" path="res://scenes/player/abilities/basic_attack.gd" id="1_0gqmg"]
+
+[sub_resource type="Animation" id="Animation_0gqmg"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Hitbox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.100000024),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Polygon2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.100000024),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_uq06w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Hitbox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Polygon2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uq06w"]
+_data = {
+&"RESET": SubResource("Animation_uq06w"),
+&"attack": SubResource("Animation_0gqmg")
+}
+
+[node name="BasicAttack" type="Node2D"]
+script = ExtResource("1_0gqmg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_uq06w")
+}
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Pivot"]
+visible = false
+polygon = PackedVector2Array(0, 0, 39, 12, 39, -11)
+
+[node name="Hitbox" type="Area2D" parent="Pivot"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 12
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Hitbox"]
+polygon = PackedVector2Array(39, -11, 39, 12, 0, 0)

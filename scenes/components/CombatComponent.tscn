@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://6gcho5ivfbv"]
+
+[ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="1_n2m83"]
+
+[sub_resource type="Animation" id="Animation_n2m83"]
+resource_name = "take_damage"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xu6e"]
+_data = {
+&"take_damage": SubResource("Animation_n2m83")
+}
+
+[node name="CombatComponent" type="Node"]
+script = ExtResource("1_n2m83")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3xu6e")
+}

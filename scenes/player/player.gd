@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var player_art: Node2D = %PlayerArt
 @onready var art_animator: ArtAnimator = player_art.get_node("%AnimationTree")
 
+var facing_vector: Vector2
+
 func _ready() -> void:
 	visibility_changed.emit()
 
