@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lkln0c1oqkbp"]
+
+[ext_resource type="Texture2D" uid="uid://crtrq2gvst55c" path="res://assets/propietary/troll.png" id="1_qg875"]
+[ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/enemies/troll.gd" id="2_qg875"]
+
+[node name="Troll" type="Sprite2D"]
+texture = ExtResource("1_qg875")
+offset = Vector2(0, -14)
+script = ExtResource("2_qg875")
+health = 100
+speed = 50.0

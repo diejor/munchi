@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=4 uid="uid://dycd71av8ulg0"]
+
+[ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_cd4t1"]
+[ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="2_h6c6u"]
+[ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="3_mpd7l"]
+[ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_i5g6b"]
+[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="4_leaxq"]
+
+[node name="Room1" type="Node2D"]
+y_sort_enabled = true
+material = ExtResource("1_cd4t1")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+material = ExtResource("1_cd4t1")
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAAAAAEAAAACAAEAAAABAAIAAAACAAEAAAACAAMAAAACAAEAAAADAAMAAAACAAEAAAAEAAMAAAACAAEAAAADAAIAAAACAAEAAAADAAEAAAACAAEAAAACAAIAAAACAAEAAAAEAAIAAAACAAEAAAACAAEAAAACAAEAAAACAAAAAAACAAEAAAABAAAAAAACAAEAAAABAAEAAAACAAEAAAAAAAIAAAACAAEAAAAAAAMAAAACAAEAAAABAAQAAAACAAEAAAACAAQAAAACAAEAAAAEAAQAAAACAAEAAAADAAQAAAACAAEAAAAFAAQAAAACAAEAAAAGAAMAAAACAAEAAAAGAAIAAAACAAEAAAAFAAIAAAACAAEAAAAFAAEAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAACAAEAAAADAAAAAAACAAEAAAAFAAMAAAACAAEAAAA=")
+tile_set = ExtResource("3_mpd7l")
+script = ExtResource("2_h6c6u")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="Mountain" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+material = ExtResource("1_cd4t1")
+tile_map_data = PackedByteArray("AAACAAAAAAACAAEAAAACAAEAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAEAAEAAAACAAEAAAADAAEAAAACAAEAAAA=")
+tile_set = ExtResource("4_i5g6b")
+script = ExtResource("2_h6c6u")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="Troll" parent="." instance=ExtResource("4_leaxq")]
+position = Vector2(79, 16)
