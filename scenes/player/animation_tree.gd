@@ -2,9 +2,23 @@ class_name ArtAnimator
 extends AnimationTree
 
 var is_moving: bool = false
+var is_attacking: bool = false
 
-func on_input(input: Vector2) -> void:
-	if not input.is_zero_approx():
-		set("parameters/Idle/blend_position", input)
-		set("parameters/Walk/blend_position", input)
-	is_moving = not input.is_zero_approx()
+var playback: AnimationNodeStateMachinePlayback = get("parameters/playback")
+
+func _physics_process(_delta: float) -> void:
+	var movement_input: Vector2
+	if not playback.get_current_node() == &"Attack":
+		movement_input = Input.get_vector(
+		"move_left", "move_right", "move_up", "move_down")
+		
+	if not movement_input.is_zero_approx():
+		set("parameters/Idle/blend_position", movement_input)
+		set("parameters/Walk/blend_position", movement_input)
+		set("parameters/Attack/blend_position", movement_input)
+	
+	is_moving = not movement_input.is_zero_approx()
+	
+	if Input.is_action_just_pressed("attack"):
+		playback.travel("Attack")
+	is_attacking = playback.get_current_node() == &"Attack"

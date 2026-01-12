@@ -9,7 +9,9 @@ func _ready() -> void:
 	visibility_changed.emit()
 
 func _physics_process(_delta: float) -> void:
-	var input: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input: Vector2
+	if not art_animator.is_attacking:
+		input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
 	velocity = input * speed
-	art_animator.on_input(input)
 	move_and_slide()

@@ -1,20 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://bln2nurmvtfj1"]
+[gd_scene load_steps=13 format=3 uid="uid://bln2nurmvtfj1"]
 
 [ext_resource type="Script" uid="uid://bo73glj04t8qt" path="res://scenes/player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://c26libpeyrrm3" path="res://scenes/player/PlayerArt.tscn" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="2_pn6s4"]
 [ext_resource type="Script" uid="uid://b6sfxsj0b18j6" path="res://scenes/player/pause.gd" id="3_4kuee"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="3_524rm"]
 [ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game-theme.tres" id="4_tpg5x"]
 [ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings-theme.tres" id="6_c3xxp"]
 [ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/change_scene_button.gd" id="7_npwbq"]
 [ext_resource type="Script" uid="uid://cnh58xpfqf4dn" path="res://scenes/ui/pause_menu.gd" id="7_v42im"]
+[ext_resource type="Texture2D" uid="uid://bd1cqpc0ocm4i" path="res://assets/propietary/heart.png" id="10_7oing"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 2.0
 height = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5stf6"]
+bg_color = Color(0.6, 0.6, 0.6, 0.039215688)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+motion_mode = 1
 script = ExtResource("1_4flbx")
+
+[node name="CombatComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_pn6s4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -35,6 +54,42 @@ color = Color(0.41981313, 0.41981313, 0.4198131, 1)
 
 [node name="CanvasUI" parent="." instance=ExtResource("3_524rm")]
 process_mode = 3
+
+[node name="HUD" type="Control" parent="CanvasUI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeartContainer" type="PanelContainer" parent="CanvasUI/HUD"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 70.0
+offset_bottom = 26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5stf6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasUI/HUD/HeartContainer"]
+layout_mode = 2
+
+[node name="Heart1" type="TextureRect" parent="CanvasUI/HUD/HeartContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_7oing")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="CanvasUI/HUD/HeartContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_7oing")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="CanvasUI/HUD/HeartContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_7oing")
+expand_mode = 2
 
 [node name="Pause" type="Button" parent="CanvasUI"]
 unique_name_in_owner = true

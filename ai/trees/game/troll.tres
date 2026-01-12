@@ -1,0 +1,23 @@
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://b5p38etau7ieu"]
+
+[ext_resource type="Script" uid="uid://20u5su0vxp8h" path="res://ai/tasks/get_wander_point.gd" id="1_rftgc"]
+[ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="2_rftgc"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_qg875"]
+
+[sub_resource type="BTAction" id="BTAction_dfnwn"]
+script = ExtResource("1_rftgc")
+
+[sub_resource type="BTAction" id="BTAction_30unt"]
+script = ExtResource("2_rftgc")
+
+[sub_resource type="BTSequence" id="BTSequence_rftgc"]
+custom_name = "Wander"
+children = [SubResource("BTAction_dfnwn"), SubResource("BTAction_30unt")]
+
+[sub_resource type="BTSequence" id="BTSequence_ru6x3"]
+children = [SubResource("BTSequence_rftgc")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_qg875")
+root_task = SubResource("BTSequence_ru6x3")
