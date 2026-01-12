@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crtrq2gvst55c"
-path="res://.godot/imported/troll.png-740709f09ae60a282f9fd747a7236356.ctex"
+uid="uid://cg2qusq32s40u"
+path="res://.godot/imported/ranger.png-de60ee73f948ce2393b7a637a2d56a41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/propietary/troll.png"
-dest_files=["res://.godot/imported/troll.png-740709f09ae60a282f9fd747a7236356.ctex"]
+source_file="res://assets/propietary/Enemies/Ranger/ranger.png"
+dest_files=["res://.godot/imported/ranger.png-de60ee73f948ce2393b7a637a2d56a41.ctex"]
 
 [params]
 
