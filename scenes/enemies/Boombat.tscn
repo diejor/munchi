@@ -6,4 +6,4 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1in5k")
-offset = Vector2(0, -18)
+offset = Vector2(0, -12)
