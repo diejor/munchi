@@ -1,20 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://6gcho5ivfbv"]
 
 [ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="1_n2m83"]
+[ext_resource type="Texture2D" uid="uid://dqunq08tfm3vi" path="res://assets/propietary/circle_round_16x16.png" id="2_3xu6e"]
 
-[sub_resource type="Animation" id="Animation_n2m83"]
-resource_name = "take_damage"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xu6e"]
-_data = {
-&"take_damage": SubResource("Animation_n2m83")
-}
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yun61"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 10.0
+initial_velocity_min = 47.35
+initial_velocity_max = 111.42
+gravity = Vector3(0, 0, 0)
 
 [node name="CombatComponent" type="Node"]
 script = ExtResource("1_n2m83")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_3xu6e")
-}
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("2_3xu6e")
+interp_to_end = 0.309
+one_shot = true
+explosiveness = 0.96
+process_material = SubResource("ParticleProcessMaterial_yun61")
+
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_timer_timeout"]

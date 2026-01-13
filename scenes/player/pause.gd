@@ -11,3 +11,7 @@ func _on_pressed() -> void:
 	effects.visible = paused
 	pause_menu.visible = paused
 	hud.visible = not paused
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		_on_pressed()

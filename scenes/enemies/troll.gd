@@ -7,9 +7,10 @@ extends CharacterBody2D
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 @onready var wander_area: WanderArea = %WanderArea
 
+
 func _ready() -> void:
 	assert(velocity_damping > 0, "Damping must be positive to prevent freezing")
-	
+
 	if not navigation_agent.velocity_computed.is_connected(_on_velocity_computed):
 		navigation_agent.velocity_computed.connect(_on_velocity_computed)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bln2nurmvtfj1"]
+[gd_scene load_steps=14 format=3 uid="uid://bln2nurmvtfj1"]
 
 [ext_resource type="Script" uid="uid://bo73glj04t8qt" path="res://scenes/player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="2_5stf6"]
@@ -11,14 +11,6 @@
 [ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/change_scene_button.gd" id="7_npwbq"]
 [ext_resource type="Script" uid="uid://cnh58xpfqf4dn" path="res://scenes/ui/pause_menu.gd" id="7_v42im"]
 [ext_resource type="Texture2D" uid="uid://bd1cqpc0ocm4i" path="res://assets/propietary/heart.png" id="10_7oing"]
-
-[sub_resource type="Animation" id="Animation_5stf6"]
-resource_name = "take_damage"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_180ig"]
-_data = {
-&"take_damage": SubResource("Animation_5stf6")
-}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 2.0
@@ -44,11 +36,6 @@ script = ExtResource("1_4flbx")
 unique_name_in_owner = true
 abilities = {
 &"attack": NodePath("../BasicAttack")
-}
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="CombatComponent"]
-libraries = {
-&"": SubResource("AnimationLibrary_180ig")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

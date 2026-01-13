@@ -198,6 +198,7 @@ y_sort_enabled = true
 
 [node name="Troll" parent="." instance=ExtResource("17_c2fwb")]
 position = Vector2(-29, -69)
+velocity_damping = 6.15573
 
 [connection signal="bake_finished" from="NavigationRegion2D" to="NavigationRegion2D" method="_on_bake_finished"]
 [connection signal="navigation_polygon_changed" from="NavigationRegion2D" to="NavigationRegion2D" method="_on_navigation_polygon_changed"]
