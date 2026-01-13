@@ -53,6 +53,7 @@ shape = SubResource("CapsuleShape2D_qg875")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 avoidance_enabled = true
+debug_enabled = true
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("3_r1e2e")

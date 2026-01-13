@@ -64,7 +64,6 @@ color = Color(0.41981313, 0.41981313, 0.4198131, 1)
 
 [node name="CanvasUI" parent="." instance=ExtResource("3_524rm")]
 process_mode = 3
-visible = false
 
 [node name="HUD" type="Control" parent="CanvasUI"]
 unique_name_in_owner = true
@@ -150,5 +149,6 @@ scene_path = "uid://7eww7ww1n5aw"
 
 [connection signal="visibility_changed" from="." to="CanvasUI" method="_on_player_visibility_changed"]
 [connection signal="pressed" from="CanvasUI/Pause" to="CanvasUI/Pause" method="_on_pressed"]
+[connection signal="pressed" from="CanvasUI/PauseMenu/VBoxContainer/ExitGame" to="CanvasUI/PauseMenu/VBoxContainer/ExitGame" method="_on_pressed"]
 
 [editable path="BasicAttack"]

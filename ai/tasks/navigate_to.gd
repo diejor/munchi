@@ -6,6 +6,8 @@ extends BTAction
 
 @export var target_pos_var: StringName = &"target_pos"
 
+@export var spacing: float = 25.
+
 func _generate_name() -> String:
 	return "NavigateTo ➜%s" % [
 		LimboUtility.decorate_var(target_pos_var)
@@ -28,5 +30,6 @@ func _tick(_delta: float) -> Status:
 	
 	var target_pos: Vector2 = blackboard.get_var(target_pos_var, Vector2.ZERO)
 	nav_agent.target_position = target_pos
+	nav_agent.target_desired_distance = spacing
 		
 	return RUNNING

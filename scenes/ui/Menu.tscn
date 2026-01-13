@@ -13,8 +13,8 @@ script = ExtResource("1_sh3q5")
 [node name="Button" type="Button" parent="CanvasUI"]
 offset_left = 35.0
 offset_top = 64.0
-offset_right = 87.0
-offset_bottom = 78.0
+offset_right = 95.0
+offset_bottom = 86.0
 theme = ExtResource("3_gcpqa")
 text = "Play Game"
 script = ExtResource("1_0dynd")
