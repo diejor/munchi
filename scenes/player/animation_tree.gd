@@ -1,29 +1,31 @@
 class_name ArtAnimator
 extends AnimationTree
 
-signal attack_entered
+@onready var player: CharacterBody2D = owner.owner
 
 var is_moving: bool = false
-var is_attacking: bool = false
-var facing_vector: Vector2
 
 var playback: AnimationNodeStateMachinePlayback = get("parameters/playback")
 
+func check_abilities_animations(combat: CombatComponent) -> bool:
+	for ability in combat.abilities:
+		assert(tree_root.has_node(ability.ability_name))
+	
+	return true
+	
+func _ready() -> void:
+	assert(tree_root is AnimationNodeStateMachine)
+	var combat: CombatComponent = player.get_node_or_null("%CombatComponent")
+	if combat:
+		combat.ability_used.connect(_on_ability_used)
+		assert(check_abilities_animations(combat))
+
 func _physics_process(_delta: float) -> void:
-	var movement_input: Vector2
-	if not playback.get_current_node() == &"Attack":
-		movement_input = Input.get_vector(
-		"move_left", "move_right", "move_up", "move_down")
-		
-	if not movement_input.is_zero_approx():
-		facing_vector = movement_input
-		set("parameters/Idle/blend_position", movement_input)
-		set("parameters/Walk/blend_position", movement_input)
-		set("parameters/Attack/blend_position", movement_input)
+	set("parameters/idle/blend_position", player.facing_vector)
+	set("parameters/walk/blend_position", player.facing_vector)
+	set("parameters/attack/blend_position", player.facing_vector)
 	
-	is_moving = not movement_input.is_zero_approx()
-	
-	if Input.is_action_just_pressed("attack") and not is_attacking:
-		attack_entered.emit()
-		playback.travel("Attack")
-	is_attacking = playback.get_current_node() == &"Attack"
+	is_moving = not player.velocity.is_zero_approx()
+
+func _on_ability_used(ability_name: StringName) -> void:
+	playback.travel(ability_name)

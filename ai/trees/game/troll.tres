@@ -1,22 +1,44 @@
-[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://b5p38etau7ieu"]
+[gd_resource type="BehaviorTree" load_steps=15 format=3 uid="uid://b5p38etau7ieu"]
 
+[ext_resource type="Script" uid="uid://dsoci3dooonse" path="res://ai/tasks/in_sight.gd" id="1_dfnwn"]
 [ext_resource type="Script" uid="uid://20u5su0vxp8h" path="res://ai/tasks/get_wander_point.gd" id="1_rftgc"]
+[ext_resource type="Script" uid="uid://yafgqp43e47q" path="res://ai/tasks/get_last_seen_pos.gd" id="2_30unt"]
 [ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="2_rftgc"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_qg875"]
+var/target_pos/name = &"target_pos"
+var/target_pos/type = 5
+var/target_pos/value = Vector2(0, 0)
+var/target_pos/hint = 0
+var/target_pos/hint_string = ""
 
-[sub_resource type="BTAction" id="BTAction_dfnwn"]
-script = ExtResource("1_rftgc")
+[sub_resource type="BTCondition" id="BTCondition_ibuhu"]
+script = ExtResource("1_dfnwn")
+
+[sub_resource type="BTAction" id="BTAction_t2cqd"]
+script = ExtResource("2_30unt")
 
 [sub_resource type="BTAction" id="BTAction_30unt"]
 script = ExtResource("2_rftgc")
 
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_dfnwn"]
+children = [SubResource("BTCondition_ibuhu"), SubResource("BTAction_t2cqd"), SubResource("BTAction_30unt")]
+
+[sub_resource type="BTAction" id="BTAction_ibuhu"]
+script = ExtResource("2_rftgc")
+
+[sub_resource type="BTAction" id="BTAction_dfnwn"]
+script = ExtResource("1_rftgc")
+
 [sub_resource type="BTSequence" id="BTSequence_rftgc"]
 custom_name = "Wander"
-children = [SubResource("BTAction_dfnwn"), SubResource("BTAction_30unt")]
+children = [SubResource("BTAction_ibuhu"), SubResource("BTAction_dfnwn")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_dfnwn"]
+children = [SubResource("BTDynamicSequence_dfnwn"), SubResource("BTSequence_rftgc")]
 
 [sub_resource type="BTSequence" id="BTSequence_ru6x3"]
-children = [SubResource("BTSequence_rftgc")]
+children = [SubResource("BTDynamicSelector_dfnwn")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_qg875")

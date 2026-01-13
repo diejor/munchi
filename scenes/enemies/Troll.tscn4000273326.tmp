@@ -24,8 +24,7 @@ script = ExtResource("2_qg875")
 movement_speed = 20.0
 velocity_damping = 30.314327
 
-[node name="SightComponent" parent="." instance=ExtResource("2_kuwd8")]
-unique_name_in_owner = true
+[node name="Sight" parent="." instance=ExtResource("2_kuwd8")]
 
 [node name="CombatComponent" parent="." instance=ExtResource("5_7irow")]
 

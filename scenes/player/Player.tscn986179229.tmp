@@ -28,14 +28,12 @@ expand_margin_right = 5.0
 expand_margin_bottom = 2.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 7
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_4flbx")
 
-[node name="CombatComponent" parent="." node_paths=PackedStringArray("abilities") instance=ExtResource("2_5stf6")]
+[node name="CombatComponent" parent="." instance=ExtResource("2_5stf6")]
 unique_name_in_owner = true
-abilities = [NodePath("../BasicAttack")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

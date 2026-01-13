@@ -22,8 +22,11 @@ func _tick(_delta: float) -> Status:
 	
 	if not is_instance_valid(nav_agent):
 		return FAILURE
-
+	
 	if nav_agent.is_navigation_finished():
 		return SUCCESS
+	
+	var target_pos: Vector2 = blackboard.get_var(target_pos_var, Vector2.ZERO)
+	nav_agent.target_position = target_pos
 		
 	return RUNNING

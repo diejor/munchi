@@ -1,29 +1,48 @@
 [gd_scene load_steps=4 format=3 uid="uid://6gcho5ivfbv"]
 
 [ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="1_n2m83"]
-[ext_resource type="Texture2D" uid="uid://dqunq08tfm3vi" path="res://assets/propietary/circle_round_16x16.png" id="2_3xu6e"]
+[ext_resource type="PackedScene" uid="uid://bklhla7pdtxdo" path="res://scenes/components/DamageParticles.tscn" id="2_3xu6e"]
+[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/dual-grid/fonts/bookxel.ttf" id="3_yun61"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yun61"]
-particle_flag_disable_z = true
-emission_shape = 2
-emission_sphere_radius = 10.0
-initial_velocity_min = 47.35
-initial_velocity_max = 111.42
-gravity = Vector3(0, 0, 0)
-
-[node name="CombatComponent" type="Node"]
+[node name="CombatComponent" type="Node2D"]
 script = ExtResource("1_n2m83")
+health = 100
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-emitting = false
-texture = ExtResource("2_3xu6e")
-interp_to_end = 0.309
-one_shot = true
-explosiveness = 0.96
-process_material = SubResource("ParticleProcessMaterial_yun61")
+[node name="DamageParticles1" parent="." instance=ExtResource("2_3xu6e")]
+lifetime = 0.3
 
+[node name="DamageParticles2" parent="." instance=ExtResource("2_3xu6e")]
+lifetime = 0.3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -21.0
+offset_right = 40.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/font = ExtResource("3_yun61")
+value = 100.0
+
+[connection signal="damage_taken" from="." to="." method="_on_damage_taken"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_timer_timeout"]
