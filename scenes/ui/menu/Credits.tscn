@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://brluhpwy2ngsi"]
+
+[ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_vb5ie"]
+[ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game_theme.tres" id="2_fe6nt"]
+[ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/change_scene_button.gd" id="3_t6egj"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="CanvasUI" parent="." instance=ExtResource("1_vb5ie")]
+override_visibility = false
+
+[node name="Control" type="Control" parent="CanvasUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasUI/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasUI/Control/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.625
+offset_top = -85.0
+offset_right = 88.625
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fe6nt")
+bbcode_enabled = true
+text = "[center] Emily Yuan[/center]
+art, animation,  game design, prodcedural generation
+
+[center] Diego Rodrigues [/center]
+developer
+
+[center] Nick [/center]
+level and game design"
+fit_content = true
+
+[node name="Back" type="Button" parent="CanvasUI"]
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 34.0
+offset_bottom = 28.0
+theme = ExtResource("2_fe6nt")
+text = "Back
+"
+script = ExtResource("3_t6egj")
+scene_path = "uid://7eww7ww1n5aw"

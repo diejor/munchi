@@ -1,3 +1,4 @@
+class_name CharacterNPC
 extends CharacterBody2D
 
 @export var movement_speed: float = 200.0
