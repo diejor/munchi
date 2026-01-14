@@ -7,7 +7,6 @@ extends GaeaGenerator2D
 ## @tutorial(WalkerGenerator): https://benjatk.github.io/Gaea/#/generators/walker
 ## @tutorial(Gaea's Getting Started tutorial): https://benjatk.github.io/Gaea/#/tutorials/getting_started
 
-
 class Walker:
 	var pos = Vector2.ZERO
 	var dir = Vector2.ZERO

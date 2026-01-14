@@ -70,7 +70,9 @@ func _draw_area(area: Rect2i) -> void:
 	if area.position == area.end:
 		return
 	var terrains: Dictionary
-
+	
+	var _time_now: int = Time.get_ticks_msec()
+	
 	if not is_instance_valid(tile_map) and node_type == NodeType.TILEMAP:
 		push_error("Invalid TileMap, can't draw area.")
 		return
@@ -122,6 +124,10 @@ func _draw_area(area: Rect2i) -> void:
 	for tile_info in terrains:
 		_set_terrain(terrains[tile_info], tile_info)
 
+	var _time_elapsed: int = Time.get_ticks_msec() - _time_now
+	if OS.is_debug_build():
+		print("%s: Rendering took %s seconds" % [name, float(_time_elapsed) / 1000])
+	
 	generation_progress.emit(1.0)
 	(func(): area_rendered.emit(area)).call_deferred()
 

@@ -111,6 +111,13 @@ texture = ExtResource("1_w2c5w")
 1:1/0/terrains_peering_bit/bottom_left_corner = 1
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_right_corner = 1
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/terrains_peering_bit/bottom_right_corner = 0
+0:3/0/terrains_peering_bit/bottom_left_corner = 0
+0:3/0/terrains_peering_bit/top_left_corner = 0
+0:3/0/terrains_peering_bit/top_right_corner = 0
 2:1/next_alternative_id = 3
 2:1/0 = 0
 2:1/0/y_sort_origin = 16
@@ -120,13 +127,6 @@ texture = ExtResource("1_w2c5w")
 2:1/0/terrains_peering_bit/bottom_left_corner = 1
 2:1/0/terrains_peering_bit/top_left_corner = 1
 2:1/0/terrains_peering_bit/top_right_corner = 1
-0:3/0 = 0
-0:3/0/terrain_set = 0
-0:3/0/terrain = 0
-0:3/0/terrains_peering_bit/bottom_right_corner = 0
-0:3/0/terrains_peering_bit/bottom_left_corner = 0
-0:3/0/terrains_peering_bit/top_left_corner = 0
-0:3/0/terrains_peering_bit/top_right_corner = 0
 
 [resource]
 physics_layer_0/collision_layer = 1

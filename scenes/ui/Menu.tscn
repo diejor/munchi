@@ -10,14 +10,17 @@ script = ExtResource("1_sh3q5")
 
 [node name="CanvasUI" parent="." instance=ExtResource("1_vhthp")]
 
-[node name="Button" type="Button" parent="CanvasUI"]
-offset_left = 35.0
-offset_top = 64.0
-offset_right = 95.0
-offset_bottom = 86.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI"]
+offset_left = 24.0
+offset_top = 31.0
+offset_right = 84.0
+offset_bottom = 71.0
+
+[node name="PlayGame" type="Button" parent="CanvasUI/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("3_gcpqa")
 text = "Play Game"
 script = ExtResource("1_0dynd")
 scene_path = "uid://deghq0uhw45c4"
 
-[connection signal="pressed" from="CanvasUI/Button" to="CanvasUI/Button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasUI/VBoxContainer/PlayGame" to="CanvasUI/VBoxContainer/PlayGame" method="_on_pressed"]
