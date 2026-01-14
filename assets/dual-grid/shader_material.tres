@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ckch5r1m2f8oo"]
 
 [ext_resource type="Shader" uid="uid://6rlmlioft12x" path="res://assets/dual-grid/shader.gdshader" id="1_hd81n"]
-[ext_resource type="Texture2D" uid="uid://2g5is3ia6ja4" path="res://assets/dual-grid/shader-texture_1.png" id="2_6hrp0"]
+[ext_resource type="Texture2D" uid="uid://2g5is3ia6ja4" path="res://assets/dual-grid/shader_texture_1.png" id="2_6hrp0"]
 [ext_resource type="Texture2D" uid="uid://cspesewmdlrst" path="res://assets/dual-grid/rocks.png" id="2_kfqcw"]
 
 [resource]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c26libpeyrrm3"]
 
 [ext_resource type="Texture2D" uid="uid://b5abfiocw5hri" path="res://assets/propietary/spritesheet_mc.png" id="1_0irw0"]
-[ext_resource type="AnimationLibrary" uid="uid://p1x7entt0ti7" path="res://scenes/player/player-anim-library.tres" id="2_qre0u"]
+[ext_resource type="AnimationLibrary" uid="uid://p1x7entt0ti7" path="res://scenes/player/player_anim_library.tres" id="2_qre0u"]
 [ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/animation_tree.gd" id="2_wpjc1"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qre0u"]

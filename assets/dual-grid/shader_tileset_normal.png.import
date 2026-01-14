@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq6tm63vmorkn"
-path="res://.godot/imported/tileset-round-high.png-5d08255f56ae56b1fce78624db35142f.ctex"
+uid="uid://bpibp30trrqcl"
+path="res://.godot/imported/shader_tileset_normal.png-ef98434cc89c02d3d04e0882bd793462.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dual-grid/tileset-round-high.png"
-dest_files=["res://.godot/imported/tileset-round-high.png-5d08255f56ae56b1fce78624db35142f.ctex"]
+source_file="res://assets/dual-grid/shader_tileset_normal.png"
+dest_files=["res://.godot/imported/shader_tileset_normal.png-ef98434cc89c02d3d04e0882bd793462.ctex"]
 
 [params]
 

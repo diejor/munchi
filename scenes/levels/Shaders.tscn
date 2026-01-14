@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="2_owcnp"]
 [ext_resource type="TileSet" uid="uid://6h55aginnmsp" path="res://assets/resources/tileset/shader.tres" id="3_7g3fg"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="4_ofy4e"]
-[ext_resource type="Material" uid="uid://ckch5r1m2f8oo" path="res://assets/dual-grid/shader-material.tres" id="5_jkb5q"]
+[ext_resource type="Material" uid="uid://ckch5r1m2f8oo" path="res://assets/dual-grid/shader_material.tres" id="5_jkb5q"]
 
 [node name="Shaders" type="Node2D"]
 
