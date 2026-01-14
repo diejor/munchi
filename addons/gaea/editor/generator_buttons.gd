@@ -33,7 +33,7 @@ func _add_button(container: Container, text: String, icon: Texture2D, onPressed:
 func _on_generate_pressed() -> void:
 	var object = get_edited_object()
 	if object.has_method("generate"):
-		object.call("generate")
+		object.call_deferred("generate")
 
 
 func _on_clear_pressed() -> void:

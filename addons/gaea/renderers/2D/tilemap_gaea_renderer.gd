@@ -6,6 +6,12 @@ extends GaeaRenderer2D
 ## Takes [TilemapTileInfo] to determine which tile to place
 ## in every cell.
 
+signal generation_progress(progress: float)
+
+## How many tiles to process before yielding a frame to update the UI.
+@export var tiles_per_frame: int = 100
+
+
 enum NodeType {
 	TILEMAP_LAYERS, ## Use [TileMapLayer]s, with an array of them determining which one is which.
 	TILEMAP ## Use a single [TileMap] node (not recommended by Godot).
@@ -61,6 +67,8 @@ func _ready() -> void:
 
 
 func _draw_area(area: Rect2i) -> void:
+	if area.position == area.end:
+		return
 	var terrains: Dictionary
 
 	if not is_instance_valid(tile_map) and node_type == NodeType.TILEMAP:
@@ -70,8 +78,17 @@ func _draw_area(area: Rect2i) -> void:
 		push_error("No TileMapLayers assigned, can't draw area.")
 		return
 
+	var total_tiles: float = (area.size.x + 1) * (area.size.y + 1)
+	var processed_count: int = 0
+
 	for x in range(area.position.x, area.end.x + 1):
 		for y in range(area.position.y, area.end.y + 1):
+			
+			processed_count += 1
+			if processed_count % tiles_per_frame == 0:
+				generation_progress.emit(processed_count / total_tiles)
+				await get_tree().process_frame
+
 			var tile_position := Vector2i(x, y)
 			if erase_empty_tiles:
 				var has_cell_in_position: bool = false
@@ -105,6 +122,7 @@ func _draw_area(area: Rect2i) -> void:
 	for tile_info in terrains:
 		_set_terrain(terrains[tile_info], tile_info)
 
+	generation_progress.emit(1.0)
 	(func(): area_rendered.emit(area)).call_deferred()
 
 

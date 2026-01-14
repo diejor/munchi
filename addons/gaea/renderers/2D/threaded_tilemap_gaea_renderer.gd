@@ -40,7 +40,7 @@ func _draw_area(area: Rect2i) -> void:
 		if task_limit >= 0 and _tasks.size() >= task_limit:
 			_queued.push_back(_new_task)
 		else:
-			run_task(_new_task)
+			run_task.call_deferred(_new_task)
 
 
 func run_task(_task:Callable):

@@ -8,6 +8,5 @@ func _ready() -> void:
 	
 
 func _on_pressed() -> void:
-	print("changing scene")
 	get_tree().change_scene_to_file.call_deferred(scene_path)
 	get_tree().paused = false

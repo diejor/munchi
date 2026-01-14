@@ -15,7 +15,6 @@ class Walker:
 
 @export var settings: WalkerGeneratorSettings
 @export var starting_tile := Vector2.ZERO
-@export var generator_progress: TextureProgressBar
 
 var percentage_done: float
 var _walkers: Array[Walker]
@@ -23,7 +22,6 @@ var _walked_tiles: PackedVector2Array
 
 
 func generate(starting_grid: GaeaGrid = null) -> void:
-	generator_progress.value = 0
 	if Engine.is_editor_hint() and not editor_preview:
 		push_warning("%s: Editor Preview is not enabled so nothing happened!" % name)
 		return
@@ -86,9 +84,7 @@ func _generate_floor() -> void:
 			percentage_done = _walked_tiles.size() / settings.max_tiles
 		elif settings.fullness_check == settings.FullnessCheck.PERCENTAGE:
 			percentage_done = (float(_walked_tiles.size()) / _world_size_max) / settings.fullness_percentage
-		
-		if generator_progress:
-			generator_progress.value = percentage_done * 100.
+
 		if percentage_done >= 1.0:
 			break
 
