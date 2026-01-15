@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://0caq0535itks"]
+
+[ext_resource type="Script" uid="uid://c66xln7gipyll" path="res://scenes/enemies/wander_area.gd" id="1_q0y68"]
+[ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="2_ih6ym"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1e2e"]
+radius = 81.00617
+
+[node name="WanderArea" type="CollisionShape2D"]
+top_level = true
+shape = SubResource("CircleShape2D_r1e2e")
+disabled = true
+debug_color = Color(0.8235294, 0.3529412, 0.49411765, 0.09803922)
+script = ExtResource("1_q0y68")
+
+[node name="DebugLabel" parent="." instance=ExtResource("2_ih6ym")]
+offset_left = -17.0
+offset_top = -16.0
+offset_right = 56.0
+offset_bottom = 7.0
+text = "WANDER AREA"

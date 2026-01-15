@@ -1,4 +1,3 @@
-@tool
 class_name WanderArea
 extends CollisionShape2D
 
@@ -8,6 +7,7 @@ func _ready() -> void:
 	global_position = owner.global_position
 	top_level = true
 	disabled = true
+	unique_name_in_owner = true
 
 func get_wander_point() -> Vector2:
 	var random_angle: float = randf() * TAU

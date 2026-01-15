@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://co7ph8xbf3n2f"]
+[gd_scene load_steps=59 format=3 uid="uid://co7ph8xbf3n2f"]
 
 [ext_resource type="Texture2D" uid="uid://ckpmaxqtqvgom" path="res://assets/propietary/Enemies/Slime/spritesheet_slimes.png" id="1_567fd"]
 [ext_resource type="AnimationLibrary" uid="uid://rkpuve2vibmv" path="res://scenes/enemies/slime/slime_anim_library.tres" id="2_567fd"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="3_86hx8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rr2wl"]
 atlas = ExtResource("1_567fd")
@@ -179,7 +180,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_gjrvo")
 }],
 "loop": false,
-"name": &"attack_down_sprite",
+"name": &"attack_down",
 "speed": 10.0
 }, {
 "frames": [{
@@ -196,7 +197,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_lrs6m")
 }],
 "loop": false,
-"name": &"attack_left_sprite",
+"name": &"attack_left",
 "speed": 10.0
 }, {
 "frames": [{
@@ -213,7 +214,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_p1l4r")
 }],
 "loop": false,
-"name": &"attack_right_sprite",
+"name": &"attack_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -230,7 +231,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_teq7a")
 }],
 "loop": false,
-"name": &"attack_up_sprite",
+"name": &"attack_up",
 "speed": 10.0
 }, {
 "frames": [{
@@ -241,7 +242,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_86hx8")
 }],
 "loop": true,
-"name": &"idle_down_sprite",
+"name": &"idle_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -251,6 +252,11 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fcane")
 }],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [],
 "loop": true,
 "name": &"idle_left_sprite",
 "speed": 5.0
@@ -263,7 +269,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2cde0")
 }],
 "loop": true,
-"name": &"idle_right_sprite",
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -274,7 +280,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bfm60")
 }],
 "loop": true,
-"name": &"idle_up_sprite",
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -291,7 +297,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6gasu")
 }],
 "loop": true,
-"name": &"walk_down_sprite",
+"name": &"walk_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -308,7 +314,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fvbhj")
 }],
 "loop": true,
-"name": &"walk_left_sprite",
+"name": &"walk_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -325,7 +331,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7bfai")
 }],
 "loop": true,
-"name": &"walk_right_sprite",
+"name": &"walk_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -342,49 +348,84 @@ animations = [{
 "texture": SubResource("AtlasTexture_165ya")
 }],
 "loop": true,
-"name": &"walk_up_sprite",
+"name": &"walk_up",
 "speed": 5.0
 }]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qrgl2"]
-animation = &"idle_left_player"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_86hx8"]
-animation = &"idle_down_player"
+animation = &"idle_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wc1ps"]
-animation = &"idle_up_player"
+animation = &"idle_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2cde0"]
-animation = &"idle_right_player"
+animation = &"idle_up"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_uk55v"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_qrgl2")
-blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_86hx8")
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uk55v"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_86hx8"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_86hx8")
+blend_point_0/pos = Vector2(-0.1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_wc1ps")
 blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_wc1ps")
-blend_point_2/pos = Vector2(0, -0.90000004)
-blend_point_3/node = SubResource("AnimationNodeAnimation_2cde0")
-blend_point_3/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_2cde0")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_uk55v")
+blend_point_3/pos = Vector2(0.1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qrgl2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bfm60"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fxywy"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fcane"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rr2wl"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wc1ps"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_bfm60")
+blend_point_0/pos = Vector2(-0.1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_fxywy")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_fcane")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_rr2wl")
+blend_point_3/pos = Vector2(0.1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_86hx8"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bfm60"]
-states/idle/node = SubResource("AnimationNodeBlendSpace2D_uk55v")
-states/idle/position = Vector2(338, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_qrgl2")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wc1ps"]
+advance_mode = 2
+advance_expression = "is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2cde0"]
+advance_mode = 2
+advance_expression = "!is_moving"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2cde0"]
+states/Start/position = Vector2(172, 70)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_86hx8")
+states/idle/position = Vector2(312, 70)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_wc1ps")
+states/walk/position = Vector2(312, 173)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_86hx8"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wc1ps"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2cde0")]
 
 [node name="SlimeMeleeArt" type="Node2D"]
 y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_gusrh")
 animation = &"idle_left_sprite"
-autoplay = "idle_down_sprite"
+autoplay = "idle_left"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -393,7 +434,12 @@ libraries = {
 &"": ExtResource("2_567fd")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_bfm60")
+[node name="ArtAnimator" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%ArtAnimator/..")
+tree_root = SubResource("AnimationNodeStateMachine_2cde0")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle/blend_position = Vector2(0.8912821, 0.18385649)
+parameters/idle/blend_position = Vector2(0.021834016, 1.0329671)
+parameters/walk/blend_position = Vector2(0.14410484, 1.0986547)
+script = ExtResource("3_86hx8")
+metadata/_custom_type_script = "uid://dplmlv1itv6ca"

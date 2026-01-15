@@ -16,6 +16,8 @@ emission_sphere_radius = 10.0
 initial_velocity_min = 47.35
 initial_velocity_max = 111.42
 gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
 scale_curve = SubResource("CurveTexture_yun61")
 
 [node name="DamageParticles1" type="GPUParticles2D"]

@@ -39,25 +39,20 @@ unique_name_in_owner = true
 script = ExtResource("3_180ig")
 health = 3
 
-[node name="Abilities" type="Node2D" parent="CombatComponent"]
-
-[node name="attack" parent="CombatComponent/Abilities" instance=ExtResource("4_5stf6")]
+[node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_5stf6")]
 damage = 10
-
-[node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="1"]
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_4flbx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-process_callback = 0
-
 [node name="PlayerArt" parent="." instance=ExtResource("2_onrkg")]
 unique_name_in_owner = true
 y_sort_enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
 
 [node name="Effects" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
@@ -153,4 +148,4 @@ scene_path = "uid://7eww7ww1n5aw"
 [connection signal="pressed" from="CanvasUI/Pause" to="CanvasUI/Pause" method="_on_pressed"]
 [connection signal="pressed" from="CanvasUI/PauseMenu/VBoxContainer/ExitGame" to="CanvasUI/PauseMenu/VBoxContainer/ExitGame" method="_on_pressed"]
 
-[editable path="CombatComponent/Abilities/attack"]
+[editable path="CombatComponent"]

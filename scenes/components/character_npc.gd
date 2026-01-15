@@ -1,9 +1,12 @@
 class_name CharacterNPC
 extends CharacterBody2D
 
+
+const iSQRT2 = 0.70710678118
+
 @export var movement_speed: float = 200.0
 
-@export_exp_easing("attenuation") var velocity_damping: float = 5.0
+@export_exp_easing("attenuation") var velocity_damping: float = 15.0
 
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 @onready var wander_area: WanderArea = %WanderArea
@@ -40,6 +43,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	var delta = get_physics_process_delta_time()
-	velocity = velocity.lerp(safe_velocity, velocity_damping * delta)
 	
+	velocity = velocity.lerp(safe_velocity, velocity_damping * delta)
 	move_and_slide()

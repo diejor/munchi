@@ -11,9 +11,7 @@ signal heart_restored(points: int)
 @export var health: int
 @export var knockback_force: float = 100.
 
-var abilities: Node2D:
-	get: return $Abilities
-
+@onready var abilities: Node2D = $Abilities
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var damage_particles_1: GPUParticles2D = $DamageParticles1
 @onready var damage_particles_2: GPUParticles2D = $DamageParticles2
@@ -71,7 +69,8 @@ func _on_damage_taken(points: int) -> void:
 		owner.queue_free.call_deferred()
 		die.emit()
 	
-	health_bar.value = (health as float / initial_health) * 100.
+	if is_instance_valid(health_bar):
+		health_bar.value = (health as float / initial_health) * 100.
 
 func get_ability(ability: String) -> void:
 	return get_node(ability)

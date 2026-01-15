@@ -17,6 +17,8 @@ func _on_generation_progress(progress: float) -> void:
 
 
 func _on_area_rendered(_area: Rect2i) -> void:
+	if not is_instance_valid(get_tree()):
+		return
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	nav_region.bake_navigation_polygon.call_deferred()

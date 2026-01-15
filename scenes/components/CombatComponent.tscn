@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://6gcho5ivfbv"]
+[gd_scene load_steps=5 format=3 uid="uid://6gcho5ivfbv"]
 
 [ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="1_n2m83"]
 [ext_resource type="PackedScene" uid="uid://bklhla7pdtxdo" path="res://scenes/components/DamageParticles.tscn" id="2_3xu6e"]
 [ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/dual-grid/fonts/bookxel.ttf" id="3_yun61"]
+[ext_resource type="Script" uid="uid://bs7tg1pqy3ls5" path="res://scenes/components/debug_health_bar.gd" id="4_22dor"]
 
 [node name="CombatComponent" type="Node2D"]
 script = ExtResource("1_n2m83")
 health = 100
+
+[node name="Abilities" type="Node2D" parent="."]
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 0.2
@@ -43,6 +46,7 @@ grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("3_yun61")
 value = 100.0
+script = ExtResource("4_22dor")
 
 [connection signal="damage_taken" from="." to="." method="_on_damage_taken"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_timer_timeout"]
