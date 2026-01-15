@@ -1,14 +1,18 @@
 class_name CombatComponent
 extends Node
 
-signal ability_used(ability_name: StringName)
+@warning_ignore("unused_signal")
+signal ability_used(ability: AbilityBase)
+
 signal die
 signal damage_taken(points: int)
 signal heart_restored(points: int)
 
-@export var abilities: Array[AbilityBase]
 @export var health: int
 @export var knockback_force: float = 100.
+
+var abilities: Node2D:
+	get: return $Abilities
 
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var damage_particles_1: GPUParticles2D = $DamageParticles1
@@ -20,18 +24,13 @@ signal heart_restored(points: int)
 var current_ability: AbilityBase
 var facing_vector: Vector2
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	unique_name_in_owner = true
 
-func _physics_process(_delta: float) -> void:
-	for ability in abilities:
-		if Input.is_action_just_pressed(ability.ability_name):
-			var did_use: AbilityBase = ability.try_use()
-			if did_use != null:
-				ability_used.emit(ability.ability_name)
-				current_ability = did_use
-				did_use.refreshed.connect(func(): current_ability = null)
 
+func consume_ability(used: AbilityBase) -> void:
+	current_ability = null
+	used.refreshed.disconnect(consume_ability)
 
 func take_damage(attacker: CombatComponent, ability: AbilityBase) -> void:
 	var attacker_pos: Vector2 = attacker.owner.global_position
@@ -73,3 +72,6 @@ func _on_damage_taken(points: int) -> void:
 		die.emit()
 	
 	health_bar.value = (health as float / initial_health) * 100.
+
+func get_ability(ability: String) -> void:
+	return get_node(ability)

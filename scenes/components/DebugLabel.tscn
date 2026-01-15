@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://x8ch0k6v7vba"]
+
+[ext_resource type="Script" uid="uid://cm8ggfrwq5fph" path="res://scenes/components/debug_label.gd" id="1_7v1v4"]
+[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/dual-grid/fonts/bookxel.ttf" id="1_oyve1"]
+
+[node name="DebugLabel" type="Label"]
+process_mode = 4
+offset_right = 36.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_oyve1")
+text = "DEBUG LABEl"
+script = ExtResource("1_7v1v4")

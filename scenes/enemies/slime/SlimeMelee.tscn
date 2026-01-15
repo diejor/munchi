@@ -10,14 +10,12 @@
 radius = 81.00617
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qg875"]
-radius = 7.0
-height = 20.0
+radius = 2.0
+height = 10.0
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_0sh4t"]
 
 [node name="SlimeMelee" type="CharacterBody2D"]
-
-[node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
 
 [node name="SightComponent" parent="." instance=ExtResource("2_sdtwm")]
 unique_name_in_owner = true
@@ -33,13 +31,15 @@ unique_name_in_owner = true
 top_level = true
 shape = SubResource("CircleShape2D_r1e2e")
 disabled = true
-debug_color = Color(0.8231587, 0.354683, 0.49366778, 0.41960785)
+debug_color = Color(0.8235294, 0.3529412, 0.49411765, 0.1254902)
 script = ExtResource("4_j6qa2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qg875")
+
+[node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true

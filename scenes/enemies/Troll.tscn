@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://lkln0c1oqkbp"]
+[gd_scene load_steps=12 format=3 uid="uid://lkln0c1oqkbp"]
 
 [ext_resource type="Texture2D" uid="uid://crtrq2gvst55c" path="res://assets/propietary/Enemies/Troll/troll.png" id="1_qg875"]
 [ext_resource type="Script" uid="uid://c66xln7gipyll" path="res://scenes/enemies/wander_area.gd" id="2_0sh4t"]
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_kuwd8"]
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/enemies/character_npc.gd" id="2_qg875"]
 [ext_resource type="BehaviorTree" uid="uid://b5p38etau7ieu" path="res://ai/trees/game/troll.tres" id="3_r1e2e"]
+[ext_resource type="PackedScene" uid="uid://cptpufpq3ks8q" path="res://scenes/player/abilities/basic_attack.tscn" id="4_3itky"]
+[ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/npc_combat.gd" id="4_n1lg2"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="5_7irow"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1e2e"]
@@ -28,10 +30,15 @@ velocity_damping = 30.314327
 unique_name_in_owner = true
 
 [node name="CombatComponent" parent="." instance=ExtResource("5_7irow")]
+script = ExtResource("4_n1lg2")
 
-[node name="HealthBar" parent="CombatComponent/Control" index="0"]
-offset_top = -37.0
-offset_bottom = -19.0
+[node name="Abilities" type="Node2D" parent="CombatComponent"]
+
+[node name="attack" parent="CombatComponent/Abilities" instance=ExtResource("4_3itky")]
+damage = 1
+
+[node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="1"]
+collision_mask = 2
 
 [node name="WanderArea" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -60,4 +67,4 @@ blackboard_plan = SubResource("BlackboardPlan_0sh4t")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_velocity_computed"]
 
-[editable path="CombatComponent"]
+[editable path="CombatComponent/Abilities/attack"]
