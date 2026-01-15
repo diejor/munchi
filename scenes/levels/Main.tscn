@@ -161,7 +161,6 @@ modifiers = Array[ExtResource("4_ki7k8")]([SubResource("Resource_wgg2v"), SubRes
 metadata/_custom_type_script = "uid://cobdt6g73o1a8"
 
 [node name="Main" type="Node2D"]
-visible = false
 y_sort_enabled = true
 script = ExtResource("1_c2fwb")
 
@@ -231,7 +230,6 @@ metadata/_custom_type_script = "uid://bnr7jegypx1qy"
 [node name="WalkerGenerator" type="Node" parent="."]
 script = ExtResource("3_if38b")
 settings = SubResource("Resource_o6erh")
-generate_on_ready = false
 metadata/_custom_type_script = "uid://34dgcf0kpo3t"
 
 [node name="Player" parent="." instance=ExtResource("9_wgg2v")]
