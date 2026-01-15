@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bwv70vlah6g5k"]
+[gd_scene load_steps=7 format=4 uid="uid://bwv70vlah6g5k"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_mcte5"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_7beb6"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_5puhk"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_a0cmn"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/SlimeMelee.tscn" id="5_yel1o"]
+[ext_resource type="PackedScene" uid="uid://dmp3riaudjybn" path="res://scenes/enemies/SlimeRanged.tscn" id="6_7beb6"]
 
 [node name="RoomSlime_4" type="Node2D"]
 y_sort_enabled = true
@@ -32,7 +33,7 @@ metadata/_custom_type_script = "uid://cjk8nronimk5r"
 position = Vector2(-82, 178)
 
 [node name="SlimeMelee2" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(56, 180)
+position = Vector2(96, 189)
 
 [node name="SlimeMelee3" parent="." instance=ExtResource("5_yel1o")]
 position = Vector2(-63, 143)
@@ -41,31 +42,31 @@ position = Vector2(-63, 143)
 position = Vector2(-89, 155)
 
 [node name="SlimeMelee5" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(57, 200)
+position = Vector2(78, 215)
 
 [node name="SlimeMelee6" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(-44, 178)
+position = Vector2(91, 143)
 
 [node name="SlimeMelee7" parent="." instance=ExtResource("5_yel1o")]
 position = Vector2(-49, 212)
 
 [node name="SlimeMelee8" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(67, 159)
+position = Vector2(68, 153)
 
 [node name="SlimeMelee9" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(-31, 198)
+position = Vector2(98, 166)
 
 [node name="SlimeMelee10" parent="." instance=ExtResource("5_yel1o")]
 position = Vector2(-69, 201)
 
-[node name="SlimeMelee11" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(88, 130)
+[node name="SlimeRanged" parent="." instance=ExtResource("6_7beb6")]
+position = Vector2(47, 200)
 
-[node name="SlimeMelee12" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(96, 158)
+[node name="SlimeRanged2" parent="." instance=ExtResource("6_7beb6")]
+position = Vector2(54, 176)
 
-[node name="SlimeMelee13" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(91, 184)
+[node name="SlimeRanged3" parent="." instance=ExtResource("6_7beb6")]
+position = Vector2(-36, 192)
 
-[node name="SlimeMelee14" parent="." instance=ExtResource("5_yel1o")]
-position = Vector2(79, 220)
+[node name="SlimeRanged4" parent="." instance=ExtResource("6_7beb6")]
+position = Vector2(-47, 174)
