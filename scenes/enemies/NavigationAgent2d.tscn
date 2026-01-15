@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c70imj4cff2nw"]
+
+[ext_resource type="Script" uid="uid://b7eu4x124voag" path="res://scenes/enemies/navigation_agent_2d.gd" id="1_1arjw"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D"]
+avoidance_enabled = true
+script = ExtResource("1_1arjw")

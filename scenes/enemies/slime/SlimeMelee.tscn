@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0wqf8iq3tflv"]
+[gd_scene load_steps=10 format=3 uid="uid://c0wqf8iq3tflv"]
 
 [ext_resource type="PackedScene" uid="uid://co7ph8xbf3n2f" path="res://scenes/enemies/slime/SlimeMeleeArt.tscn" id="1_ib43c"]
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_sdtwm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_psnr1"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="4_sdtwm"]
 [ext_resource type="BehaviorTree" uid="uid://b5p38etau7ieu" path="res://ai/trees/game/troll.tres" id="5_d8b5v"]
+[ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="6_psnr1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qg875"]
 radius = 2.0
@@ -39,9 +40,8 @@ shape = SubResource("CapsuleShape2D_qg875")
 
 [node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" parent="." instance=ExtResource("6_psnr1")]
 unique_name_in_owner = true
-avoidance_enabled = true
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("5_d8b5v")

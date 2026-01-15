@@ -18,6 +18,7 @@ shape = SubResource("CircleShape2D_7irow")
 debug_color = Color(0.84705883, 0.33333334, 0.47058824, 0.105882354)
 
 [node name="DebugLabel" parent="CollisionShape2D" instance=ExtResource("2_xgea1")]
+modulate = Color(0.84705883, 0.33333334, 0.47058824, 1)
 offset_left = -14.0
 offset_top = -85.0
 offset_right = 46.0

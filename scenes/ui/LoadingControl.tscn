@@ -100,3 +100,5 @@ theme_override_fonts/font = ExtResource("2_1xd2b")
 libraries = {
 &"": SubResource("AnimationLibrary_h3at4")
 }
+
+[connection signal="level_loaded" from="." to="." method="_on_level_loaded"]

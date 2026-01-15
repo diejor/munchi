@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=4 uid="uid://drkkwforh8b7f"]
+
+[ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_kfd7y"]
+[ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_5yosj"]
+[ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_2txoe"]
+[ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_vu3er"]
+[ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/SlimeMelee.tscn" id="5_h7n5r"]
+
+[node name="Hallway_7" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Grass" type="TileMapLayer" parent="."]
+z_index = -1
+y_sort_enabled = true
+material = ExtResource("1_kfd7y")
+tile_map_data = PackedByteArray("AAD7//7/AAACAAEAAAD7////AAACAAEAAAD7/wEAAAACAAEAAAD8/wEAAAACAAEAAAD8/wIAAAACAAEAAAD8/wMAAAACAAEAAAD8/wQAAAACAAEAAAD9/wQAAAACAAEAAAD9/wUAAAACAAEAAAD+/wYAAAACAAEAAAAAAAYAAAACAAEAAAABAAYAAAACAAEAAAABAAUAAAACAAEAAAACAAUAAAACAAEAAAACAAQAAAACAAEAAAADAAQAAAACAAEAAAADAAMAAAACAAEAAAADAAIAAAACAAEAAAADAAEAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAACAAEAAAAEAP7/AAACAAEAAAADAP7/AAACAAEAAAADAP3/AAACAAEAAAACAP3/AAACAAEAAAACAPz/AAACAAEAAAABAPz/AAACAAEAAAABAPv/AAACAAEAAAD///v/AAACAAEAAAD+//v/AAACAAEAAAD+//z/AAACAAEAAAD9//z/AAACAAEAAAD9//3/AAACAAEAAAD8//3/AAACAAEAAAD8//7/AAACAAEAAAADAAAAAAACAAEAAAACAAMAAAACAAEAAAACAAIAAAACAAEAAAACAAEAAAACAAEAAAACAAAAAAACAAEAAAACAP7/AAACAAEAAAABAAQAAAACAAEAAAABAAMAAAACAAEAAAABAAIAAAACAAEAAAABAAEAAAACAAEAAAABAAAAAAACAAEAAAABAP7/AAACAAEAAAABAP3/AAACAAEAAAAAAAUAAAACAAEAAAAAAAQAAAACAAEAAAAAAAMAAAACAAEAAAAAAAIAAAACAAEAAAAAAAEAAAACAAEAAAAAAAAAAAACAAEAAAD///7/AAACAAEAAAD///3/AAACAAEAAAD///z/AAACAAEAAAD+/wMAAAACAAEAAAD+/wIAAAACAAEAAAD+/wEAAAACAAEAAAD+////AAACAAEAAAD+//7/AAACAAEAAAD+//3/AAACAAEAAAD9/wMAAAACAAEAAAD9/wIAAAACAAEAAAD9/wEAAAACAAEAAAD9////AAACAAEAAAD9//7/AAACAAEAAAD8////AAACAAEAAAD+/wUAAAACAAEAAAD+/wQAAAACAAEAAAA=")
+tile_set = ExtResource("2_5yosj")
+script = ExtResource("3_2txoe")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="Mountains" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+material = ExtResource("1_kfd7y")
+tile_map_data = PackedByteArray("AAD9/wYAAAACAAEAAAACAAYAAAACAAEAAAADAAUAAAACAAEAAAD8/wUAAAACAAEAAAD7/wQAAAACAAEAAAD7/wMAAAACAAEAAAD7/wIAAAACAAEAAAAEAAQAAAACAAEAAAAEAAMAAAACAAEAAAAEAAIAAAACAAEAAAD7//3/AAACAAEAAAAEAP3/AAACAAEAAAAEAPz/AAACAAEAAAD7//z/AAACAAEAAAD8//z/AAACAAEAAAD8//v/AAACAAEAAAADAPz/AAACAAEAAAADAPv/AAACAAEAAAD9//v/AAACAAEAAAACAPv/AAACAAEAAAD8/wYAAAACAAEAAAD7/wUAAAACAAEAAAADAAYAAAACAAEAAAAEAAUAAAACAAEAAAA=")
+tile_set = ExtResource("4_vu3er")
+script = ExtResource("3_2txoe")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="SlimeMelee" parent="." instance=ExtResource("5_h7n5r")]
+position = Vector2(34, -27)
+
+[node name="SlimeMelee2" parent="." instance=ExtResource("5_h7n5r")]
+position = Vector2(-32, 61)

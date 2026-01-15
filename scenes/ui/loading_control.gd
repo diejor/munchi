@@ -17,17 +17,12 @@ func _on_generation_progress(progress: float) -> void:
 
 
 func _on_area_rendered(_area: Rect2i) -> void:
-	if not is_instance_valid(get_tree()):
-		return
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	nav_region.bake_navigation_polygon.call_deferred()
 	await nav_region.bake_finished
-	if OS.is_debug_build():
-		print("Navmesh baked")
 	level_loaded.emit()
 	
-	animation_player.play("enter_level")
 
 func _reset_state() -> void:
 	generator_progress.value = 0
@@ -35,3 +30,7 @@ func _reset_state() -> void:
 
 func _on_generation_started() -> void:
 	_reset_state()
+
+
+func _on_level_loaded() -> void:
+	animation_player.play("enter_level")

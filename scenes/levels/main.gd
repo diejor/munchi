@@ -11,7 +11,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	if not walker_generator.generate_on_ready:
 		walker_generator.generation_finished.emit()
-		loading_control._on_area_rendered(Rect2i())
+		loading_control.level_loaded.emit()
 
 func _on_level_loaded() -> void:
 	visible = true

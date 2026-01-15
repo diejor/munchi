@@ -1,3 +1,4 @@
+@tool
 class_name WanderArea
 extends CollisionShape2D
 

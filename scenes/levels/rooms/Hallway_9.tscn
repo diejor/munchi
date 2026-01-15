@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://be1an5yky32n4"]
+
+[ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_0q46j"]
+[ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_ty8cf"]
+[ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_0bdt8"]
+[ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_bqcx3"]
+
+[node name="Hallway_9" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Grass" type="TileMapLayer" parent="."]
+z_index = -1
+y_sort_enabled = true
+material = ExtResource("1_0q46j")
+tile_map_data = PackedByteArray("AAD9//z/AAACAAEAAAAAAPz/AAACAAEAAAAAAP3/AAACAAEAAAAAAP7/AAACAAEAAAABAP7/AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAEAAAABAAEAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAACAAMAAAACAAEAAAABAAMAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAACAAEAAAD+/wIAAAACAAEAAAD+/wEAAAACAAEAAAD+/wAAAAACAAEAAAD+////AAACAAEAAAD+//7/AAACAAEAAAD+//3/AAACAAEAAAD9//3/AAACAAEAAAAAAP//AAACAAEAAAD+//z/AAACAAEAAAAAAAAAAAACAAEAAAA=")
+tile_set = ExtResource("2_ty8cf")
+script = ExtResource("3_0bdt8")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="Mountains" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+material = ExtResource("1_0q46j")
+tile_map_data = PackedByteArray("AAD9////AAACAAEAAAD9//7/AAACAAEAAAACAP7/AAACAAEAAAACAP//AAACAAEAAAABAP3/AAACAAEAAAABAPz/AAACAAEAAAD8//3/AAACAAEAAAD8//z/AAACAAEAAAD9/wAAAAACAAEAAAD9/wEAAAACAAEAAAACAAAAAAACAAEAAAACAAEAAAACAAEAAAADAAIAAAACAAEAAAADAAMAAAACAAEAAAD9/wIAAAACAAEAAAD+/wMAAAACAAEAAAD8//7/AAACAAEAAAD8/wAAAAACAAEAAAD8////AAACAAEAAAD8/wEAAAACAAEAAAD8/wIAAAACAAEAAAD9/wMAAAACAAEAAAADAAEAAAACAAEAAAADAAAAAAACAAEAAAADAP//AAACAAEAAAADAP7/AAACAAEAAAACAP3/AAACAAEAAAA=")
+tile_set = ExtResource("4_bqcx3")
+script = ExtResource("3_0bdt8")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"

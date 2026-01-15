@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpwpveu4afr3p"]
+[gd_scene load_steps=7 format=4 uid="uid://bpwpveu4afr3p"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_h50s1"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_wppwv"]
@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_3uw0x"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="5_ssgal"]
 [ext_resource type="PackedScene" uid="uid://oykncgxk1pk7" path="res://scenes/enemies/Ranger.tscn" id="6_wppwv"]
-[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="7_ki7eq"]
 
 [node name="RoomRanger_1" type="Node2D"]
 y_sort_enabled = true
@@ -41,5 +40,3 @@ position = Vector2(-46, -25)
 
 [node name="Ranger" parent="." instance=ExtResource("6_wppwv")]
 position = Vector2(188, 2)
-
-[node name="Player" parent="." instance=ExtResource("7_ki7eq")]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://ctm6rkketgity"]
+[gd_scene load_steps=7 format=4 uid="uid://ctm6rkketgity"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_su60a"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_6u1j0"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_hq1p6"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_7hp38"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="5_p2x0m"]
+[ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/SlimeMelee.tscn" id="5_p2x0m"]
+[ext_resource type="PackedScene" uid="uid://dmp3riaudjybn" path="res://scenes/enemies/SlimeRanged.tscn" id="6_6u1j0"]
 
 [node name="RoomSlime_2" type="Node2D"]
 y_sort_enabled = true
@@ -46,8 +48,8 @@ position = Vector2(2, 214)
 [node name="SlimeMelee6" parent="." instance=ExtResource("5_p2x0m")]
 position = Vector2(2, 142)
 
-[node name="SlimeMelee7" parent="." instance=ExtResource("5_p2x0m")]
-position = Vector2(-25, 81)
+[node name="SlimeRanged" parent="." instance=ExtResource("6_6u1j0")]
+position = Vector2(26, 79)
 
-[node name="SlimeMelee8" parent="." instance=ExtResource("5_p2x0m")]
-position = Vector2(28, 80)
+[node name="SlimeRanged2" parent="." instance=ExtResource("6_6u1j0")]
+position = Vector2(-36, 77)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cptpufpq3ks8q"]
 
-[ext_resource type="Script" uid="uid://bbve4twnlvwx" path="res://scenes/player/abilities/basic_attack.gd" id="1_0gqmg"]
-[ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="2_uq06w"]
+[ext_resource type="Script" uid="uid://bbve4twnlvwx" path="res://scenes/player/abilities/basic_attack.gd" id="1_xldlo"]
+[ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="2_i4vim"]
 
 [sub_resource type="Animation" id="Animation_uq06w"]
 length = 0.001
@@ -41,7 +41,7 @@ _data = {
 }
 
 [node name="BasicAttack" type="Node2D"]
-script = ExtResource("1_0gqmg")
+script = ExtResource("1_xldlo")
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -60,7 +60,7 @@ monitorable = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Hitbox"]
 polygon = PackedVector2Array(39, -11, 39, 12, 0, 0)
 
-[node name="DebugLabel" parent="Pivot/Hitbox" instance=ExtResource("2_uq06w")]
+[node name="DebugLabel" parent="Pivot/Hitbox" instance=ExtResource("2_i4vim")]
 offset_left = 9.0
 offset_top = -4.0
 offset_right = 83.0
