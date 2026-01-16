@@ -48,7 +48,8 @@ folder_colors={
 "res://assets/": "green",
 "res://assets/resources/": "purple",
 "res://scenes/": "orange",
-"res://scenes/levels/rooms/": "red"
+"res://scenes/levels/rooms/": "red",
+"res://scenes/ui/": "red"
 }
 
 [gui]

@@ -19,7 +19,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_0gqmg"]
-resource_name = "attack"
+resource_name = "use_ability"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,7 +36,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oia7o"]
 _data = {
 &"RESET": SubResource("Animation_uq06w"),
-&"attack": SubResource("Animation_0gqmg")
+&"use_ability": SubResource("Animation_0gqmg")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2p45"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://btelkhsadrkhe"]
+
+[ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game_theme.tres" id="1_ljqa4"]
+[ext_resource type="Script" uid="uid://du4aojsugia5q" path="res://scenes/ui/autoload/settings/show_settings_button.gd" id="2_xkmlj"]
+
+[node name="SettingsButton" type="Button"]
+theme = ExtResource("1_ljqa4")
+text = "Settings"
+script = ExtResource("2_xkmlj")

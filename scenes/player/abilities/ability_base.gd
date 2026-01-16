@@ -31,12 +31,12 @@ func try_use() -> AbilityBase:
 	if can_use:
 		can_use = false
 		used.emit()
-		animation_player.play("attack")
+		animation_player.play("use_ability")
 		return self
 	return null
 
 
 func refresh(_ignore = null) -> void:
-	refreshed.emit()
 	can_use = true
 	animation_player.play("RESET")
+	refreshed.emit()

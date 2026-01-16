@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cobo14a0s67tn" path="res://scenes/ui/autoload/settings/close.gd" id="3_uerfn"]
 
 [node name="Settings" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasUI" parent="." instance=ExtResource("1_m14fl")]
-layer = 2
+layer = 10
 hide_owner = true
 
 [node name="SettingsContainer" type="PanelContainer" parent="CanvasUI"]
@@ -33,7 +34,7 @@ theme = ExtResource("2_1pw8j")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/SettingsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 8
 
 [node name="Top" type="HBoxContainer" parent="CanvasUI/SettingsContainer/VBoxContainer"]
 layout_mode = 2
@@ -50,6 +51,11 @@ size_flags_horizontal = 8
 theme = ExtResource("2_1pw8j")
 text = "Close"
 script = ExtResource("3_uerfn")
+
+[node name="HSeparator" type="HSeparator" parent="CanvasUI/SettingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("2_1pw8j")
 
 [node name="AudioSettings" parent="CanvasUI/SettingsContainer/VBoxContainer" instance=ExtResource("2_u8fba")]
 layout_mode = 2

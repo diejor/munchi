@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/menu/change_scene_button.gd" id="1_0dynd"]
 [ext_resource type="Script" uid="uid://d2qo5jse23tk6" path="res://scenes/ui/menu/menu.gd" id="1_sh3q5"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_vhthp"]
-[ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game_theme.tres" id="3_gcpqa"]
-[ext_resource type="Script" uid="uid://du4aojsugia5q" path="res://scenes/ui/autoload/settings/show_settings_button.gd" id="5_yw5m1"]
+[ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="3_yw5m1"]
+[ext_resource type="PackedScene" uid="uid://btelkhsadrkhe" path="res://scenes/ui/menu/SettingsButton.tscn" id="5_yw5m1"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_sh3q5")
@@ -12,31 +12,47 @@ script = ExtResource("1_sh3q5")
 [node name="CanvasUI" parent="." instance=ExtResource("1_vhthp")]
 override_visibility = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI"]
-offset_left = 24.0
-offset_top = 31.0
-offset_right = 84.0
-offset_bottom = 71.0
+[node name="PanelContainer" type="PanelContainer" parent="CanvasUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="PlayGame" type="Button" parent="CanvasUI/VBoxContainer"]
+[node name="Label" type="RichTextLabel" parent="CanvasUI/PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_gcpqa")
+theme = ExtResource("3_yw5m1")
+theme_override_font_sizes/normal_font_size = 44
+bbcode_enabled = true
+text = "[wave amp=25.0 freq=7. connected=1]Munchi[/wave]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="CanvasUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayGame" type="Button" parent="CanvasUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_yw5m1")
 text = "Play Game"
 script = ExtResource("1_0dynd")
 scene_path = "uid://deghq0uhw45c4"
 
-[node name="Credits" type="Button" parent="CanvasUI/VBoxContainer"]
+[node name="Credits" type="Button" parent="CanvasUI/PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_gcpqa")
+theme = ExtResource("3_yw5m1")
 text = "Credits"
 script = ExtResource("1_0dynd")
 scene_path = "uid://brluhpwy2ngsi"
 
-[node name="Settings" type="Button" parent="CanvasUI/VBoxContainer"]
+[node name="SettingsButton" parent="CanvasUI/PanelContainer/VBoxContainer" instance=ExtResource("5_yw5m1")]
 layout_mode = 2
-theme = ExtResource("3_gcpqa")
-text = "Settings"
-script = ExtResource("5_yw5m1")
+theme = ExtResource("3_yw5m1")
 
-[connection signal="pressed" from="CanvasUI/VBoxContainer/PlayGame" to="CanvasUI/VBoxContainer/PlayGame" method="_on_pressed"]
+[connection signal="pressed" from="CanvasUI/PanelContainer/VBoxContainer/PlayGame" to="CanvasUI/PanelContainer/VBoxContainer/PlayGame" method="_on_pressed"]

@@ -63,14 +63,14 @@ func restore_health() -> void:
 func is_using_ability() -> bool:
 	return is_instance_valid(current_ability)
 
-func consume_ability(used: AbilityBase) -> void:
+func _on_ability_refreshed(used: AbilityBase) -> void:
 	current_ability = null
-	used.refreshed.disconnect(consume_ability)
+	used.refreshed.disconnect(_on_ability_refreshed)
 	ability_finished.emit()
 
 func _on_ability_used(ability: AbilityBase) -> void:
 	current_ability = ability
-	ability.refreshed.connect(consume_ability.bind(ability))
+	ability.refreshed.connect(_on_ability_refreshed.bind(ability))
 
 
 func _on_timer_timeout() -> void:

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://gfbvivrwtd55"]
+
+[ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="1_70ys4"]
+[ext_resource type="Script" uid="uid://cnh58xpfqf4dn" path="res://scenes/ui/hud/pause_menu.gd" id="2_e5dlb"]
+[ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/menu/change_scene_button.gd" id="3_r0ifa"]
+[ext_resource type="PackedScene" uid="uid://btelkhsadrkhe" path="res://scenes/ui/menu/SettingsButton.tscn" id="4_ybn2l"]
+
+[node name="PauseMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_70ys4")
+script = ExtResource("2_e5dlb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_70ys4")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_70ys4")
+text = "Game Paused"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("4_ybn2l")]
+layout_mode = 2
+theme = ExtResource("1_70ys4")
+
+[node name="VSpace" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="ExitGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_70ys4")
+text = "Exit Game"
+script = ExtResource("3_r0ifa")
+scene_path = "uid://7eww7ww1n5aw"
+
+[connection signal="pressed" from="VBoxContainer/ExitGame" to="VBoxContainer/ExitGame" method="_on_pressed"]

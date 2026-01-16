@@ -14,6 +14,7 @@ var _playback: AnimationNodeStateMachinePlayback = get("parameters/playback")
 func _ready() -> void:
 	active = true
 	assert(tree_root is AnimationNodeStateMachine)
+	
 	if combat:
 		combat.ability_used.connect(_on_ability_used)
 		combat.die.connect(_on_die)
@@ -33,13 +34,20 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_ability_used(ability: AbilityBase) -> void:
-	_playback.travel(ability.name)
+	_playback.travel(ability.name, false)
 	await animated_sprite.animation_finished
 	ability.refresh()
 	ability_done = true
-	await animated_sprite.animation_changed
-	animated_sprite.play(animated_sprite.autoplay)
+	await _playback.state_finished
 	ability_done = false
+	
+	# For some reason, even though we left the state, the tree 
+	# tries to plays the previous state, for a single frame. So skip it.
+	await get_tree().physics_frame 
+	
+	# Resume because ability animations are single shot
+	animated_sprite.play(animated_sprite.autoplay)
+	
 	
 
 func _on_die() -> void:

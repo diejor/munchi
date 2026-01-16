@@ -52,6 +52,7 @@ theme_override_fonts/font = ExtResource("3_yun61")
 value = 100.0
 script = ExtResource("4_22dor")
 
+[connection signal="ability_used" from="." to="." method="_on_ability_used"]
 [connection signal="damage_taken" from="." to="." method="_on_damage_taken"]
 [connection signal="die" from="." to="." method="_on_die"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_timer_timeout"]

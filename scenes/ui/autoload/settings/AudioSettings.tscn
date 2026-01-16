@@ -13,7 +13,6 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="AudioSettings" type="PanelContainer" parent="."]
-self_modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_hg065")
