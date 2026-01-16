@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bca2mqyj0qll7"]
+[gd_scene load_steps=5 format=3 uid="uid://bca2mqyj0qll7"]
 
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_m14fl"]
+[ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="2_1pw8j"]
 [ext_resource type="PackedScene" uid="uid://bhyg40n20o1fg" path="res://scenes/ui/autoload/settings/AudioSettings.tscn" id="2_u8fba"]
+[ext_resource type="Script" uid="uid://cobo14a0s67tn" path="res://scenes/ui/autoload/settings/close.gd" id="3_uerfn"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -12,23 +14,43 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasUI" parent="." instance=ExtResource("1_m14fl")]
+layer = 2
+hide_owner = true
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasUI"]
+[node name="SettingsContainer" type="PanelContainer" parent="CanvasUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -119.5
+offset_top = -26.0
+offset_right = 121.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_1pw8j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Top" type="HBoxContainer" parent="CanvasUI/SettingsContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="AudioSettings" parent="CanvasUI/PanelContainer/VBoxContainer" instance=ExtResource("2_u8fba")]
+[node name="Label" type="Label" parent="CanvasUI/SettingsContainer/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Close" type="Button" parent="CanvasUI/SettingsContainer/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_1pw8j")
+text = "Close"
+script = ExtResource("3_uerfn")
+
+[node name="AudioSettings" parent="CanvasUI/SettingsContainer/VBoxContainer" instance=ExtResource("2_u8fba")]
 layout_mode = 2
 size_flags_vertical = 3

@@ -10,8 +10,9 @@ script = ExtResource("2_13yau")
 [node name="BusLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
 theme = ExtResource("1_hhkdg")
-text = "Master"
+text = "AudioSlider"
 
 [node name="HSlider" type="HSlider" parent="."]
 unique_name_in_owner = true
@@ -19,4 +20,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_hhkdg")
-value = 1.0
+min_value = 0.001
+max_value = 2.0
+step = 0.001
+value = 1.001

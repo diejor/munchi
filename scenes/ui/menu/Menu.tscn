@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7eww7ww1n5aw"]
+[gd_scene load_steps=6 format=3 uid="uid://7eww7ww1n5aw"]
 
 [ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/menu/change_scene_button.gd" id="1_0dynd"]
 [ext_resource type="Script" uid="uid://d2qo5jse23tk6" path="res://scenes/ui/menu/menu.gd" id="1_sh3q5"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_vhthp"]
 [ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game_theme.tres" id="3_gcpqa"]
+[ext_resource type="Script" uid="uid://du4aojsugia5q" path="res://scenes/ui/autoload/settings/show_settings_button.gd" id="5_yw5m1"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_sh3q5")
@@ -36,7 +37,6 @@ scene_path = "uid://brluhpwy2ngsi"
 layout_mode = 2
 theme = ExtResource("3_gcpqa")
 text = "Settings"
-script = ExtResource("1_0dynd")
-scene_path = "uid://brluhpwy2ngsi"
+script = ExtResource("5_yw5m1")
 
 [connection signal="pressed" from="CanvasUI/VBoxContainer/PlayGame" to="CanvasUI/VBoxContainer/PlayGame" method="_on_pressed"]

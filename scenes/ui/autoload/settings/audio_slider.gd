@@ -12,28 +12,15 @@ extends HBoxContainer
 	get: return AudioServer.get_bus_index(bus)
 
 @onready var volume_db: float:
-	get:
-		return AudioServer.get_bus_volume_db(bus_idx)
-	set(db):
-		AudioServer.set_bus_volume_db(bus_idx, db)
+	get: return AudioServer.get_bus_volume_db(bus_idx)
+	set(db): AudioServer.set_bus_volume_db(bus_idx, db)
 
 func _ready() -> void:
-	# Force load the layout to see if it applies
-	var path = ProjectSettings.get_setting("audio/buses/default_bus_layout")
-	print("Project setting path: ", ResourceUID.uid_to_path(path))
+	bus = name
+	assert(not bus.is_empty())
+	assert(is_valid_bus(bus), "Bus name '%s' not found!" % bus)
 	
-	if FileAccess.file_exists(path):
-		var layout = load(path)
-		AudioServer.set_bus_layout(layout)
-		print("Forced reload of bus layout.")
-
-	if not bus.is_empty():
-		assert(is_valid_bus(bus), "Bus name '%s' not found!" % bus)
-		
-		h_slider.value = db_to_linear(volume_db)
-		if OS.is_debug_build():
-			print("getting value: ", h_slider.value)
-	
+	h_slider.value = db_to_linear(volume_db)
 	h_slider.value_changed.connect(_on_slider_value_changed)
 
 func _on_slider_value_changed(value: float) -> void:
