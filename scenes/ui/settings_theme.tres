@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://coolk4p7g2k5y"]
 
-[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/dual-grid/fonts/bookxel.ttf" id="1_kqku0"]
+[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/fonts/bookxel.ttf" id="1_kqku0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erji4"]
 content_margin_left = 0.0
@@ -19,6 +19,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [resource]
+default_font = ExtResource("1_kqku0")
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_kqku0")
 Label/fonts/font = ExtResource("1_kqku0")

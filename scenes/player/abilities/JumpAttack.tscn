@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://mvtwtf2igr56"]
+
+[ext_resource type="Script" uid="uid://baut45vnpsoyq" path="res://scenes/player/abilities/jump_attack.gd" id="1_s2p45"]
+[ext_resource type="Script" uid="uid://dh5piepf5fsed" path="res://scenes/player/abilities/jump_shape.gd" id="2_lka4u"]
+
+[sub_resource type="Animation" id="Animation_uq06w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0gqmg"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:monitoring")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oia7o"]
+_data = {
+&"RESET": SubResource("Animation_uq06w"),
+&"attack": SubResource("Animation_0gqmg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2p45"]
+
+[node name="jump_attack" type="Node2D"]
+script = ExtResource("1_s2p45")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_oia7o")
+}
+
+[node name="Hitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_s2p45")
+debug_color = Color(0.6060681, 0.52088916, 0.4138444, 0.41960785)
+script = ExtResource("2_lka4u")
+
+[connection signal="used" from="." to="." method="_on_used"]

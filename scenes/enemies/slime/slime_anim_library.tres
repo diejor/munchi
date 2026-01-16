@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=13 format=3 uid="uid://rkpuve2vibmv"]
+[gd_resource type="AnimationLibrary" load_steps=17 format=3 uid="uid://rkpuve2vibmv"]
 
 [sub_resource type="Animation" id="Animation_86hx8"]
 length = 0.001
@@ -180,6 +180,66 @@ tracks/0/keys = {
 "values": [&"walk_up"]
 }
 
+[sub_resource type="Animation" id="Animation_48bb2"]
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead_down"]
+}
+
+[sub_resource type="Animation" id="Animation_06jd0"]
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead_left"]
+}
+
+[sub_resource type="Animation" id="Animation_lelv7"]
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead_right"]
+}
+
+[sub_resource type="Animation" id="Animation_hgnnu"]
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead_up"]
+}
+
 [resource]
 _data = {
 &"RESET": SubResource("Animation_86hx8"),
@@ -187,6 +247,10 @@ _data = {
 &"attack_left": SubResource("Animation_gti11"),
 &"attack_right": SubResource("Animation_kpfj7"),
 &"attack_up": SubResource("Animation_duvp8"),
+&"dead_down": SubResource("Animation_48bb2"),
+&"dead_left": SubResource("Animation_06jd0"),
+&"dead_right": SubResource("Animation_lelv7"),
+&"dead_up": SubResource("Animation_hgnnu"),
 &"idle_left": SubResource("Animation_v540s"),
 &"idle_right": SubResource("Animation_dxose"),
 &"idle_up": SubResource("Animation_034pi"),

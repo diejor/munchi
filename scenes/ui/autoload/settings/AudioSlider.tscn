@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bklibkgj3vdgm"]
+
+[ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="1_hhkdg"]
+[ext_resource type="Script" uid="uid://bplpjmuohd84t" path="res://scenes/ui/autoload/settings/audio_slider.gd" id="2_13yau"]
+
+[node name="AudioSlider" type="HBoxContainer"]
+theme = ExtResource("1_hhkdg")
+script = ExtResource("2_13yau")
+
+[node name="BusLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_hhkdg")
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("1_hhkdg")
+value = 1.0

@@ -1,34 +1,45 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0wqf8iq3tflv"]
+[gd_scene load_steps=12 format=3 uid="uid://c0wqf8iq3tflv"]
 
 [ext_resource type="PackedScene" uid="uid://co7ph8xbf3n2f" path="res://scenes/enemies/slime/SlimeMeleeArt.tscn" id="1_ib43c"]
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_sdtwm"]
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_sdtwm"]
+[ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="3_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_psnr1"]
+[ext_resource type="PackedScene" uid="uid://mvtwtf2igr56" path="res://scenes/player/abilities/JumpAttack.tscn" id="4_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="4_sdtwm"]
-[ext_resource type="BehaviorTree" uid="uid://b5p38etau7ieu" path="res://ai/trees/game/troll.tres" id="5_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="6_psnr1"]
+[ext_resource type="BehaviorTree" uid="uid://dxug7yr0o3ae5" path="res://ai/trees/game/Slime.tres" id="9_d8b5v"]
+[ext_resource type="PackedScene" uid="uid://c4uut2pu3ly0b" path="res://scenes/enemies/BtPlayer.tscn" id="9_wavdb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qg875"]
 radius = 2.0
 height = 10.0
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_0sh4t"]
-
 [node name="SlimeMelee" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
+motion_mode = 1
 script = ExtResource("1_sdtwm")
 movement_speed = 25.0
-velocity_damping = 3.750002
-
-[node name="SightComponent" parent="." instance=ExtResource("2_sdtwm")]
-unique_name_in_owner = true
+mass = 5.0
 
 [node name="CombatComponent" parent="." instance=ExtResource("3_psnr1")]
+script = ExtResource("3_d8b5v")
+health = 25
+
+[node name="jump_attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_d8b5v")]
+
+[node name="CollisionShape2D" parent="CombatComponent/Abilities/jump_attack/Hitbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_qg875")
 
 [node name="HealthBar" parent="CombatComponent/Control" index="0"]
 offset_top = -22.0
 offset_bottom = -4.0
+
+[node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
+
+[node name="SightComponent" parent="." instance=ExtResource("2_sdtwm")]
 
 [node name="WanderArea" parent="." instance=ExtResource("4_sdtwm")]
 unique_name_in_owner = true
@@ -38,13 +49,11 @@ position = Vector2(0, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qg875")
 
-[node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
-
 [node name="NavigationAgent2D" parent="." instance=ExtResource("6_psnr1")]
 unique_name_in_owner = true
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("5_d8b5v")
-blackboard_plan = SubResource("BlackboardPlan_0sh4t")
+[node name="BTPlayer" parent="." instance=ExtResource("9_wavdb")]
+behavior_tree = ExtResource("9_d8b5v")
 
 [editable path="CombatComponent"]
+[editable path="CombatComponent/Abilities/jump_attack"]

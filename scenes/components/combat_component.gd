@@ -4,6 +4,8 @@ extends Node
 @warning_ignore("unused_signal")
 signal ability_used(ability: AbilityBase)
 
+signal ability_finished
+
 signal die
 signal damage_taken(points: int)
 signal heart_restored(points: int)
@@ -21,14 +23,17 @@ signal heart_restored(points: int)
 
 var current_ability: AbilityBase
 var facing_vector: Vector2
+var is_dead: bool
 
 func _enter_tree() -> void:
 	unique_name_in_owner = true
 
+func get_ability(action: String) -> AbilityBase:
+	return abilities.get_node(action)
 
-func consume_ability(used: AbilityBase) -> void:
-	current_ability = null
-	used.refreshed.disconnect(consume_ability)
+func try_use_ability(action: String) -> AbilityBase:
+	var ability: AbilityBase = get_ability(action)
+	return ability.try_use()
 
 func take_damage(attacker: CombatComponent, ability: AbilityBase) -> void:
 	var attacker_pos: Vector2 = attacker.owner.global_position
@@ -56,7 +61,16 @@ func restore_health() -> void:
 
 
 func is_using_ability() -> bool:
-	return current_ability != null
+	return is_instance_valid(current_ability)
+
+func consume_ability(used: AbilityBase) -> void:
+	current_ability = null
+	used.refreshed.disconnect(consume_ability)
+	ability_finished.emit()
+
+func _on_ability_used(ability: AbilityBase) -> void:
+	current_ability = ability
+	ability.refreshed.connect(consume_ability.bind(ability))
 
 
 func _on_timer_timeout() -> void:
@@ -66,11 +80,20 @@ func _on_timer_timeout() -> void:
 func _on_damage_taken(points: int) -> void:
 	health -= points
 	if health <= 0:
-		owner.queue_free.call_deferred()
 		die.emit()
 	
 	if is_instance_valid(health_bar):
 		health_bar.value = (health as float / initial_health) * 100.
 
-func get_ability(ability: String) -> void:
-	return get_node(ability)
+
+func _on_die() -> void:
+	is_dead = true
+	owner.movement_speed = 0.0
+	
+	var transparent: Color = Color.WHITE
+	transparent.a = 0.
+	var tween: Tween = create_tween()
+	var propt: PropertyTweener = tween.tween_property(owner, "modulate", transparent, 0.5)
+	propt.set_delay(2.).set_ease(Tween.EASE_OUT)
+	
+	tween.finished.connect(owner.queue_free.call_deferred)

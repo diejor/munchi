@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bca2mqyj0qll7"]
+
+[ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_m14fl"]
+[ext_resource type="PackedScene" uid="uid://bhyg40n20o1fg" path="res://scenes/ui/autoload/settings/AudioSettings.tscn" id="2_u8fba"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasUI" parent="." instance=ExtResource("1_m14fl")]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/PanelContainer"]
+layout_mode = 2
+
+[node name="AudioSettings" parent="CanvasUI/PanelContainer/VBoxContainer" instance=ExtResource("2_u8fba")]
+layout_mode = 2
+size_flags_vertical = 3

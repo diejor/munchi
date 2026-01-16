@@ -1,12 +1,8 @@
 class_name CharacterNPC
-extends CharacterBody2D
+extends CharacterBodyBase
 
 
 const iSQRT2 = 0.70710678118
-
-@export var movement_speed: float = 200.0
-
-@export_exp_easing("attenuation") var velocity_damping: float = 15.0
 
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 @onready var wander_area: WanderArea = %WanderArea
@@ -14,7 +10,7 @@ const iSQRT2 = 0.70710678118
 var facing_vector: Vector2
 
 func _ready() -> void:
-	assert(velocity_damping > 0, "Damping must be positive to prevent freezing")
+	assert(mass > 0, "Damping must be positive to prevent freezing")
 
 	if not navigation_agent.velocity_computed.is_connected(_on_velocity_computed):
 		navigation_agent.velocity_computed.connect(_on_velocity_computed)
@@ -42,7 +38,4 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
-	var delta = get_physics_process_delta_time()
-	
-	velocity = velocity.lerp(safe_velocity, velocity_damping * delta)
-	move_and_slide()
+	move_with_velocity(safe_velocity)

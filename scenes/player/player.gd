@@ -1,6 +1,4 @@
-extends CharacterBody2D
-
-@export var speed: float = 50.
+extends CharacterBodyBase
 
 @onready var combat: CombatComponent = %CombatComponent
 
@@ -17,5 +15,5 @@ func _physics_process(_delta: float) -> void:
 	if not input.is_zero_approx():
 		facing_vector = input
 	
-	velocity = input * speed
-	move_and_slide()
+	var target_velocity: Vector2 = input * movement_speed
+	move_with_velocity(target_velocity)

@@ -1,4 +1,4 @@
-extends Button
+extends ButtonBase
 
 @export_file var scene_path: String
 

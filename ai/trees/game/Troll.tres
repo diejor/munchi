@@ -1,0 +1,54 @@
+[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://b5p38etau7ieu"]
+
+[ext_resource type="Script" uid="uid://dsoci3dooonse" path="res://ai/tasks/in_sight.gd" id="1_4nvrk"]
+[ext_resource type="Script" uid="uid://yafgqp43e47q" path="res://ai/tasks/get_last_seen_pos.gd" id="2_s48ny"]
+[ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="3_4nnyi"]
+[ext_resource type="Script" uid="uid://20u5su0vxp8h" path="res://ai/tasks/get_wander_point.gd" id="4_q852v"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_1of6j"]
+var/target_pos/name = &"target_pos"
+var/target_pos/type = 5
+var/target_pos/value = Vector2(0, 0)
+var/target_pos/hint = 0
+var/target_pos/hint_string = ""
+
+[sub_resource type="BTCondition" id="BTCondition_yb6mk"]
+script = ExtResource("1_4nvrk")
+
+[sub_resource type="BTAction" id="BTAction_i4d0m"]
+script = ExtResource("2_s48ny")
+
+[sub_resource type="BTAction" id="BTAction_11ttb"]
+script = ExtResource("3_4nnyi")
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_pdxnf"]
+custom_name = "Pursue"
+children = [SubResource("BTCondition_yb6mk"), SubResource("BTAction_i4d0m"), SubResource("BTAction_11ttb")]
+
+[sub_resource type="BTAction" id="BTAction_a1rt2"]
+script = ExtResource("3_4nnyi")
+
+[sub_resource type="BTWait" id="BTWait_fywn5"]
+
+[sub_resource type="BTSequence" id="BTSequence_ck2jj"]
+children = [SubResource("BTAction_a1rt2"), SubResource("BTWait_fywn5")]
+
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_wkn6x"]
+children = [SubResource("BTSequence_ck2jj")]
+
+[sub_resource type="BTAction" id="BTAction_r08gl"]
+script = ExtResource("4_q852v")
+
+[sub_resource type="BTSequence" id="BTSequence_bsboi"]
+custom_name = "Wander"
+children = [SubResource("BTTimeLimit_wkn6x"), SubResource("BTAction_r08gl")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_odga5"]
+children = [SubResource("BTDynamicSequence_pdxnf"), SubResource("BTSequence_bsboi")]
+
+[sub_resource type="BTSequence" id="BTSequence_w4784"]
+children = [SubResource("BTDynamicSelector_odga5")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_1of6j")
+root_task = SubResource("BTSequence_w4784")

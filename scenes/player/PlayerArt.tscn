@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://c26libpeyrrm3"]
+[gd_scene load_steps=88 format=3 uid="uid://c26libpeyrrm3"]
 
 [ext_resource type="Texture2D" uid="uid://b5abfiocw5hri" path="res://assets/propietary/spritesheet_mc.png" id="1_0irw0"]
 [ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="2_wpjc1"]
@@ -706,6 +706,8 @@ advance_expression = "!is_moving"
 advance_mode = 2
 advance_expression = "ability_done"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ucvi7"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r7d8p"]
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_qre0u")
 states/attack/position = Vector2(571, 100)
@@ -713,10 +715,9 @@ states/idle/node = SubResource("AnimationNodeBlendSpace2D_86am8")
 states/idle/position = Vector2(379, 100)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_j10wx")
 states/walk/position = Vector2(379, 223)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_r7d8p"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_qre0u"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_plu82"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_j10wx"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_86am8")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_r7d8p"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_qre0u"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_plu82"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_j10wx"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_86am8"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_ucvi7")]
 
 [node name="PlayerArt" type="Node2D"]
-y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhyg40n20o1fg"]
+
+[ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="1_hg065"]
+[ext_resource type="Script" uid="uid://duaw6dc2u8sh6" path="res://scenes/ui/autoload/settings/audio_settings.gd" id="1_l1vct"]
+[ext_resource type="PackedScene" uid="uid://bklibkgj3vdgm" path="res://scenes/ui/autoload/settings/AudioSlider.tscn" id="3_c86h3"]
+
+[node name="AudioSettings" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -49.5
+offset_right = 39.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hg065")
+script = ExtResource("1_l1vct")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_hg065")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_hg065")
+text = "Audio"
+
+[node name="AudioSlider" parent="VBoxContainer" instance=ExtResource("3_c86h3")]
+layout_mode = 2

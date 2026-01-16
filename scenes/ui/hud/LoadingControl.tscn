@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmr2cxwscf04t"]
 
-[ext_resource type="Script" uid="uid://b8an1xtb4pw6x" path="res://scenes/ui/loading_control.gd" id="1_5uob3"]
-[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/dual-grid/fonts/bookxel.ttf" id="2_1xd2b"]
+[ext_resource type="Script" uid="uid://b8an1xtb4pw6x" path="res://scenes/ui/hud/loading_control.gd" id="1_5uob3"]
+[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/fonts/bookxel.ttf" id="2_1xd2b"]
 
 [sub_resource type="Animation" id="Animation_5uob3"]
 length = 0.001

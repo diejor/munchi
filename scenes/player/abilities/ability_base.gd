@@ -5,17 +5,20 @@ signal enemy_hit
 signal used
 signal refreshed
 
-@export var damage: int
+@export var damage: int = 1
+@export var no_animation: bool = false
 
 @onready var hitbox: Area2D = %Hitbox
 @onready var combat_component: CombatComponent = owner.get_node("%CombatComponent")
-@onready var animation_player: AnimationPlayer = $Pivot/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var can_use: bool = true
 
 func _ready() -> void:
 	hitbox.body_entered.connect(_on_enemy_entered)
-	animation_player.play("RESET")
+	refresh()
+	if no_animation:
+			animation_player.animation_finished.connect(refresh)
 
 
 func _on_enemy_entered(body: Node2D) -> void:
@@ -33,7 +36,7 @@ func try_use() -> AbilityBase:
 	return null
 
 
-func refresh() -> void:
+func refresh(_ignore = null) -> void:
 	refreshed.emit()
 	can_use = true
 	animation_player.play("RESET")

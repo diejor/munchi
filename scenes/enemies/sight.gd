@@ -4,18 +4,23 @@ extends Area2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var character: CharacterNPC = owner
+@onready var combat: CombatNPC = %CombatComponent
 
 var tracked_player: Node2D
 var in_los: bool
 var last_seen: Vector2:
 	get: return ray_cast.target_position + owner.global_position
 
+func _ready() -> void:
+	unique_name_in_owner = true
+
 func _physics_process(_delta: float) -> void:
 	if tracked_player != null:
 		ray_cast.target_position = tracked_player.global_position - owner.global_position
 		in_los = not ray_cast.is_colliding()
 		
-		character.facing_vector = ray_cast.global_position.direction_to(tracked_player.global_position)
+		if not combat.is_dead:
+			character.facing_vector = ray_cast.global_position.direction_to(tracked_player.global_position)
 	else:
 		in_los = false
 		character.facing_vector = character.velocity

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8xuh4i1afkb"]
+
+[ext_resource type="Texture2D" uid="uid://bd1cqpc0ocm4i" path="res://assets/propietary/heart.png" id="1_316hl"]
+[ext_resource type="Script" uid="uid://c4rk03a30esrx" path="res://scenes/ui/hud/heart_container.gd" id="1_fs0us"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5stf6"]
+bg_color = Color(0.6, 0.6, 0.6, 0.039215688)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_right = 5.0
+expand_margin_bottom = 2.0
+
+[node name="HeartContainer" type="PanelContainer"]
+offset_right = 62.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5stf6")
+script = ExtResource("1_fs0us")
+
+[node name="Container" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Heart1" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_316hl")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_316hl")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_316hl")
+expand_mode = 2

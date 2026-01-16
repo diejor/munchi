@@ -7,16 +7,17 @@ extends AnimationTree
 @onready var combat: CombatComponent = character.get_node_or_null("%CombatComponent")
 
 var is_moving: bool = false
+var is_dead: bool = false
 var ability_done: bool = false
 var _playback: AnimationNodeStateMachinePlayback = get("parameters/playback")
 
 func _ready() -> void:
-	assert(active)
+	active = true
 	assert(tree_root is AnimationNodeStateMachine)
 	if combat:
 		combat.ability_used.connect(_on_ability_used)
+		combat.die.connect(_on_die)
 		for ability in combat.abilities.get_children():
-			assert(ability is AbilityBase)
 			assert(tree_root.has_node(ability.name))
 
 
@@ -40,3 +41,7 @@ func _on_ability_used(ability: AbilityBase) -> void:
 	animated_sprite.play(animated_sprite.autoplay)
 	ability_done = false
 	
+
+func _on_die() -> void:
+	_playback.travel("idle")
+	is_dead = true

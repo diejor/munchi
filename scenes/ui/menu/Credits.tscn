@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_vb5ie"]
 [ext_resource type="Theme" uid="uid://bn2yl3d4tjvwg" path="res://scenes/ui/game_theme.tres" id="2_fe6nt"]
-[ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/change_scene_button.gd" id="3_t6egj"]
+[ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/menu/change_scene_button.gd" id="3_t6egj"]
 
 [node name="Credits" type="Node2D"]
 

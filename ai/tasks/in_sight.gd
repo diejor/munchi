@@ -1,8 +1,5 @@
-#* in_sight.gd
 @tool
 extends BTCondition
-## Checks if the agent has a line of sight to the tracked node using the [SightComponent].
-## Returns [code]SUCCESS[/code] if [member SightComponent.in_los] is true.
 
 var _sight: SightComponent
 

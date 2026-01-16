@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4uut2pu3ly0b"]
+
+[ext_resource type="Script" uid="uid://cerdrloa0maav" path="res://scenes/enemies/bt_player.gd" id="2_53v0t"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_qtq45"]
+
+[node name="BTPlayer" type="BTPlayer"]
+blackboard_plan = SubResource("BlackboardPlan_qtq45")
+script = ExtResource("2_53v0t")

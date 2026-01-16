@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="1_n2m83"]
 [ext_resource type="PackedScene" uid="uid://bklhla7pdtxdo" path="res://scenes/components/DamageParticles.tscn" id="2_3xu6e"]
-[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/dual-grid/fonts/bookxel.ttf" id="3_yun61"]
+[ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/fonts/bookxel.ttf" id="3_yun61"]
 [ext_resource type="Script" uid="uid://bs7tg1pqy3ls5" path="res://scenes/components/debug_health_bar.gd" id="4_22dor"]
 
 [node name="CombatComponent" type="Node2D"]
 script = ExtResource("1_n2m83")
 health = 100
+metadata/_edit_lock_ = true
 
 [node name="Abilities" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 0.2
@@ -17,9 +19,11 @@ one_shot = true
 
 [node name="DamageParticles1" parent="." instance=ExtResource("2_3xu6e")]
 lifetime = 0.3
+metadata/_edit_lock_ = true
 
 [node name="DamageParticles2" parent="." instance=ExtResource("2_3xu6e")]
 lifetime = 0.3
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -49,4 +53,5 @@ value = 100.0
 script = ExtResource("4_22dor")
 
 [connection signal="damage_taken" from="." to="." method="_on_damage_taken"]
+[connection signal="die" from="." to="." method="_on_die"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_timer_timeout"]

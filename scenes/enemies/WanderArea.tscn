@@ -12,6 +12,7 @@ shape = SubResource("CircleShape2D_r1e2e")
 disabled = true
 debug_color = Color(0.8235294, 0.3529412, 0.49411765, 0.09803922)
 script = ExtResource("1_q0y68")
+metadata/_edit_lock_ = true
 
 [node name="DebugLabel" parent="." instance=ExtResource("2_ih6ym")]
 offset_left = -17.0
