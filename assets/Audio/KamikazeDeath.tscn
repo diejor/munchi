@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs3x4qcdamkv1"]
+
+[ext_resource type="AudioStream" uid="uid://c153pce288avl" path="res://assets/Audio/AudioImports/Death/monster-death-grunt-131480.mp3" id="1_0dovy"]
+
+[node name="KamikazeDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_0dovy")
+pitch_scale = 1.2

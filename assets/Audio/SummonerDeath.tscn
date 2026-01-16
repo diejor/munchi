@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chdt8fq7p5ogx"]
+
+[ext_resource type="AudioStream" uid="uid://0gtwilc4n0t6" path="res://assets/Audio/AudioImports/Death/thwomp-46429.mp3" id="1_rrrkd"]
+
+[node name="SummonerDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rrrkd")
+pitch_scale = 1.86

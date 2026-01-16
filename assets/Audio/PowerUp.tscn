@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpumnuwt1bqf"]
+
+[ext_resource type="AudioStream" uid="uid://clfrm4jm5hx5p" path="res://assets/Audio/AudioImports/PowerUps/power-up-sparkle-1-177983.mp3" id="1_asy0n"]
+
+[node name="PowerUp" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_asy0n")
+pitch_scale = 1.37

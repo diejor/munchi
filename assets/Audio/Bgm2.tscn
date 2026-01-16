@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chcj2gpsbaiq1"]
+
+[ext_resource type="AudioStream" uid="uid://hnmuw5ta5yds" path="res://assets/Audio/AudioImports/BGM/dungeon-level-upbeat-power-music-160-bpm-293383.mp3" id="1_gp6x5"]
+
+[node name="BGM2" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_gp6x5")
+pitch_scale = 0.9

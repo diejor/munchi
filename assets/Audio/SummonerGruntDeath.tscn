@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwo1kaxy2px11"]
+
+[ext_resource type="AudioStream" uid="uid://c153pce288avl" path="res://assets/Audio/AudioImports/Death/monster-death-grunt-131480.mp3" id="1_7qv46"]
+
+[node name="SummonerGruntDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_7qv46")
+pitch_scale = 1.86

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk3ckr8xlptgw"]
+
+[ext_resource type="AudioStream" uid="uid://b7nufs64nurjl" path="res://assets/Audio/AudioImports/Death/grunt-1-84550.mp3" id="1_1uvtb"]
+
+[node name="BoomBatDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_1uvtb")
+pitch_scale = 1.63

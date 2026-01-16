@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsnpc6a2vqltp"]
+
+[ext_resource type="AudioStream" uid="uid://dnuqesss5hs1n" path="res://assets/Audio/AudioImports/Explosions/animated-cartoon-explosion-impact-352744.mp3" id="1_6cwxk"]
+
+[node name="Kamikaze" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_6cwxk")
+pitch_scale = 0.96

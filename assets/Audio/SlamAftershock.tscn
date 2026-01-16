@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv82pr34o0q5i"]
+
+[ext_resource type="AudioStream" uid="uid://c12i3ahot3ijp" path="res://assets/Audio/AudioImports/Slam/earth-spell-393923.mp3" id="1_yml1r"]
+
+[node name="SlamAftershock" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yml1r")
+pitch_scale = 1.11
