@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwqlrkb4p18m3"]
+
+[ext_resource type="AudioStream" uid="uid://blkgijx7h10ow" path="res://assets/Audio/AudioImports/Slime/violent-sword-slice-2-393841.mp3" id="1_xqfju"]
+
+[node name="SlimeDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_xqfju")
+pitch_scale = 1.28

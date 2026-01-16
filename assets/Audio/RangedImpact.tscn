@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cebjwp74r4sm"]
+
+[ext_resource type="AudioStream" uid="uid://cl605odwoeggv" path="res://assets/Audio/AudioImports/Arrows/bow-release-bow-and-arrow-4-101936.mp3" id="1_hpyad"]
+
+[node name="RangedImpact" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_hpyad")

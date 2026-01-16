@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ks66l0wy1cnw"]
+
+[ext_resource type="AudioStream" uid="uid://cfxu01cxoihbo" path="res://assets/Audio/AudioImports/Spore/SporeShot.mp3" id="1_2co5j"]
+
+[node name="PlayerSpore" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_2co5j")
+pitch_scale = 1.23

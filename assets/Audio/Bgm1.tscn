@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cygfh14od1aq3"]
+
+[ext_resource type="AudioStream" uid="uid://t3e0thr1dil1" path="res://assets/Audio/AudioImports/BGM/8-bit-game-music-122259.mp3" id="1_h6bva"]
+
+[node name="BGM1" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_h6bva")
+pitch_scale = 0.73

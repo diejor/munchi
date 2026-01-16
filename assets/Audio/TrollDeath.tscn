@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://jj146q4dv7qq"]
+
+[ext_resource type="AudioStream" uid="uid://0gtwilc4n0t6" path="res://assets/Audio/AudioImports/Death/thwomp-46429.mp3" id="1_l2ram"]
+
+[node name="TrollDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_l2ram")
+pitch_scale = 0.94

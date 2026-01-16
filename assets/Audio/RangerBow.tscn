@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfvpbmsao4bd7"]
+
+[ext_resource type="AudioStream" uid="uid://cx6blf416hwwm" path="res://assets/Audio/AudioImports/Arrows/arrow-swish_03-306040.mp3" id="1_yega7"]
+
+[node name="RangerBow" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yega7")
+pitch_scale = 0.8

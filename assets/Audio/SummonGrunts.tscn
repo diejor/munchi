@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuwciorfqcx6u"]
+
+[ext_resource type="AudioStream" uid="uid://crluhjroot5yu" path="res://assets/Audio/AudioImports/Magic/dark-magic-6-378652.mp3" id="1_xfilg"]
+
+[node name="SummonGrunts" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_xfilg")
+pitch_scale = 0.93

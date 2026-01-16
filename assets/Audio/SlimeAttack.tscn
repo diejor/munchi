@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjwpuc61pr0gy"]
+
+[ext_resource type="AudioStream" uid="uid://b4eeohgm18wl5" path="res://assets/Audio/AudioImports/Slime/goopy-slime-20-229635.mp3" id="1_bj07m"]
+
+[node name="SlimeAttack" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_bj07m")
+pitch_scale = 1.28

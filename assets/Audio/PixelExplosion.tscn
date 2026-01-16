@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2bbhv44tsxp3"]
+
+[ext_resource type="AudioStream" uid="uid://cf4iraqctx1jg" path="res://assets/Audio/AudioImports/Explosions/explosion-9-340460.mp3" id="1_j4jjh"]
+
+[node name="PixelExplosion" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_j4jjh")

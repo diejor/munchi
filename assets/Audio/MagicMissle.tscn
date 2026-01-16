@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://lh87lev6s64i"]
+
+[ext_resource type="AudioStream" uid="uid://0nk0njato0ry" path="res://assets/Audio/AudioImports/Magic/magic-244951.mp3" id="1_jxttc"]
+
+[node name="MagicMissle" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jxttc")
+pitch_scale = 1.36

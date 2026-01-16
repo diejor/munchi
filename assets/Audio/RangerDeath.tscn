@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcmg2wd5373x"]
+
+[ext_resource type="AudioStream" uid="uid://c1c411ik74jov" path="res://assets/Audio/AudioImports/Death/RangerDeath.mp3" id="1_k8t7d"]
+
+[node name="RangerDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_k8t7d")
+pitch_scale = 1.2

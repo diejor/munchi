@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://mw52c1q4fxui"]
+
+[ext_resource type="AudioStream" uid="uid://b43lndfnn0pbm" path="res://assets/Audio/AudioImports/Explosions/coin-dropped-81172.mp3" id="1_1vpab"]
+
+[node name="MineDrop" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_1vpab")
+pitch_scale = 0.71

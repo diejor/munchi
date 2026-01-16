@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5747cnmcixk5"]
+
+[ext_resource type="AudioStream" uid="uid://d4m4goyktatew" path="res://assets/Audio/AudioImports/BGM/level-iii-294428.mp3" id="1_lyrwy"]
+
+[node name="BGM3" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lyrwy")
+pitch_scale = 0.95
