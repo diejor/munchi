@@ -1,10 +1,12 @@
 extends PanelContainer
 
-@onready var container: HBoxContainer = %Container
+@onready var container: Control = %Container
 @onready var hearts: Array = container.get_children()
 
 @onready var player: Node = owner
 @onready var combat: CombatComponent = player.get_node("%CombatComponent")
+
+var no_pixel: bool = false
 
 func _ready() -> void:
 	unique_name_in_owner = true
