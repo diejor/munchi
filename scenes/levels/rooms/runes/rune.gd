@@ -19,7 +19,11 @@ signal deactivate(rune: RuneBase)
 @onready var is_active: bool = false
 
 @onready var player_rune_component: RuneComponent:
-	get: return PlayerManager.player.get_node("%RuneComponent")
+	get: 
+		var player = PlayerManager.player
+		if player != null:
+			return
+		return PlayerManager.player.get_node("%RuneComponent")
 
 
 var room: Node2D:
@@ -77,5 +81,7 @@ func _on_deactivate(_rune: RuneBase) -> void:
 
 
 func _on_player_pressed_rune() -> void:
+	if is_active:
+		return
 	is_active = not is_active
 	_update_rune()
