@@ -1,0 +1,143 @@
+[gd_resource type="Resource" script_class="WalkerGeneratorSettings" load_steps=24 format=3 uid="uid://c1sn2jp6mh3ti"]
+
+[ext_resource type="Script" uid="uid://x7cyg6qqvu6j" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="1_cd7es"]
+[ext_resource type="Script" uid="uid://cn1ywgre3exxh" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="2_rks23"]
+[ext_resource type="Script" uid="uid://cp7oq2h3bdmat" path="res://addons/gaea/modifiers/2D/generate_borders.gd" id="3_j1rf4"]
+[ext_resource type="Script" uid="uid://rbn4duitehfa" path="res://addons/gaea/modifiers/2D/fill.gd" id="4_3ydi5"]
+[ext_resource type="Script" uid="uid://bv6aw10c23o5m" path="res://addons/gaea/modifiers/2D/carver.gd" id="5_qlt1e"]
+[ext_resource type="Script" uid="uid://cobdt6g73o1a8" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="6_xmhmb"]
+
+[sub_resource type="Resource" id="Resource_fy668"]
+script = ExtResource("2_rks23")
+type = 1
+terrain = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_wgg2v"]
+resource_name = "ThickenCorridors"
+script = ExtResource("3_j1rf4")
+border_tile_info = SubResource("Resource_fy668")
+mode = 1
+metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
+
+[sub_resource type="Resource" id="Resource_h3at4"]
+script = ExtResource("2_rks23")
+type = 1
+terrain = 1
+layer = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_jp52f"]
+resource_name = "SpawnArea"
+script = ExtResource("4_3ydi5")
+tile = SubResource("Resource_h3at4")
+expand_left = 5
+expand_top = 5
+expand_right = 5
+expand_bottom = 5
+metadata/_custom_type_script = "uid://rbn4duitehfa"
+
+[sub_resource type="Resource" id="Resource_u6bke"]
+script = ExtResource("2_rks23")
+type = 1
+tilemap_layer = 2
+terrain = 1
+layer = 2
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_b84is"]
+resource_name = "MountainBorder"
+script = ExtResource("3_j1rf4")
+border_tile_info = SubResource("Resource_u6bke")
+mode = 1
+metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
+
+[sub_resource type="Resource" id="Resource_sopsm"]
+script = ExtResource("2_rks23")
+type = 1
+tilemap_layer = 3
+terrain = 1
+layer = 3
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_jfn2o"]
+resource_name = "Mountain1"
+script = ExtResource("3_j1rf4")
+border_tile_info = SubResource("Resource_sopsm")
+mode = 1
+affected_layers = Array[int]([0, 2])
+filter_type = 3
+filter_layers = Array[int]([0, 1, 2])
+metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
+
+[sub_resource type="Resource" id="Resource_7jhwu"]
+script = ExtResource("2_rks23")
+type = 1
+tilemap_layer = 1
+terrain = 1
+layer = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_jaijs"]
+resource_name = "MountainTop"
+script = ExtResource("4_3ydi5")
+tile = SubResource("Resource_7jhwu")
+expand_left = 10
+expand_top = 10
+expand_right = 10
+expand_bottom = 10
+metadata/_custom_type_script = "uid://rbn4duitehfa"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
+seed = -1641649614
+frequency = 0.0486
+
+[sub_resource type="Resource" id="Resource_eb6dy"]
+script = ExtResource("5_qlt1e")
+noise = SubResource("FastNoiseLite_choun")
+min = -0.32799999999999996
+max = 0.12199999999999989
+salt = 2365498836
+metadata/_custom_type_script = "uid://bv6aw10c23o5m"
+
+[sub_resource type="Resource" id="Resource_spu38"]
+script = ExtResource("2_rks23")
+type = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_gceky"]
+resource_name = "Dirt"
+script = ExtResource("4_3ydi5")
+tile = SubResource("Resource_spu38")
+metadata/_custom_type_script = "uid://rbn4duitehfa"
+
+[sub_resource type="Resource" id="Resource_6y6db"]
+script = ExtResource("2_rks23")
+type = 1
+terrain = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[sub_resource type="Resource" id="Resource_4cbap"]
+resource_name = "MountainUnderline"
+script = ExtResource("3_j1rf4")
+border_tile_info = SubResource("Resource_6y6db")
+mode = 1
+affected_layers = Array[int]([3])
+metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("2_rks23")
+type = 1
+terrain = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[resource]
+resource_name = "Settings"
+script = ExtResource("6_xmhmb")
+tile = SubResource("Resource_o6xl0")
+fullness_check = 1
+fullness_percentage = 0.1
+constrain_world_size = true
+world_size = Vector2i(200, 200)
+modifiers = Array[ExtResource("1_cd7es")]([SubResource("Resource_wgg2v"), SubResource("Resource_jp52f"), SubResource("Resource_b84is"), SubResource("Resource_jfn2o"), SubResource("Resource_jaijs"), SubResource("Resource_eb6dy"), SubResource("Resource_gceky"), SubResource("Resource_4cbap"), null])
+metadata/_custom_type_script = "uid://cobdt6g73o1a8"

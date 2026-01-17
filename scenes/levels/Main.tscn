@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://deghq0uhw45c4"]
+[gd_scene load_steps=17 format=4 uid="uid://deghq0uhw45c4"]
 
 [ext_resource type="Script" uid="uid://ef0603hpvrkx" path="res://scenes/levels/main.gd" id="1_c2fwb"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_p2hyx"]
@@ -7,15 +7,10 @@
 [ext_resource type="Script" uid="uid://34dgcf0kpo3t" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="3_if38b"]
 [ext_resource type="PackedScene" uid="uid://cmr2cxwscf04t" path="res://scenes/ui/hud/LoadingControl.tscn" id="3_wgg2v"]
 [ext_resource type="TileSet" uid="uid://q7ed1jghhpd2" path="res://assets/resources/tileset/round_high.tres" id="4_fy668"]
-[ext_resource type="Script" uid="uid://x7cyg6qqvu6j" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="4_ki7k8"]
-[ext_resource type="Script" uid="uid://rbn4duitehfa" path="res://addons/gaea/modifiers/2D/fill.gd" id="5_p2hyx"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="5_wgg2v"]
-[ext_resource type="Script" uid="uid://cn1ywgre3exxh" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="6_65di4"]
-[ext_resource type="Script" uid="uid://bv6aw10c23o5m" path="res://addons/gaea/modifiers/2D/carver.gd" id="7_c2fwb"]
-[ext_resource type="Script" uid="uid://cobdt6g73o1a8" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="8_fy668"]
 [ext_resource type="Script" uid="uid://bnr7jegypx1qy" path="res://addons/gaea/renderers/2D/threaded_tilemap_gaea_renderer.gd" id="9_fy668"]
 [ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="9_wgg2v"]
-[ext_resource type="Script" uid="uid://cp7oq2h3bdmat" path="res://addons/gaea/modifiers/2D/generate_borders.gd" id="10_jp52f"]
+[ext_resource type="Resource" uid="uid://c1sn2jp6mh3ti" path="res://scenes/levels/Maps/generator_settings.tres" id="11_p2hyx"]
 [ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="17_c2fwb"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="18_fy668"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="19_wgg2v"]
@@ -26,142 +21,8 @@ vertices = PackedVector2Array(-643, -61, -595, -61, -595, 3, -697, 905, -531, 3,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(7, 8, 9), PackedInt32Array(9, 10, 11), PackedInt32Array(11, 12, 13), PackedInt32Array(13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(18, 20, 21, 19), PackedInt32Array(19, 22, 23), PackedInt32Array(23, 24, 25, 26), PackedInt32Array(23, 26, 27, 28, 16, 19), PackedInt32Array(16, 28, 29, 30, 15), PackedInt32Array(30, 31, 32, 15), PackedInt32Array(32, 33, 3, 7, 9, 11), PackedInt32Array(3, 34, 35, 0), PackedInt32Array(3, 2, 6, 7), PackedInt32Array(32, 11, 13, 15), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(39, 40, 41, 36), PackedInt32Array(41, 42, 43, 36), PackedInt32Array(43, 44, 45, 36), PackedInt32Array(45, 46, 47, 36), PackedInt32Array(47, 48, 49, 36), PackedInt32Array(49, 50, 51, 36), PackedInt32Array(51, 52, 53, 36), PackedInt32Array(53, 54, 55, 36), PackedInt32Array(55, 56, 57), PackedInt32Array(57, 58, 59), PackedInt32Array(59, 60, 61), PackedInt32Array(61, 62, 63), PackedInt32Array(63, 64, 65), PackedInt32Array(65, 66, 67), PackedInt32Array(67, 68, 69), PackedInt32Array(69, 70, 71), PackedInt32Array(71, 72, 73), PackedInt32Array(73, 74, 75), PackedInt32Array(75, 76, 77), PackedInt32Array(77, 78, 79, 36), PackedInt32Array(77, 36, 55, 59), PackedInt32Array(55, 57, 59), PackedInt32Array(77, 59, 61), PackedInt32Array(77, 61, 63), PackedInt32Array(77, 63, 65, 67), PackedInt32Array(77, 67, 69, 73), PackedInt32Array(73, 75, 77), PackedInt32Array(73, 69, 71), PackedInt32Array(80, 81, 82, 83), PackedInt32Array(82, 84, 85, 86), PackedInt32Array(86, 87, 88, 82), PackedInt32Array(88, 89, 90, 82), PackedInt32Array(90, 91, 92, 82), PackedInt32Array(93, 94, 95, 83), PackedInt32Array(95, 96, 97, 83), PackedInt32Array(97, 98, 99, 83), PackedInt32Array(99, 100, 101, 83), PackedInt32Array(101, 102, 103, 83), PackedInt32Array(103, 104, 105, 83), PackedInt32Array(105, 106, 107, 83), PackedInt32Array(107, 108, 109, 83), PackedInt32Array(109, 110, 111, 83), PackedInt32Array(83, 82, 92, 93), PackedInt32Array(112, 113, 114, 115), PackedInt32Array(115, 116, 117, 112), PackedInt32Array(118, 112, 117, 119), PackedInt32Array(117, 120, 121), PackedInt32Array(121, 122, 119), PackedInt32Array(119, 123, 124), PackedInt32Array(124, 125, 118), PackedInt32Array(117, 121, 119), PackedInt32Array(118, 119, 124), PackedInt32Array(126, 127, 128, 129, 130), PackedInt32Array(129, 131, 132, 130), PackedInt32Array(126, 130, 133), PackedInt32Array(134, 135, 136, 137, 138), PackedInt32Array(139, 140, 141, 142, 135), PackedInt32Array(142, 143, 144, 135), PackedInt32Array(144, 145, 146, 135), PackedInt32Array(147, 148, 149, 150), PackedInt32Array(151, 152, 153, 154), PackedInt32Array(154, 155, 156), PackedInt32Array(156, 157, 158, 159), PackedInt32Array(159, 160, 161, 151, 154), PackedInt32Array(151, 161, 162, 163, 164), PackedInt32Array(163, 165, 166, 164), PackedInt32Array(164, 166, 167, 168, 169), PackedInt32Array(168, 170, 171, 169), PackedInt32Array(171, 172, 173, 169), PackedInt32Array(169, 173, 174, 175, 176), PackedInt32Array(176, 175, 177, 178, 179), PackedInt32Array(178, 180, 181, 179), PackedInt32Array(179, 182, 183, 176), PackedInt32Array(183, 184, 185, 186), PackedInt32Array(185, 187, 186), PackedInt32Array(183, 186, 176), PackedInt32Array(169, 188, 189, 164), PackedInt32Array(189, 190, 191, 164), PackedInt32Array(164, 191, 192, 193, 135, 150), PackedInt32Array(193, 194, 195, 135), PackedInt32Array(195, 196, 136, 135), PackedInt32Array(197, 198, 199, 200, 201), PackedInt32Array(202, 203, 204, 205, 206, 207), PackedInt32Array(208, 209, 205, 210, 211, 212), PackedInt32Array(213, 214, 215, 216, 217, 134, 218), PackedInt32Array(138, 219, 220, 134), PackedInt32Array(220, 221, 218, 134), PackedInt32Array(218, 222, 213), PackedInt32Array(213, 223, 214), PackedInt32Array(214, 224, 215), PackedInt32Array(215, 225, 226, 216), PackedInt32Array(226, 227, 228), PackedInt32Array(228, 229, 230, 231), PackedInt32Array(231, 232, 233, 226), PackedInt32Array(234, 235, 236, 211), PackedInt32Array(237, 238, 239, 240), PackedInt32Array(240, 241, 242, 237), PackedInt32Array(237, 242, 243, 244, 245), PackedInt32Array(244, 246, 247, 245), PackedInt32Array(248, 247, 249, 250, 251), PackedInt32Array(251, 250, 252, 253, 254, 255), PackedInt32Array(254, 253, 256, 257, 258, 259), PackedInt32Array(257, 260, 261, 262, 263, 258), PackedInt32Array(261, 264, 265, 262), PackedInt32Array(265, 266, 267), PackedInt32Array(267, 268, 269, 270, 271), PackedInt32Array(267, 271, 272, 262, 265), PackedInt32Array(251, 273, 248), PackedInt32Array(236, 245, 274, 212, 211), PackedInt32Array(212, 275, 208), PackedInt32Array(208, 276, 209), PackedInt32Array(209, 277, 278, 205), PackedInt32Array(278, 279, 206, 205), PackedInt32Array(280, 281, 282), PackedInt32Array(282, 283, 284, 285), PackedInt32Array(280, 285, 286, 287, 201), PackedInt32Array(287, 288, 289, 201), PackedInt32Array(289, 290, 291, 201), PackedInt32Array(291, 292, 293, 294), PackedInt32Array(294, 295, 296), PackedInt32Array(297, 298, 299, 300), PackedInt32Array(300, 301, 302), PackedInt32Array(302, 303, 304, 305), PackedInt32Array(306, 307, 308, 309), PackedInt32Array(309, 310, 311, 300), PackedInt32Array(311, 312, 313, 300), PackedInt32Array(313, 314, 315, 300), PackedInt32Array(315, 316, 317), PackedInt32Array(317, 318, 319), PackedInt32Array(319, 320, 321, 322), PackedInt32Array(321, 323, 324, 322), PackedInt32Array(324, 325, 326, 327), PackedInt32Array(327, 328, 329, 324), PackedInt32Array(329, 330, 322), PackedInt32Array(300, 322, 331, 201, 332, 297), PackedInt32Array(333, 334, 335, 336, 337), PackedInt32Array(333, 337, 338, 339, 197), PackedInt32Array(339, 340, 341, 197), PackedInt32Array(198, 342, 343, 344, 135), PackedInt32Array(344, 345, 346, 347), PackedInt32Array(139, 348, 349, 140), PackedInt32Array(247, 248, 245), PackedInt32Array(236, 237, 245), PackedInt32Array(324, 329, 322), PackedInt32Array(280, 282, 285), PackedInt32Array(226, 228, 231), PackedInt32Array(216, 226, 233, 234, 211), PackedInt32Array(344, 347, 139, 135), PackedInt32Array(154, 156, 159), PackedInt32Array(147, 150, 135), PackedInt32Array(146, 147, 135), PackedInt32Array(341, 342, 198, 197), PackedInt32Array(203, 202, 280, 201, 200), PackedInt32Array(201, 291, 294, 296), PackedInt32Array(201, 296, 332), PackedInt32Array(319, 322, 300, 317), PackedInt32Array(315, 317, 300), PackedInt32Array(305, 306, 309, 300, 302)])
 agent_radius = 15.0
 
-[sub_resource type="Resource" id="Resource_fy668"]
-script = ExtResource("6_65di4")
-type = 1
-terrain = 1
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_wgg2v"]
-resource_name = "ThickenCorridors"
-script = ExtResource("10_jp52f")
-border_tile_info = SubResource("Resource_fy668")
-mode = 1
-metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
-
-[sub_resource type="Resource" id="Resource_h3at4"]
-script = ExtResource("6_65di4")
-type = 1
-terrain = 1
-layer = 1
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_jp52f"]
-resource_name = "SpawnArea"
-script = ExtResource("5_p2hyx")
-tile = SubResource("Resource_h3at4")
-expand_left = 5
-expand_top = 5
-expand_right = 5
-expand_bottom = 5
-metadata/_custom_type_script = "uid://rbn4duitehfa"
-
-[sub_resource type="Resource" id="Resource_u6bke"]
-script = ExtResource("6_65di4")
-type = 1
-tilemap_layer = 2
-terrain = 1
-layer = 2
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_b84is"]
-resource_name = "MountainBorder"
-script = ExtResource("10_jp52f")
-border_tile_info = SubResource("Resource_u6bke")
-mode = 1
-metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
-
-[sub_resource type="Resource" id="Resource_sopsm"]
-script = ExtResource("6_65di4")
-type = 1
-tilemap_layer = 3
-terrain = 1
-layer = 3
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_jfn2o"]
-resource_name = "Mountain1"
-script = ExtResource("10_jp52f")
-border_tile_info = SubResource("Resource_sopsm")
-mode = 1
-affected_layers = Array[int]([0, 2])
-filter_type = 3
-filter_layers = Array[int]([0, 1, 2])
-metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
-
-[sub_resource type="Resource" id="Resource_7jhwu"]
-script = ExtResource("6_65di4")
-type = 1
-tilemap_layer = 1
-terrain = 1
-layer = 1
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_jaijs"]
-resource_name = "MountainTop"
-script = ExtResource("5_p2hyx")
-tile = SubResource("Resource_7jhwu")
-expand_left = 10
-expand_top = 10
-expand_right = 10
-expand_bottom = 10
-metadata/_custom_type_script = "uid://rbn4duitehfa"
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
-seed = -172890704
-frequency = 0.0486
-
-[sub_resource type="Resource" id="Resource_eb6dy"]
-script = ExtResource("7_c2fwb")
-noise = SubResource("FastNoiseLite_choun")
-min = -0.32799999999999996
-max = 0.12199999999999989
-salt = 2365498836
-metadata/_custom_type_script = "uid://bv6aw10c23o5m"
-
-[sub_resource type="Resource" id="Resource_spu38"]
-script = ExtResource("6_65di4")
-type = 1
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_gceky"]
-resource_name = "Dirt"
-script = ExtResource("5_p2hyx")
-tile = SubResource("Resource_spu38")
-metadata/_custom_type_script = "uid://rbn4duitehfa"
-
-[sub_resource type="Resource" id="Resource_6y6db"]
-script = ExtResource("6_65di4")
-type = 1
-terrain = 1
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_4cbap"]
-resource_name = "MountainUnderline"
-script = ExtResource("10_jp52f")
-border_tile_info = SubResource("Resource_6y6db")
-mode = 1
-affected_layers = Array[int]([3])
-metadata/_custom_type_script = "uid://cp7oq2h3bdmat"
-
-[sub_resource type="Resource" id="Resource_o6xl0"]
-script = ExtResource("6_65di4")
-type = 1
-terrain = 1
-metadata/_custom_type_script = "uid://cn1ywgre3exxh"
-
-[sub_resource type="Resource" id="Resource_o6erh"]
-resource_name = "Settings"
-script = ExtResource("8_fy668")
-tile = SubResource("Resource_o6xl0")
-fullness_check = 1
-fullness_percentage = 0.1
-constrain_world_size = true
-world_size = Vector2i(200, 200)
-modifiers = Array[ExtResource("4_ki7k8")]([SubResource("Resource_wgg2v"), SubResource("Resource_wgg2v"), SubResource("Resource_jp52f"), SubResource("Resource_b84is"), SubResource("Resource_jfn2o"), SubResource("Resource_jaijs"), SubResource("Resource_eb6dy"), SubResource("Resource_gceky"), SubResource("Resource_4cbap"), null])
-metadata/_custom_type_script = "uid://cobdt6g73o1a8"
-
 [node name="Main" type="Node2D"]
+visible = false
 y_sort_enabled = true
 script = ExtResource("1_c2fwb")
 
@@ -230,7 +91,7 @@ metadata/_custom_type_script = "uid://bnr7jegypx1qy"
 
 [node name="WalkerGenerator" type="Node" parent="."]
 script = ExtResource("3_if38b")
-settings = SubResource("Resource_o6erh")
+settings = ExtResource("11_p2hyx")
 generate_on_ready = false
 metadata/_custom_type_script = "uid://34dgcf0kpo3t"
 

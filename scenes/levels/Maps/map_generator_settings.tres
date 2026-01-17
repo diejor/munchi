@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WalkerGeneratorSettings" load_steps=5 format=3 uid="uid://16ekipdvm1vu"]
+
+[ext_resource type="Script" uid="uid://x7cyg6qqvu6j" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="1_hv8lh"]
+[ext_resource type="Script" uid="uid://cn1ywgre3exxh" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="2_pmcjn"]
+[ext_resource type="Script" uid="uid://cobdt6g73o1a8" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="6_74rd3"]
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("2_pmcjn")
+type = 1
+terrain = 1
+metadata/_custom_type_script = "uid://cn1ywgre3exxh"
+
+[resource]
+resource_name = "Settings"
+script = ExtResource("6_74rd3")
+tile = SubResource("Resource_o6xl0")
+constrain_world_size = true
+metadata/_custom_type_script = "uid://cobdt6g73o1a8"
