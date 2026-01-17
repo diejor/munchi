@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://clbujlw8qvb55"]
+
+[ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_hiou8"]
+[ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="2_wm2xa"]
+[ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_4avlp"]
+[ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="4_q5411"]
+[ext_resource type="PackedScene" uid="uid://8damh0isrhjk" path="res://scenes/levels/rooms/Hallway_10.tscn" id="5_uayoh"]
+[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="6_541bb"]
+[ext_resource type="PackedScene" uid="uid://dn14gt25jqnpm" path="res://scenes/levels/rooms/Kamikaze_4.tscn" id="6_wm2xa"]
+
+[node name="Lvl2Map03" type="Node2D"]
+
+[node name="Mountains" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+material = ExtResource("1_hiou8")
+tile_set = ExtResource("2_wm2xa")
+script = ExtResource("3_4avlp")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="MountainsHigh" type="TileMapLayer" parent="."]
+z_index = 1
+y_sort_enabled = true
+material = ExtResource("1_hiou8")
+tile_set = ExtResource("2_wm2xa")
+script = ExtResource("3_4avlp")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="Grass" type="TileMapLayer" parent="."]
+z_index = -1
+y_sort_enabled = true
+material = ExtResource("1_hiou8")
+tile_set = ExtResource("4_q5411")
+script = ExtResource("3_4avlp")
+godot_4_3_compatibility = false
+metadata/_custom_type_script = "uid://cjk8nronimk5r"
+
+[node name="Hallway_10" parent="." instance=ExtResource("5_uayoh")]
+metadata/_edit_lock_ = true
+
+[node name="Kamikaze_4" parent="." instance=ExtResource("6_wm2xa")]
+position = Vector2(-24, 440)
+
+[node name="Player" parent="." instance=ExtResource("6_541bb")]
+position = Vector2(0, 8)
