@@ -89,7 +89,7 @@ expand_bottom = 10
 metadata/_custom_type_script = "uid://rbn4duitehfa"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
-seed = 137119680
+seed = 652540391
 frequency = 0.0486
 
 [sub_resource type="Resource" id="Resource_eb6dy"]
@@ -139,5 +139,5 @@ fullness_check = 1
 fullness_percentage = 0.1
 constrain_world_size = true
 world_size = Vector2i(200, 200)
-modifiers = Array[ExtResource("1_cd7es")]([SubResource("Resource_wgg2v"), SubResource("Resource_jp52f"), SubResource("Resource_b84is"), SubResource("Resource_jfn2o"), SubResource("Resource_jaijs"), SubResource("Resource_eb6dy"), SubResource("Resource_gceky"), SubResource("Resource_4cbap"), null])
+modifiers = Array[ExtResource("1_cd7es")]([SubResource("Resource_wgg2v"), SubResource("Resource_jp52f"), SubResource("Resource_b84is"), SubResource("Resource_jfn2o"), SubResource("Resource_jaijs"), SubResource("Resource_eb6dy"), SubResource("Resource_gceky"), SubResource("Resource_4cbap")])
 metadata/_custom_type_script = "uid://cobdt6g73o1a8"

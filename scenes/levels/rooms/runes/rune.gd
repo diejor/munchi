@@ -1,3 +1,4 @@
+@tool
 class_name RuneBase
 extends Node2D
 
@@ -15,13 +16,27 @@ signal deactivate(rune: RuneBase)
 @onready var rune_sprite: Sprite2D = %RuneSprite
 @onready var area_2d: Area2D = %Area2D
 
-var room: RuneScene:
-	get: return get_parent()
-
 @onready var is_active: bool = false
 
 @onready var player_rune_component: RuneComponent:
 	get: return PlayerManager.player.get_node("%RuneComponent")
+
+
+var room: Node2D:
+	get: return owner
+
+
+@export var enemies: Array[CharacterNPC]:
+	get:
+		if not enemies.is_empty():
+			return enemies
+		
+		for child in room.get_children():
+			if child is CharacterNPC:
+				enemies.append(child)
+		
+		return enemies
+
 
 func _update_rune() -> void:
 	if is_active:
@@ -38,26 +53,26 @@ func _ready() -> void:
 	
 	_update_rune()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and area_2d.has_overlapping_bodies():
-		is_active = not is_active
-		_update_rune()
-
 func release_enemies() -> void:
-	for enemy in room.enemies:
+	for enemy in enemies:
 		enemy.modulate = Color.WHITE
 		enemy.process_mode = Node.PROCESS_MODE_INHERIT
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_activate(_rune: RuneBase) -> void:
 	rune_sprite.texture = activated
-	for enemy in room.enemies:
+	for enemy in enemies:
 		enemy.visible = true
 		enemy.modulate = vanish_enemy_color
 
 
 func _on_deactivate(_rune: RuneBase) -> void:
 	rune_sprite.texture = deactivated
-	for enemy in room.enemies:
+	for enemy in enemies:
 		enemy.visible = false
 		enemy.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_player_pressed_rune() -> void:
+	is_active = not is_active
+	_update_rune()

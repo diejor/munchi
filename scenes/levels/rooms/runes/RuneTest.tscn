@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=4 uid="uid://buyea2eyplfct"]
+[gd_scene load_steps=9 format=4 uid="uid://buyea2eyplfct"]
 
-[ext_resource type="Script" uid="uid://cbbcq8wu114y6" path="res://scenes/levels/rooms/runes/rune_scene.gd" id="1_01da0"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_rrwwi"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_qndy6"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_c405w"]
@@ -10,10 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="7_bnrov"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="8_kp3t4"]
 
-[node name="RoomSlime_1" type="Node2D" node_paths=PackedStringArray("enemies")]
+[node name="RoomSlime_1" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_01da0")
-enemies = [NodePath("SlimeMelee"), NodePath("SlimeMelee2"), NodePath("SlimeMelee3"), NodePath("SlimeMelee4"), NodePath("SlimeRanged"), NodePath("SlimeRanged2")]
 
 [node name="Grass" type="TileMapLayer" parent="."]
 z_index = -1

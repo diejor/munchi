@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c68wmnei5lnyq"]
+[gd_scene load_steps=8 format=3 uid="uid://c68wmnei5lnyq"]
 
 [ext_resource type="Script" uid="uid://f8u6x6wh1nbe" path="res://scenes/levels/rooms/runes/rune.gd" id="1_4ts5p"]
 [ext_resource type="Texture2D" uid="uid://q25ipy0ra5k8" path="res://assets/propietary/spritesheet_runes.png" id="2_7cwoa"]
 [ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="3_7cwoa"]
+[ext_resource type="Script" uid="uid://rstr4u84xtnq" path="res://scenes/levels/rooms/runes/input.gd" id="3_g3s0i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxjh5"]
 atlas = ExtResource("2_7cwoa")
@@ -23,6 +24,10 @@ deactivated = SubResource("AtlasTexture_qxjh5")
 activated = SubResource("AtlasTexture_5dtic")
 vanish_enemy_color = Color(1, 1, 1, 0.18039216)
 
+[node name="Input" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_g3s0i")
+
 [node name="Shadow" parent="." instance=ExtResource("3_7cwoa")]
 
 [node name="RuneSprite" type="Sprite2D" parent="."]
@@ -36,3 +41,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7cwoa")
+
+[connection signal="player_pressed_rune" from="Input" to="." method="_on_player_pressed_rune"]
