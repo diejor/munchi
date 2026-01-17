@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_xelni"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_eym4y"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_uo5l4"]
-[ext_resource type="PackedScene" uid="uid://dmp3riaudjybn" path="res://scenes/enemies/SlimeRanged.tscn" id="5_xelni"]
+[ext_resource type="PackedScene" uid="uid://c0nitivffjy4q" path="res://scenes/enemies/slime/SlimeRanged.tscn" id="5_xelni"]
 
 [node name="Hallway_5" type="Node2D"]
 y_sort_enabled = true

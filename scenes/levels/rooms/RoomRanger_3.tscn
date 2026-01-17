@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_0d8mc"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="5_yv3s6"]
 [ext_resource type="PackedScene" uid="uid://oykncgxk1pk7" path="res://scenes/enemies/Ranger.tscn" id="6_bvp51"]
-[ext_resource type="PackedScene" uid="uid://dmp3riaudjybn" path="res://scenes/enemies/SlimeRanged.tscn" id="7_qw0je"]
+[ext_resource type="PackedScene" uid="uid://c0nitivffjy4q" path="res://scenes/enemies/slime/SlimeRanged.tscn" id="7_qw0je"]
 
 [node name="RoomRanger_3" type="Node2D"]
 y_sort_enabled = true
