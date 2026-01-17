@@ -31,6 +31,9 @@ var room: Node2D:
 		if not enemies.is_empty():
 			return enemies
 		
+		if owner == null:
+			return enemies
+		
 		for child in room.get_children():
 			if child is CharacterNPC:
 				enemies.append(child)
