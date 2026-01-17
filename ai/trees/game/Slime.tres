@@ -10,8 +10,14 @@ var/target_pos/type = 5
 var/target_pos/value = Vector2(0, 0)
 var/target_pos/hint = 0
 var/target_pos/hint_string = ""
+var/spacing/name = &"spacing"
+var/spacing/type = 3
+var/spacing/value = 25.0
+var/spacing/hint = 0
+var/spacing/hint_string = ""
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_32n1m"]
+mapping/spacing = &"spacing"
 
 [sub_resource type="BTSubtree" id="BTSubtree_c1g87"]
 subtree = ExtResource("1_7pwua")
@@ -32,6 +38,12 @@ custom_name = "Attack"
 children = [SubResource("BTSubtree_c1g87"), SubResource("BTDelay_7pwua")]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4sx0f"]
+var/spacing/name = &"spacing"
+var/spacing/type = 3
+var/spacing/value = 25.0
+var/spacing/hint = 0
+var/spacing/hint_string = ""
+mapping/spacing = &"spacing"
 
 [sub_resource type="BTSubtree" id="BTSubtree_7pwua"]
 subtree = ExtResource("3_c1g87")

@@ -1,13 +1,23 @@
-[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://c8vogfbh3usfr"]
+[gd_resource type="BehaviorTree" load_steps=11 format=3 uid="uid://c8vogfbh3usfr"]
 
 [ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="1_4jxwk"]
 [ext_resource type="Script" uid="uid://20u5su0vxp8h" path="res://ai/tasks/get_wander_point.gd" id="2_6rpom"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4jxwk"]
+var/spacing/name = &"spacing"
+var/spacing/type = 3
+var/spacing/value = 0.0
+var/spacing/hint = 0
+var/spacing/hint_string = ""
+
+[sub_resource type="BBFloat" id="BBFloat_4jxwk"]
+value_source = 1
+variable = &"spacing"
+resource_name = "$spacing"
 
 [sub_resource type="BTAction" id="BTAction_jecso"]
 script = ExtResource("1_4jxwk")
-spacing = 25.0
+spacing = SubResource("BBFloat_4jxwk")
 
 [sub_resource type="BTWait" id="BTWait_fky4n"]
 custom_name = "Rest"

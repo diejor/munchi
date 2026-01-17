@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c68wmnei5lnyq"]
+
+[ext_resource type="Script" uid="uid://f8u6x6wh1nbe" path="res://scenes/levels/rooms/runes/rune.gd" id="1_4ts5p"]
+[ext_resource type="Texture2D" uid="uid://q25ipy0ra5k8" path="res://assets/propietary/spritesheet_runes.png" id="2_7cwoa"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="3_7cwoa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxjh5"]
+atlas = ExtResource("2_7cwoa")
+region = Rect2(4, 4, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dtic"]
+atlas = ExtResource("2_7cwoa")
+region = Rect2(52, 4, 40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7cwoa"]
+radius = 32.24903
+
+[node name="RuneBase" type="Node2D" groups=["runes"]]
+z_index = -1
+script = ExtResource("1_4ts5p")
+points = 100
+deactivated = SubResource("AtlasTexture_qxjh5")
+activated = SubResource("AtlasTexture_5dtic")
+vanish_enemy_color = Color(1, 1, 1, 0.18039216)
+
+[node name="Shadow" parent="." instance=ExtResource("3_7cwoa")]
+
+[node name="RuneSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_qxjh5")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7cwoa")

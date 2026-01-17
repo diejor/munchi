@@ -3,6 +3,8 @@ extends CombatComponent
 @export_file var leave_scene: String
 
 func _physics_process(_delta: float) -> void:
+	if is_dead:
+		return
 	for ability in abilities.get_children():
 		if Input.is_action_just_pressed(ability.name):
 			var did_use: AbilityBase = ability.try_use()

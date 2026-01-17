@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://de2o54e1h1o41"]
+
+[ext_resource type="Texture2D" uid="uid://dvgppx5oia747" path="res://assets/propietary/ui/spritesheet_playerFXandUI.png" id="1_s22bk"]
+
+[node name="Shadow" type="NinePatchRect"]
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = ExtResource("1_s22bk")
+region_rect = Rect2(16, 244, 16, 12)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4

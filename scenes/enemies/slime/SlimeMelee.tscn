@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0wqf8iq3tflv"]
+[gd_scene load_steps=14 format=3 uid="uid://c0wqf8iq3tflv"]
 
 [ext_resource type="PackedScene" uid="uid://co7ph8xbf3n2f" path="res://scenes/enemies/slime/SlimeMeleeArt.tscn" id="1_ib43c"]
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_sdtwm"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="2_aooed"]
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_sdtwm"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="3_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_psnr1"]
@@ -23,6 +24,12 @@ motion_mode = 1
 script = ExtResource("1_sdtwm")
 movement_speed = 25.0
 mass = 5.0
+
+[node name="Shadow" parent="." instance=ExtResource("2_aooed")]
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 2.0
 
 [node name="CombatComponent" parent="." instance=ExtResource("3_psnr1")]
 script = ExtResource("3_d8b5v")
