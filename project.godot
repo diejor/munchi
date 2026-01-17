@@ -23,8 +23,8 @@ buses/default_bus_layout="uid://m06yc06g3kvg"
 
 [autoload]
 
-UIAudioManager="*res://scenes/ui/autoload/audio_manager.gd"
 Settings="*res://scenes/ui/autoload/settings/Settings.tscn"
+AudioManager="*res://scenes/ui/autoload/AudioManager.tscn"
 
 [display]
 

@@ -29,7 +29,7 @@ health = 3
 [node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_5stf6")]
 damage = 10
 
-[node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="1"]
+[node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="2"]
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -78,6 +78,7 @@ offset_top = 12.0
 offset_right = -14.0
 offset_bottom = 34.0
 grow_horizontal = 0
+focus_mode = 0
 theme = ExtResource("6_c3xxp")
 text = "Pause"
 script = ExtResource("3_4kuee")

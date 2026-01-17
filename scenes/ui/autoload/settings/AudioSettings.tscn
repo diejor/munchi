@@ -31,6 +31,9 @@ text = "Audio"
 [node name="Master" parent="AudioSettings/VBoxContainer" instance=ExtResource("3_c86h3")]
 layout_mode = 2
 
+[node name="Music" parent="AudioSettings/VBoxContainer" instance=ExtResource("3_c86h3")]
+layout_mode = 2
+
 [node name="UI" parent="AudioSettings/VBoxContainer" instance=ExtResource("3_c86h3")]
 layout_mode = 2
 

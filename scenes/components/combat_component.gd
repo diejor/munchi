@@ -13,12 +13,22 @@ signal heart_restored(points: int)
 @export var health: int
 @export var knockback_force: float = 100.
 
+@export_group("SFX")
+@export var damage_taken_sfx: AudioStream
+@export var die_sfx: AudioStream
+
 @onready var abilities: Node2D = $Abilities
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var damage_particles_1: GPUParticles2D = $DamageParticles1
 @onready var damage_particles_2: GPUParticles2D = $DamageParticles2
 @onready var damage_cooldown: Timer = $DamageCooldown
 @onready var initial_health: int = health
+@onready var sfx_player: AudioStreamPlayer2D = %SFXPlayer
+
+@onready
+var playback: AudioStreamPlaybackPolyphonic:
+	get: 
+		return sfx_player.get_stream_playback()
 
 
 var current_ability: AbilityBase
@@ -27,6 +37,7 @@ var is_dead: bool
 
 func _enter_tree() -> void:
 	unique_name_in_owner = true
+
 
 func get_ability(action: String) -> AbilityBase:
 	return abilities.get_node(action)
@@ -81,6 +92,8 @@ func _on_damage_taken(points: int) -> void:
 	health -= points
 	if health <= 0:
 		die.emit()
+	else:
+		playback.play_stream(damage_taken_sfx)
 	
 	if is_instance_valid(health_bar):
 		health_bar.value = (health as float / initial_health) * 100.
@@ -89,6 +102,7 @@ func _on_damage_taken(points: int) -> void:
 func _on_die() -> void:
 	is_dead = true
 	owner.movement_speed = 0.0
+	playback.play_stream(die_sfx)
 	
 	var transparent: Color = Color.WHITE
 	transparent.a = 0.

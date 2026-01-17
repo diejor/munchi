@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/sword-swipes-7174.mp3-b5a45129e0dd573b70b6566
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

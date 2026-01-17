@@ -1,4 +1,4 @@
-extends Button
+extends ButtonBase
 
 @onready var effects: CanvasModulate = %Effects
 @onready var pause_menu: PanelContainer = %PauseMenu

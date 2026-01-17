@@ -1,17 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://6gcho5ivfbv"]
+[gd_scene load_steps=8 format=3 uid="uid://6gcho5ivfbv"]
 
 [ext_resource type="Script" uid="uid://uv7xn7asycav" path="res://scenes/components/combat_component.gd" id="1_n2m83"]
 [ext_resource type="PackedScene" uid="uid://bklhla7pdtxdo" path="res://scenes/components/DamageParticles.tscn" id="2_3xu6e"]
+[ext_resource type="AudioStream" uid="uid://c153pce288avl" path="res://assets/Audio/AudioImports/Death/monster-death-grunt-131480.mp3" id="3_764su"]
 [ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/fonts/bookxel.ttf" id="3_yun61"]
 [ext_resource type="Script" uid="uid://bs7tg1pqy3ls5" path="res://scenes/components/debug_health_bar.gd" id="4_22dor"]
+[ext_resource type="AudioStream" uid="uid://bogyxdhq27qba" path="res://assets/Audio/AudioImports/Sword/hit-swing-sword-small-2-95566.mp3" id="5_fob8r"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_764su"]
 
 [node name="CombatComponent" type="Node2D"]
 script = ExtResource("1_n2m83")
 health = 100
+damage_taken_sfx = ExtResource("5_fob8r")
+die_sfx = ExtResource("3_764su")
 metadata/_edit_lock_ = true
 
 [node name="Abilities" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_764su")
+autoplay = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 0.2

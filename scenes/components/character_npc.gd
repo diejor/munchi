@@ -10,6 +10,7 @@ const iSQRT2 = 0.70710678118
 var facing_vector: Vector2
 
 func _ready() -> void:
+	super._ready()
 	assert(mass > 0, "Damping must be positive to prevent freezing")
 
 	if not navigation_agent.velocity_computed.is_connected(_on_velocity_computed):

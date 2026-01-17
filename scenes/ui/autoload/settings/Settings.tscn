@@ -48,6 +48,7 @@ text = "Settings"
 [node name="Close" type="Button" parent="CanvasUI/SettingsContainer/VBoxContainer/Top"]
 layout_mode = 2
 size_flags_horizontal = 8
+focus_mode = 0
 theme = ExtResource("2_1pw8j")
 text = "Close"
 script = ExtResource("3_uerfn")

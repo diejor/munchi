@@ -29,8 +29,8 @@ func _physics_process(_delta: float) -> void:
 		var ability_name: String = ability.name
 		assert(tree_root.has_node(ability_name))
 		set("parameters/%s/blend_position" % ability_name, character.facing_vector)
-		
-	is_moving = not character.velocity.is_zero_approx()
+	
+	is_moving = not character.velocity.length_squared() < 1.
 
 
 func _on_ability_used(ability: AbilityBase) -> void:
