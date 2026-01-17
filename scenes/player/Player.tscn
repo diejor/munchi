@@ -47,6 +47,7 @@ bus = &"SFX"
 
 [node name="RuneComponent" type="Node2D" parent="."]
 script = ExtResource("7_20koh")
+points_to_start = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
