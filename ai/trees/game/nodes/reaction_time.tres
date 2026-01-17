@@ -1,0 +1,5 @@
+[gd_resource type="BTRandomWait" format=3 uid="uid://88oatkfemqcw"]
+
+[resource]
+min_duration = 0.5
+max_duration = 0.75

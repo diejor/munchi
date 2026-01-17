@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo8xuh4i1afkb"]
 
-[ext_resource type="Texture2D" uid="uid://bd1cqpc0ocm4i" path="res://assets/propietary/heart.png" id="1_316hl"]
+[ext_resource type="Texture2D" uid="uid://bd1cqpc0ocm4i" path="res://assets/propietary/ui/heart.png" id="1_316hl"]
 [ext_resource type="Script" uid="uid://c4rk03a30esrx" path="res://scenes/ui/hud/heart_container.gd" id="1_fs0us"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5stf6"]

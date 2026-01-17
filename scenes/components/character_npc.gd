@@ -25,7 +25,7 @@ func _physics_process(_delta: float) -> void:
 	if NavigationServer2D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
 
-	if navigation_agent.is_navigation_finished():
+	if navigation_agent.is_navigation_finished() or navigation_agent.target_position == Vector2.ZERO:
 		_on_velocity_computed(Vector2.ZERO)
 		return
 

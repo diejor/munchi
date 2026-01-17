@@ -6,7 +6,7 @@ extends BTAction
 
 @export var target_pos_var: StringName = &"target_pos"
 
-@export var spacing: float = 25.
+@export var spacing: BBFloat
 
 func _generate_name() -> String:
 	return "NavigateTo ➜%s" % [
@@ -30,6 +30,9 @@ func _tick(_delta: float) -> Status:
 	
 	var target_pos: Vector2 = blackboard.get_var(target_pos_var, Vector2.ZERO)
 	nav_agent.target_position = target_pos
-	nav_agent.target_desired_distance = spacing
+	#nav_agent.target_desired_distance = spacing.get_value(scene_root, blackboard, 25.)
+	
+	if target_pos == Vector2.ZERO:
+		return SUCCESS
 		
 	return RUNNING

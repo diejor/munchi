@@ -1,0 +1,25 @@
+[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://b7ccy1wx607rf"]
+
+[ext_resource type="Script" uid="uid://dsoci3dooonse" path="res://ai/tasks/in_sight.gd" id="1_wi7q7"]
+[ext_resource type="Script" uid="uid://yafgqp43e47q" path="res://ai/tasks/get_last_seen_pos.gd" id="2_1qabl"]
+[ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="3_rj1xk"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_wi7q7"]
+
+[sub_resource type="BTCondition" id="BTCondition_pqw3x"]
+script = ExtResource("1_wi7q7")
+
+[sub_resource type="BTAction" id="BTAction_uqroc"]
+script = ExtResource("2_1qabl")
+
+[sub_resource type="BTAction" id="BTAction_uv86c"]
+script = ExtResource("3_rj1xk")
+spacing = 25.0
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_wi7q7"]
+custom_name = "Pursue"
+children = [SubResource("BTCondition_pqw3x"), SubResource("BTAction_uqroc"), SubResource("BTAction_uv86c")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_wi7q7")
+root_task = SubResource("BTDynamicSequence_wi7q7")

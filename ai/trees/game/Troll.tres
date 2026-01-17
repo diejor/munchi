@@ -20,6 +20,7 @@ script = ExtResource("2_s48ny")
 
 [sub_resource type="BTAction" id="BTAction_11ttb"]
 script = ExtResource("3_4nnyi")
+spacing = 25.0
 
 [sub_resource type="BTDynamicSequence" id="BTDynamicSequence_pdxnf"]
 custom_name = "Pursue"
@@ -27,6 +28,7 @@ children = [SubResource("BTCondition_yb6mk"), SubResource("BTAction_i4d0m"), Sub
 
 [sub_resource type="BTAction" id="BTAction_a1rt2"]
 script = ExtResource("3_4nnyi")
+spacing = 25.0
 
 [sub_resource type="BTWait" id="BTWait_fywn5"]
 
