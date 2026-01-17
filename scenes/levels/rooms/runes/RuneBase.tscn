@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c68wmnei5lnyq"]
+[gd_scene load_steps=9 format=3 uid="uid://c68wmnei5lnyq"]
 
 [ext_resource type="Script" uid="uid://f8u6x6wh1nbe" path="res://scenes/levels/rooms/runes/rune.gd" id="1_4ts5p"]
 [ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="3_7cwoa"]
@@ -20,14 +20,6 @@ resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_ppn5a")
 region = Rect2(196, 340, 40, 40)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eqvvy"]
-load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xp5f4"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_eqvvy")
-region = Rect2(196, 292, 40, 40)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_7cwoa"]
 radius = 32.24903
 
@@ -47,7 +39,7 @@ script = ExtResource("3_g3s0i")
 
 [node name="RuneSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = SubResource("AtlasTexture_xp5f4")
+texture = SubResource("AtlasTexture_g3s0i")
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true

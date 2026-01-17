@@ -86,10 +86,11 @@ threaded = false
 tiles_per_frame = 500
 tile_map_layers = [NodePath("../NavigationRegion2D/Grass"), NodePath("../MountainTop"), NodePath("../NavigationRegion2D/Ignore"), NodePath("../NavigationRegion2D/Mountain1")]
 terrain_gap_fix = true
-generator = NodePath("../WalkerGenerator")
+generator = NodePath("../Generator")
 metadata/_custom_type_script = "uid://bnr7jegypx1qy"
 
-[node name="WalkerGenerator" type="Node" parent="."]
+[node name="Generator" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_if38b")
 settings = ExtResource("11_p2hyx")
 generate_on_ready = false
@@ -110,4 +111,4 @@ position = Vector2(-122, 66)
 [connection signal="area_rendered" from="ThreadedTilemapGaeaRenderer" to="." method="_on_area_rendered"]
 [connection signal="area_rendered" from="ThreadedTilemapGaeaRenderer" to="CanvasUI/LoadingControl" method="_on_area_rendered"]
 [connection signal="generation_progress" from="ThreadedTilemapGaeaRenderer" to="CanvasUI/LoadingControl" method="_on_generation_progress"]
-[connection signal="generation_started" from="WalkerGenerator" to="CanvasUI/LoadingControl" method="_on_generation_started"]
+[connection signal="generation_started" from="Generator" to="CanvasUI/LoadingControl" method="_on_generation_started"]

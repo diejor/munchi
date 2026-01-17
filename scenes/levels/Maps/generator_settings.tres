@@ -89,7 +89,7 @@ expand_bottom = 10
 metadata/_custom_type_script = "uid://rbn4duitehfa"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
-seed = -1718040405
+seed = 1152917669
 frequency = 0.0486
 
 [sub_resource type="Resource" id="Resource_eb6dy"]

@@ -17,5 +17,5 @@ func _on_projectile_used() -> void:
 	to_launch.process_mode = Node.PROCESS_MODE_INHERIT
 	to_launch.visible = true
 	to_launch.hitbox.ability = self
-	owner.owner.add_child.call_deferred(to_launch)
+	character.get_parent().add_child.call_deferred(to_launch)
 	

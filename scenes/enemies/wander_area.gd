@@ -5,7 +5,7 @@ extends CollisionShape2D
 func _ready() -> void:
 	assert(shape is CircleShape2D)
 	assert(owner is Node2D)
-	global_position = owner.global_position
+	global_position = get_parent().global_position
 	top_level = true
 	disabled = true
 	unique_name_in_owner = true

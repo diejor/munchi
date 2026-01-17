@@ -1,3 +1,4 @@
+@tool
 class_name RuneBase
 extends Node2D
 
@@ -17,19 +18,25 @@ signal deactivate(rune: RuneBase)
 
 @onready var is_active: bool = false
 
+var player: CharacterPlayer:
+	get:
+		var p = get_tree().get_nodes_in_group("player")
+		if not p.is_empty():
+			return p[0]
+		return null
+
 @onready var player_rune_component: RuneComponent:
-	get: 
-		var player = PlayerManager.player
+	get:
 		if player == null:
 			return
-		return PlayerManager.player.get_node("%RuneComponent")
+		return player.get_node("%RuneComponent")
 
 
 var room: Node2D:
 	get: return owner
 
 
-@export var enemies: Array[CharacterNPC]:
+@onready var enemies: Array[CharacterNPC]:
 	get:
 		if not enemies.is_empty():
 			return enemies
@@ -54,8 +61,9 @@ func _ready() -> void:
 	activate.connect(_on_activate.bind(self))
 	deactivate.connect(_on_deactivate.bind(self))
 	
-	activate.connect(player_rune_component._on_rune_activated.bind(self))
-	deactivate.connect(player_rune_component._on_rune_deactivate.bind(self))
+	if not OS.is_debug_build() and player_rune_component:
+		activate.connect(player_rune_component._on_rune_activated.bind(self))
+		deactivate.connect(player_rune_component._on_rune_deactivate.bind(self))
 	
 	_update_rune()
 
@@ -67,6 +75,8 @@ func release_enemies() -> void:
 
 func _on_activate(_rune: RuneBase) -> void:
 	rune_sprite.texture = activated
+	if OS.is_debug_build():
+		return
 	for enemy in enemies:
 		enemy.visible = true
 		enemy.modulate = vanish_enemy_color
@@ -74,6 +84,8 @@ func _on_activate(_rune: RuneBase) -> void:
 
 func _on_deactivate(_rune: RuneBase) -> void:
 	rune_sprite.texture = deactivated
+	if OS.is_debug_build():
+		return
 	for enemy in enemies:
 		enemy.visible = false
 		enemy.process_mode = Node.PROCESS_MODE_DISABLED

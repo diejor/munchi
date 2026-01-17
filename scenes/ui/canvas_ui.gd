@@ -6,7 +6,8 @@ extends CanvasLayer
 func _ready() -> void:
 	if override_visibility:
 		visible = false
-	owner.visibility_changed.connect(_on_tree_visibility_changed)
+	if not owner.visibility_changed.is_connected(_on_tree_visibility_changed):
+		owner.visibility_changed.connect(_on_tree_visibility_changed)
 	for child in get_children():
 		var no_pixel = child.get("no_pixel")
 		if child.owner != self and no_pixel == null:
