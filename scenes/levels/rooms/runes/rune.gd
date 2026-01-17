@@ -1,6 +1,7 @@
-@tool
 class_name RuneBase
 extends Node2D
+
+@export var enemies_ary: Array[CharacterNPC]
 
 @warning_ignore("unused_signal")
 signal activate(rune: RuneBase)
