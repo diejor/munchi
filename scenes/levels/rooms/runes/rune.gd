@@ -21,7 +21,7 @@ signal deactivate(rune: RuneBase)
 @onready var player_rune_component: RuneComponent:
 	get: 
 		var player = PlayerManager.player
-		if player != null:
+		if player == null:
 			return
 		return PlayerManager.player.get_node("%RuneComponent")
 
