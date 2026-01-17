@@ -8,6 +8,7 @@
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3s0i"]
+resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_7cwoa")
 region = Rect2(196, 292, 40, 40)
 
@@ -15,6 +16,7 @@ region = Rect2(196, 292, 40, 40)
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j810n"]
+resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_ppn5a")
 region = Rect2(196, 340, 40, 40)
 
@@ -22,6 +24,7 @@ region = Rect2(196, 340, 40, 40)
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xp5f4"]
+resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_eqvvy")
 region = Rect2(196, 292, 40, 40)
 
