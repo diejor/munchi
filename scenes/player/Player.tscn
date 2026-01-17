@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bln2nurmvtfj1"]
+[gd_scene load_steps=15 format=3 uid="uid://bln2nurmvtfj1"]
 
 [ext_resource type="Script" uid="uid://bo73glj04t8qt" path="res://scenes/player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="2_5stf6"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="2_180ig"]
 [ext_resource type="PackedScene" uid="uid://c26libpeyrrm3" path="res://scenes/player/PlayerArt.tscn" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://b6sfxsj0b18j6" path="res://scenes/player/pause.gd" id="3_4kuee"]
 [ext_resource type="Script" uid="uid://bdrp7hy77ec6n" path="res://scenes/components/player_combat.gd" id="3_180ig"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cptpufpq3ks8q" path="res://scenes/components/abilities/BasicAttack.tscn" id="4_5stf6"]
 [ext_resource type="PackedScene" uid="uid://do16v7fc065q5" path="res://assets/Audio/PlayerSword.tscn" id="5_5stf6"]
 [ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="6_c3xxp"]
+[ext_resource type="Script" uid="uid://bs60namhm35q0" path="res://scenes/player/rune_component.gd" id="7_20koh"]
 [ext_resource type="PackedScene" uid="uid://bo8xuh4i1afkb" path="res://scenes/ui/hud/HeartContainer.tscn" id="7_180ig"]
 [ext_resource type="PackedScene" uid="uid://gfbvivrwtd55" path="res://scenes/ui/hud/PauseMenu.tscn" id="10_7oing"]
 
@@ -16,11 +18,17 @@
 radius = 2.0
 height = 10.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_4flbx")
+
+[node name="Shadow" parent="." instance=ExtResource("2_180ig")]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 3.0
 
 [node name="CombatComponent" parent="." instance=ExtResource("2_5stf6")]
 unique_name_in_owner = true
@@ -36,6 +44,9 @@ collision_mask = 4
 
 [node name="PlayerSword" parent="CombatComponent/Abilities/attack" instance=ExtResource("5_5stf6")]
 bus = &"SFX"
+
+[node name="RuneComponent" type="Node2D" parent="."]
+script = ExtResource("7_20koh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -73,6 +84,32 @@ offset_top = 10.0
 offset_right = 75.0
 offset_bottom = 28.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasUI/HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 22.0
+grow_horizontal = 2
+
+[node name="Points" type="Label" parent="CanvasUI/HUD/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme = ExtResource("6_c3xxp")
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLevelButton" type="Button" parent="CanvasUI/HUD/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("6_c3xxp")
+text = "start"
+
 [node name="Pause" type="Button" parent="CanvasUI"]
 unique_name_in_owner = true
 anchors_preset = 1
@@ -94,6 +131,7 @@ unique_name_in_owner = true
 [connection signal="visibility_changed" from="." to="CanvasUI" method="_on_player_visibility_changed"]
 [connection signal="dissapearing" from="CombatComponent" to="CombatComponent" method="_on_dissapearing"]
 [connection signal="used" from="CombatComponent/Abilities/attack" to="CombatComponent/Abilities/attack/PlayerSword" method="_on_play_sfx"]
+[connection signal="start_level" from="RuneComponent" to="RuneComponent" method="_on_start_level"]
 [connection signal="pressed" from="CanvasUI/Pause" to="CanvasUI/Pause" method="_on_pressed"]
 
 [editable path="CombatComponent"]

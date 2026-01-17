@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0nitivffjy4q"]
+[gd_scene load_steps=15 format=3 uid="uid://c0nitivffjy4q"]
 
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_njf0f"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="2_svvjg"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="2_wvt6m"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="3_nk856"]
 [ext_resource type="PackedScene" uid="uid://cunxax0ebgs00" path="res://scenes/components/abilities/RangedAttack.tscn" id="4_njf0f"]
 [ext_resource type="PackedScene" uid="uid://bu6n6sj7wqgvd" path="res://assets/Audio/SlimeSpit.tscn" id="5_svvjg"]
@@ -24,6 +25,12 @@ motion_mode = 1
 script = ExtResource("1_njf0f")
 movement_speed = 25.0
 mass = 5.0
+
+[node name="Shadow" parent="." instance=ExtResource("2_wvt6m")]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 3.0
 
 [node name="CombatComponent" parent="." instance=ExtResource("2_svvjg")]
 script = ExtResource("3_nk856")
