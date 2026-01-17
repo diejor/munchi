@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crtrq2gvst55c" path="res://assets/propietary/Enemies/Troll/troll.png" id="1_qg875"]
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_kuwd8"]
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="2_qg875"]
-[ext_resource type="PackedScene" uid="uid://cptpufpq3ks8q" path="res://scenes/player/abilities/BasicAttack.tscn" id="4_3itky"]
+[ext_resource type="PackedScene" uid="uid://cptpufpq3ks8q" path="res://scenes/components/abilities/BasicAttack.tscn" id="4_3itky"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="4_n1lg2"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="5_7irow"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="6_n1lg2"]

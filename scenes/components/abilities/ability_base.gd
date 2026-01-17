@@ -30,11 +30,12 @@ func _on_enemy_entered(body: Node2D) -> void:
 func try_use() -> AbilityBase:
 	if can_use:
 		can_use = false
-		used.emit()
 		animation_player.play("use_ability")
 		return self
 	return null
 
+func emit_used() -> void:
+	used.emit()
 
 func refresh(_ignore = null) -> void:
 	can_use = true

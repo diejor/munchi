@@ -25,6 +25,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	set("parameters/idle/blend_position", character.facing_vector)
 	set("parameters/walk/blend_position", character.facing_vector)
+	set("parameters/dead/blend_position", character.facing_vector)
 	for ability in combat.abilities.get_children():
 		var ability_name: String = ability.name
 		assert(tree_root.has_node(ability_name))

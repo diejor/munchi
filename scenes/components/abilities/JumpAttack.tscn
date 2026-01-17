@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://mvtwtf2igr56"]
 
-[ext_resource type="Script" uid="uid://baut45vnpsoyq" path="res://scenes/player/abilities/jump_attack.gd" id="1_s2p45"]
-[ext_resource type="Script" uid="uid://dh5piepf5fsed" path="res://scenes/player/abilities/jump_shape.gd" id="2_lka4u"]
+[ext_resource type="Script" uid="uid://baut45vnpsoyq" path="res://scenes/components/abilities/jump_attack.gd" id="1_s2p45"]
+[ext_resource type="Script" uid="uid://dh5piepf5fsed" path="res://scenes/components/abilities/jump_shape.gd" id="2_lka4u"]
 
 [sub_resource type="Animation" id="Animation_uq06w"]
 length = 0.001
@@ -31,6 +31,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_used"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oia7o"]

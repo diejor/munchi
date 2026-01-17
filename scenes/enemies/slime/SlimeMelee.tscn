@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_sdtwm"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="3_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_psnr1"]
-[ext_resource type="PackedScene" uid="uid://mvtwtf2igr56" path="res://scenes/player/abilities/JumpAttack.tscn" id="4_d8b5v"]
+[ext_resource type="PackedScene" uid="uid://mvtwtf2igr56" path="res://scenes/components/abilities/JumpAttack.tscn" id="4_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="4_sdtwm"]
 [ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="6_psnr1"]
 [ext_resource type="BehaviorTree" uid="uid://dxug7yr0o3ae5" path="res://ai/trees/game/Slime.tres" id="9_d8b5v"]
@@ -54,6 +54,7 @@ unique_name_in_owner = true
 
 [node name="BTPlayer" parent="." instance=ExtResource("9_wavdb")]
 behavior_tree = ExtResource("9_d8b5v")
+active = false
 
 [editable path="CombatComponent"]
 [editable path="CombatComponent/Abilities/jump_attack"]

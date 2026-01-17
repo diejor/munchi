@@ -7,6 +7,7 @@ signal ability_used(ability: AbilityBase)
 signal ability_finished
 
 signal die
+signal dissapearing
 signal damage_taken(points: int)
 signal heart_restored(points: int)
 
@@ -38,6 +39,7 @@ var is_dead: bool
 func _enter_tree() -> void:
 	unique_name_in_owner = true
 
+# ready defined in player_combat
 
 func get_ability(action: String) -> AbilityBase:
 	return abilities.get_node(action)
@@ -110,4 +112,5 @@ func _on_die() -> void:
 	var propt: PropertyTweener = tween.tween_property(owner, "modulate", transparent, 0.5)
 	propt.set_delay(2.).set_ease(Tween.EASE_OUT)
 	
+	dissapearing.emit()
 	tween.finished.connect(owner.queue_free.call_deferred)

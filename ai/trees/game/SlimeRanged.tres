@@ -1,0 +1,71 @@
+[gd_resource type="BehaviorTree" load_steps=23 format=3 uid="uid://2j8t2rgmpfpi"]
+
+[ext_resource type="Script" uid="uid://dsoci3dooonse" path="res://ai/tasks/in_sight.gd" id="1_rgvym"]
+[ext_resource type="Script" uid="uid://yafgqp43e47q" path="res://ai/tasks/get_last_seen_pos.gd" id="2_4sx0f"]
+[ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="3_2asdm"]
+[ext_resource type="Script" uid="uid://d0jydcqyfe1ga" path="res://ai/tasks/use_ability.gd" id="4_oe5u4"]
+[ext_resource type="Script" uid="uid://20u5su0vxp8h" path="res://ai/tasks/get_wander_point.gd" id="5_jqx5s"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_h877c"]
+var/target_pos/name = &"target_pos"
+var/target_pos/type = 5
+var/target_pos/value = Vector2(0, 0)
+var/target_pos/hint = 0
+var/target_pos/hint_string = ""
+
+[sub_resource type="BTCondition" id="BTCondition_hl8lq"]
+script = ExtResource("1_rgvym")
+
+[sub_resource type="BTAction" id="BTAction_ilsky"]
+script = ExtResource("2_4sx0f")
+
+[sub_resource type="BTAction" id="BTAction_f5vr1"]
+script = ExtResource("3_2asdm")
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_2k5hp"]
+custom_name = "Pursue"
+children = [SubResource("BTCondition_hl8lq"), SubResource("BTAction_ilsky"), SubResource("BTAction_f5vr1")]
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_a7g0a"]
+min_duration = 0.5
+max_duration = 0.75
+
+[sub_resource type="BTAction" id="BTAction_x27d1"]
+script = ExtResource("4_oe5u4")
+ability_name = &"ranged_attack"
+
+[sub_resource type="BTSequence" id="BTSequence_xkoca"]
+custom_name = "Attack"
+children = [SubResource("BTDynamicSequence_2k5hp"), SubResource("BTRandomWait_a7g0a"), SubResource("BTAction_x27d1")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_ff54x"]
+duration = 1.0
+children = [SubResource("BTSequence_xkoca")]
+
+[sub_resource type="BTAction" id="BTAction_0sxsg"]
+script = ExtResource("3_2asdm")
+
+[sub_resource type="BTWait" id="BTWait_2y150"]
+
+[sub_resource type="BTSequence" id="BTSequence_3cwsx"]
+children = [SubResource("BTAction_0sxsg"), SubResource("BTWait_2y150")]
+
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_2445s"]
+children = [SubResource("BTSequence_3cwsx")]
+
+[sub_resource type="BTAction" id="BTAction_g0q7m"]
+script = ExtResource("5_jqx5s")
+
+[sub_resource type="BTSequence" id="BTSequence_upr4y"]
+custom_name = "Wander"
+children = [SubResource("BTTimeLimit_2445s"), SubResource("BTAction_g0q7m")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_8rv73"]
+children = [SubResource("BTCooldown_ff54x"), SubResource("BTSequence_upr4y")]
+
+[sub_resource type="BTSequence" id="BTSequence_hmoah"]
+children = [SubResource("BTDynamicSelector_8rv73")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_h877c")
+root_task = SubResource("BTSequence_hmoah")

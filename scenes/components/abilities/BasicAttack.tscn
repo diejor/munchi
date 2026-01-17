@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cptpufpq3ks8q"]
 
-[ext_resource type="Script" uid="uid://bbve4twnlvwx" path="res://scenes/player/abilities/basic_attack.gd" id="1_xldlo"]
+[ext_resource type="Script" uid="uid://bbve4twnlvwx" path="res://scenes/components/abilities/basic_attack.gd" id="1_xldlo"]
 [ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="2_i4vim"]
 [ext_resource type="AudioStream" uid="uid://c2mjiqe85ef7e" path="res://assets/Audio/AudioImports/Sword/quick-swing-sound-419581.mp3" id="2_upkpg"]
 
@@ -45,6 +45,20 @@ tracks/1/keys = {
 "values": [{
 "args": [0.0],
 "method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_used"
 }]
 }
 

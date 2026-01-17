@@ -1,7 +1,7 @@
 [gd_scene load_steps=137 format=3 uid="uid://co7ph8xbf3n2f"]
 
 [ext_resource type="Texture2D" uid="uid://ckpmaxqtqvgom" path="res://assets/propietary/Enemies/Slime/spritesheet_slimes.png" id="1_567fd"]
-[ext_resource type="AnimationLibrary" uid="uid://rkpuve2vibmv" path="res://scenes/enemies/slime/slime_anim_library.tres" id="2_567fd"]
+[ext_resource type="AnimationLibrary" uid="uid://ceh7wlqamimey" path="res://scenes/enemies/slime/slime_melee_anim_library.tres" id="2_86hx8"]
 [ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="3_86hx8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rr2wl"]
@@ -1014,7 +1014,7 @@ autoplay = "idle_down"
 unique_name_in_owner = true
 callback_mode_process = 0
 libraries = {
-&"": ExtResource("2_567fd")
+&"": ExtResource("2_86hx8")
 }
 
 [node name="ArtAnimator" type="AnimationTree" parent="."]
