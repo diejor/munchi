@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0wqf8iq3tflv"]
+[gd_scene load_steps=13 format=3 uid="uid://c0wqf8iq3tflv"]
 
 [ext_resource type="PackedScene" uid="uid://co7ph8xbf3n2f" path="res://scenes/enemies/slime/SlimeMeleeArt.tscn" id="1_ib43c"]
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_sdtwm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_psnr1"]
 [ext_resource type="PackedScene" uid="uid://mvtwtf2igr56" path="res://scenes/components/abilities/JumpAttack.tscn" id="4_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="4_sdtwm"]
+[ext_resource type="PackedScene" uid="uid://dwqlrkb4p18m3" path="res://assets/Audio/SlimeDeath.tscn" id="5_ipisy"]
 [ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="6_psnr1"]
 [ext_resource type="BehaviorTree" uid="uid://dxug7yr0o3ae5" path="res://ai/trees/game/Slime.tres" id="9_d8b5v"]
 [ext_resource type="PackedScene" uid="uid://c4uut2pu3ly0b" path="res://scenes/enemies/BtPlayer.tscn" id="9_wavdb"]
@@ -37,6 +38,8 @@ shape = SubResource("CapsuleShape2D_qg875")
 offset_top = -22.0
 offset_bottom = -4.0
 
+[node name="SlimeDeath" parent="CombatComponent" instance=ExtResource("5_ipisy")]
+
 [node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
 
 [node name="SightComponent" parent="." instance=ExtResource("2_sdtwm")]
@@ -54,7 +57,8 @@ unique_name_in_owner = true
 
 [node name="BTPlayer" parent="." instance=ExtResource("9_wavdb")]
 behavior_tree = ExtResource("9_d8b5v")
-active = false
+
+[connection signal="die" from="CombatComponent" to="CombatComponent/SlimeDeath" method="_on_play_sfx"]
 
 [editable path="CombatComponent"]
 [editable path="CombatComponent/Abilities/jump_attack"]

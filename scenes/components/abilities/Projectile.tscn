@@ -1,8 +1,11 @@
-[gd_scene load_steps=84 format=3 uid="uid://pgvc0k1prf8g"]
+[gd_scene load_steps=87 format=3 uid="uid://pgvc0k1prf8g"]
 
 [ext_resource type="Script" uid="uid://dpsvv771vwd1q" path="res://scenes/components/abilities/projectile.gd" id="1_lrjuy"]
 [ext_resource type="Texture2D" uid="uid://ckpmaxqtqvgom" path="res://assets/propietary/Enemies/Slime/spritesheet_slimes.png" id="2_mw4xc"]
 [ext_resource type="AudioStream" uid="uid://c2mjiqe85ef7e" path="res://assets/Audio/AudioImports/Sword/quick-swing-sound-419581.mp3" id="3_psnfp"]
+[ext_resource type="Script" uid="uid://c4q4c0oj7hoat" path="res://scenes/components/abilities/collision_ranged.gd" id="4_lrjuy"]
+[ext_resource type="Script" uid="uid://t3smq82q7rqb" path="res://scenes/components/abilities/hitbox.gd" id="4_mw4xc"]
+[ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="5_mw4xc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pme31"]
 atlas = ExtResource("2_mw4xc")
@@ -446,6 +449,21 @@ stream_0/stream = ExtResource("3_psnfp")
 [sub_resource type="CircleShape2D" id="CircleShape2D_fk8lc"]
 radius = 2.0
 
+[sub_resource type="Animation" id="Animation_obxpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_bo0ic"]
 length = 0.23333335
 tracks/0/type = "value"
@@ -578,21 +596,6 @@ tracks/0/keys = {
 "values": [&"up_right"]
 }
 
-[sub_resource type="Animation" id="Animation_obxpc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u3thn"]
 _data = {
 &"RESET": SubResource("Animation_obxpc"),
@@ -662,7 +665,6 @@ process_mode = 4
 show_behind_parent = true
 collision_layer = 0
 script = ExtResource("1_lrjuy")
-metadata/_custom_type_script = "uid://dntc3c582m5w8"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -688,3 +690,27 @@ root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_0aawk")
 anim_player = NodePath("../AnimationPlayer")
 parameters/projectile/blend_position = Vector2(0, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_mw4xc")
+metadata/_custom_type_script = "uid://t3smq82q7rqb"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_fk8lc")
+debug_color = Color(0.66642976, 0.48523962, 0.4499498, 0.41960785)
+script = ExtResource("4_lrjuy")
+
+[node name="DebugLabel" parent="Hitbox" instance=ExtResource("5_mw4xc")]
+offset_left = 9.0
+offset_top = -4.0
+offset_right = 83.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 16
+text = "RANGED ATTACK"
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

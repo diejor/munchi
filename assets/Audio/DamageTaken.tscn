@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://babunu14w4py4"]
+
+[ext_resource type="Script" uid="uid://d25b248xf3isb" path="res://assets/Audio/play_sfx.gd" id="1_ah8wr"]
+[ext_resource type="AudioStream" uid="uid://bogyxdhq27qba" path="res://assets/Audio/AudioImports/Sword/hit-swing-sword-small-2-95566.mp3" id="1_g0uof"]
+
+[node name="DamageTaken" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_g0uof")
+volume_db = -20.0
+script = ExtResource("1_ah8wr")
+metadata/_custom_type_script = "uid://d25b248xf3isb"

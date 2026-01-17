@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cunxax0ebgs00"]
+[gd_scene load_steps=6 format=3 uid="uid://cunxax0ebgs00"]
 
 [ext_resource type="Script" uid="uid://blphexa17abh3" path="res://scenes/components/abilities/ranged_attack.gd" id="1_bo0ic"]
 [ext_resource type="PackedScene" uid="uid://pgvc0k1prf8g" path="res://scenes/components/abilities/Projectile.tscn" id="2_xbsol"]
-[ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="3_xregt"]
-[ext_resource type="Script" uid="uid://c4q4c0oj7hoat" path="res://scenes/components/abilities/collision_ranged.gd" id="5_bo0ic"]
 
 [sub_resource type="Animation" id="Animation_xregt"]
 resource_name = "RESET"
@@ -31,9 +29,6 @@ _data = {
 &"use_ability": SubResource("Animation_ic68k")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fk8lc"]
-radius = 2.0
-
 [node name="ranged_attack" type="Node2D"]
 script = ExtResource("1_bo0ic")
 metadata/_edit_lock_ = true
@@ -46,25 +41,6 @@ libraries = {
 
 [node name="Projectile" parent="." instance=ExtResource("2_xbsol")]
 unique_name_in_owner = true
-
-[node name="Hitbox" type="Area2D" parent="Projectile"]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Projectile/Hitbox"]
-scale = Vector2(5.0625, 5.0625)
-shape = SubResource("CircleShape2D_fk8lc")
-debug_color = Color(0.66642976, 0.48523962, 0.4499498, 0.41960785)
-script = ExtResource("5_bo0ic")
-
-[node name="DebugLabel" parent="Projectile/Hitbox" instance=ExtResource("3_xregt")]
-offset_left = 9.0
-offset_top = -4.0
-offset_right = 83.0
-offset_bottom = 10.0
-theme_override_font_sizes/font_size = 16
-text = "RANGED ATTACK"
+position = Vector2(0, -4)
 
 [connection signal="used" from="." to="." method="_on_projectile_used"]

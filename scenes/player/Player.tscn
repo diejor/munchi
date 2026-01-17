@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bln2nurmvtfj1"]
+[gd_scene load_steps=13 format=3 uid="uid://bln2nurmvtfj1"]
 
 [ext_resource type="Script" uid="uid://bo73glj04t8qt" path="res://scenes/player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="2_5stf6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bdrp7hy77ec6n" path="res://scenes/components/player_combat.gd" id="3_180ig"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="3_524rm"]
 [ext_resource type="PackedScene" uid="uid://cptpufpq3ks8q" path="res://scenes/components/abilities/BasicAttack.tscn" id="4_5stf6"]
+[ext_resource type="PackedScene" uid="uid://do16v7fc065q5" path="res://assets/Audio/PlayerSword.tscn" id="5_5stf6"]
 [ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="6_c3xxp"]
 [ext_resource type="PackedScene" uid="uid://bo8xuh4i1afkb" path="res://scenes/ui/hud/HeartContainer.tscn" id="7_180ig"]
 [ext_resource type="PackedScene" uid="uid://gfbvivrwtd55" path="res://scenes/ui/hud/PauseMenu.tscn" id="10_7oing"]
@@ -30,8 +31,10 @@ health = 3
 [node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_5stf6")]
 damage = 10
 
-[node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="2"]
+[node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="1"]
 collision_mask = 4
+
+[node name="PlayerSword" parent="CombatComponent/Abilities/attack" instance=ExtResource("5_5stf6")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -89,6 +92,7 @@ unique_name_in_owner = true
 
 [connection signal="visibility_changed" from="." to="CanvasUI" method="_on_player_visibility_changed"]
 [connection signal="dissapearing" from="CombatComponent" to="CombatComponent" method="_on_dissapearing"]
+[connection signal="used" from="CombatComponent/Abilities/attack" to="CombatComponent/Abilities/attack/PlayerSword" method="_on_play_sfx"]
 [connection signal="pressed" from="CanvasUI/Pause" to="CanvasUI/Pause" method="_on_pressed"]
 
 [editable path="CombatComponent"]

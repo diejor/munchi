@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://do16v7fc065q5"]
+[gd_scene load_steps=3 format=3 uid="uid://do16v7fc065q5"]
 
 [ext_resource type="AudioStream" uid="uid://c1s8t7oiqm8n1" path="res://assets/Audio/AudioImports/Sword/swing-whoosh-weapon-1-189819.mp3" id="1_u3r0c"]
+[ext_resource type="Script" uid="uid://d25b248xf3isb" path="res://assets/Audio/play_sfx.gd" id="2_3t0kh"]
 
 [node name="PlayerSword" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_u3r0c")
 pitch_scale = 1.35
+script = ExtResource("2_3t0kh")

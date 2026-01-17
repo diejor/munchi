@@ -8,6 +8,7 @@ extends Area2D
 
 var tracked_player: Node2D
 var in_los: bool
+var target_direction: Vector2
 var last_seen: Vector2:
 	get: return ray_cast.target_position + owner.global_position
 
@@ -20,7 +21,8 @@ func _physics_process(_delta: float) -> void:
 		in_los = not ray_cast.is_colliding()
 		
 		if not combat.is_dead:
-			character.facing_vector = ray_cast.global_position.direction_to(tracked_player.global_position)
+			target_direction = ray_cast.global_position.direction_to(tracked_player.global_position)
+			character.facing_vector = target_direction
 	else:
 		in_los = false
 		character.facing_vector = character.velocity

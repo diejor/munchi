@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu6n6sj7wqgvd"]
+[gd_scene load_steps=3 format=3 uid="uid://bu6n6sj7wqgvd"]
 
 [ext_resource type="AudioStream" uid="uid://cytku1ewpdjih" path="res://assets/Audio/AudioImports/Slime/squish-pop-256410.mp3" id="1_i3p1k"]
+[ext_resource type="Script" uid="uid://d25b248xf3isb" path="res://assets/Audio/play_sfx.gd" id="2_8q5lb"]
 
 [node name="SlimeSpit" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_i3p1k")
 pitch_scale = 1.19
+script = ExtResource("2_8q5lb")

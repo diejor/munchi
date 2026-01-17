@@ -8,4 +8,4 @@ extends CollisionShape2D
 func _ready() -> void:
 	var other_c: CollisionShape2D = projectile.get_node("CollisionShape2D")
 	shape = other_c.shape
-	scale = scale * 1.5
+	scale = other_c.scale * 1.5
