@@ -48,8 +48,9 @@ position = Vector2(310, 84)
 [node name="SlimeRanged2" parent="." instance=ExtResource("6_1cbj1")]
 position = Vector2(319, -33)
 
-[node name="RuneBase" parent="." instance=ExtResource("8_kp3t4")]
+[node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("8_kp3t4")]
 position = Vector2(163, 14)
+enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeRanged"), NodePath("../SlimeRanged2")]
 
 [node name="Player" parent="." instance=ExtResource("7_bnrov")]
 position = Vector2(25, 7)
