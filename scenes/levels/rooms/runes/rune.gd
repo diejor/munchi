@@ -24,8 +24,9 @@ var player: CharacterPlayer:
 var player_rune_component: RuneComponent:
 	get: return player.get_node("%RuneComponent")
 
-@export var enemies: Array[CharacterNPC]
-
+@onready var enemies:
+	get:
+		return owner.get_children().filter(func(child): return child is CharacterNPC)
 
 func _update_rune() -> void:
 	if is_active:

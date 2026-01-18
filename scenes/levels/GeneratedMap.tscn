@@ -101,7 +101,6 @@ metadata/_custom_type_script = "uid://dygixoo23s8i3"
 
 [node name="Player" parent="." instance=ExtResource("17_drx7x")]
 position = Vector2(-101, 477)
-test_player = false
 
 [connection signal="level_loaded" from="CanvasUI/LoadingControl" to="." method="_on_level_loaded"]
 [connection signal="area_rendered" from="ThreadedTilemapGaeaRenderer" to="." method="_on_area_rendered"]

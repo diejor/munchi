@@ -53,12 +53,6 @@ folder_colors={
 "res://scenes/ui/": "red"
 }
 
-[global_group]
-
-player=""
-runes=""
-maps=""
-
 [gui]
 
 theme/default_font_subpixel_positioning=0

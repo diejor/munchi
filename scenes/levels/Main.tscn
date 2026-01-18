@@ -96,7 +96,6 @@ generate_on_ready = false
 metadata/_custom_type_script = "uid://34dgcf0kpo3t"
 
 [node name="Player" parent="." instance=ExtResource("9_wgg2v")]
-test_player = false
 
 [node name="Troll" parent="." instance=ExtResource("17_c2fwb")]
 position = Vector2(148, -169)

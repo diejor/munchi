@@ -23,7 +23,7 @@ region = Rect2(196, 340, 40, 40)
 [sub_resource type="CircleShape2D" id="CircleShape2D_7cwoa"]
 radius = 32.24903
 
-[node name="RuneBase" type="Node2D" groups=["runes"]]
+[node name="RuneBase" type="Node2D"]
 z_index = -1
 script = ExtResource("1_4ts5p")
 points = 100
