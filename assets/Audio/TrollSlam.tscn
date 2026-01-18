@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://crjpevbv3n5fl"]
+[gd_scene load_steps=3 format=3 uid="uid://crjpevbv3n5fl"]
 
 [ext_resource type="AudioStream" uid="uid://05ue1vllegws" path="res://assets/Audio/AudioImports/Slam/powerful-ground-impact-355967.mp3" id="1_488dx"]
+[ext_resource type="Script" uid="uid://d25b248xf3isb" path="res://assets/Audio/play_sfx.gd" id="2_wbdg0"]
 
 [node name="TrollSlam" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_488dx")
 pitch_scale = 0.8
+bus = &"SFX"
+script = ExtResource("2_wbdg0")
+metadata/_custom_type_script = "uid://d25b248xf3isb"

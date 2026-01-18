@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://lkln0c1oqkbp"]
+[gd_scene load_steps=14 format=3 uid="uid://lkln0c1oqkbp"]
 
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_eb27w"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="2_1of31"]
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_lpb37"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_1of31"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="4_mrv23"]
 [ext_resource type="PackedScene" uid="uid://ck7uq4uhoe2oh" path="res://scenes/enemies/troll/TrollAttack.tscn" id="5_eb27w"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="6_1lqy5"]
+[ext_resource type="PackedScene" uid="uid://crjpevbv3n5fl" path="res://assets/Audio/TrollSlam.tscn" id="7_1of31"]
 [ext_resource type="PackedScene" uid="uid://dn1cppwsismqk" path="res://scenes/enemies/troll/TrollArt.tscn" id="7_k6ad0"]
 [ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="8_72jje"]
 [ext_resource type="PackedScene" uid="uid://c4uut2pu3ly0b" path="res://scenes/enemies/BtPlayer.tscn" id="9_82mae"]
@@ -23,6 +25,12 @@ script = ExtResource("1_eb27w")
 movement_speed = 20.0
 mass = 30.0
 
+[node name="Shadow" parent="." instance=ExtResource("2_1of31")]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 8.0
+offset_bottom = 3.0
+
 [node name="SightComponent" parent="." instance=ExtResource("2_lpb37")]
 
 [node name="CombatComponent" parent="." instance=ExtResource("3_1of31")]
@@ -33,6 +41,8 @@ script = ExtResource("4_mrv23")
 [node name="HealthBar" parent="CombatComponent/Control" index="0"]
 offset_top = -39.0
 offset_bottom = -21.0
+
+[node name="TrollSlam" parent="CombatComponent" instance=ExtResource("7_1of31")]
 
 [node name="WanderArea" parent="." instance=ExtResource("6_1lqy5")]
 unique_name_in_owner = true
@@ -48,6 +58,8 @@ shape = SubResource("CapsuleShape2D_qg875")
 
 [node name="BTPlayer" parent="." instance=ExtResource("9_82mae")]
 behavior_tree = ExtResource("10_x4q7j")
+
+[connection signal="used" from="CombatComponent/Abilities/attack" to="CombatComponent/TrollSlam" method="_on_play_sfx"]
 
 [editable path="CombatComponent"]
 [editable path="CombatComponent/Abilities/attack"]
