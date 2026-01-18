@@ -22,7 +22,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_sdtwm")
-movement_speed = 90.0
+movement_speed = 25.0
 mass = 5.0
 
 [node name="Shadow" parent="." instance=ExtResource("2_aooed")]
@@ -33,7 +33,7 @@ offset_bottom = 2.0
 
 [node name="CombatComponent" parent="." instance=ExtResource("3_psnr1")]
 script = ExtResource("3_d8b5v")
-health = 20
+health = 25
 
 [node name="jump_attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_d8b5v")]
 

@@ -23,7 +23,6 @@ collision_layer = 2
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_4flbx")
-movement_speed = 75.0
 
 [node name="Shadow" parent="." instance=ExtResource("2_180ig")]
 offset_left = -5.0
@@ -38,7 +37,7 @@ leave_scene = "uid://7eww7ww1n5aw"
 health = 3
 
 [node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_5stf6")]
-damage = 20
+damage = 10
 
 [node name="Hitbox" parent="CombatComponent/Abilities/attack/Pivot" index="1"]
 collision_mask = 4
