@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://din4sbncycips"]
+[gd_scene load_steps=13 format=4 uid="uid://din4sbncycips"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_c8ksw"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_cecmn"]
@@ -6,12 +6,30 @@
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_ixg1h"]
 [ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="5_wu6y1"]
 [ext_resource type="PackedScene" uid="uid://oykncgxk1pk7" path="res://scenes/enemies/Ranger.tscn" id="6_ceyvm"]
+[ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="7_cecmn"]
+[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="8_0yx6v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
+load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yx6v"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_7cwoa")
+region = Rect2(100, 340, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ppn5a"]
+load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixg1h"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_ppn5a")
+region = Rect2(148, 340, 40, 40)
 
 [node name="Troll_3" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Grass" type="TileMapLayer" parent="."]
-z_index = -1
+z_index = -2
 y_sort_enabled = true
 material = ExtResource("1_c8ksw")
 tile_map_data = PackedByteArray("AADz//j/AAACAAEAAADz//n/AAACAAEAAAD0//n/AAACAAEAAAD1//n/AAACAAEAAAD2//n/AAACAAEAAAD2//r/AAACAAEAAAD3//r/AAACAAEAAAD4//r/AAACAAEAAAD5//r/AAACAAEAAAD6//r/AAACAAEAAAD7//r/AAACAAEAAAD8//r/AAACAAEAAAD8//v/AAACAAEAAAD9//v/AAACAAEAAAD+//v/AAACAAEAAAD///v/AAACAAEAAAD///z/AAACAAEAAAAAAPz/AAACAAEAAAABAPz/AAACAAEAAAABAPv/AAACAAEAAAACAPv/AAACAAEAAAACAPr/AAACAAEAAAADAPr/AAACAAEAAAADAPn/AAACAAEAAAAEAPn/AAACAAEAAAAFAPn/AAACAAEAAAAFAPj/AAACAAEAAAAGAPj/AAACAAEAAAAHAPj/AAACAAEAAAAHAPn/AAACAAEAAAAIAPn/AAACAAEAAAAIAPv/AAACAAEAAAAIAPz/AAACAAEAAAAHAPz/AAACAAEAAAAHAP3/AAACAAEAAAAGAP3/AAACAAEAAAAFAP3/AAACAAEAAAAFAP7/AAACAAEAAAAFAP//AAACAAEAAAAEAP//AAACAAEAAAAEAAAAAAACAAEAAAAEAAEAAAACAAEAAAAFAAEAAAACAAEAAAAFAAIAAAACAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAHAAMAAAACAAEAAAAIAAMAAAACAAEAAAAIAAQAAAACAAEAAAAIAAYAAAACAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAEAAAAGAAcAAAACAAEAAAAFAAcAAAACAAEAAAAEAAcAAAACAAEAAAAEAAYAAAACAAEAAAAEAAUAAAACAAEAAAADAAUAAAACAAEAAAADAAQAAAACAAEAAAADAAMAAAACAAEAAAACAAMAAAACAAEAAAACAAIAAAACAAEAAAABAAIAAAACAAEAAAAAAAIAAAACAAEAAAAAAAEAAAACAAEAAAD//wEAAAACAAEAAAD+/wEAAAACAAEAAAD9/wEAAAACAAEAAAD9/wIAAAACAAEAAAD+/wIAAAACAAEAAAD9/wMAAAACAAEAAAD8/wMAAAACAAEAAAD8/wQAAAACAAEAAAD7/wQAAAACAAEAAAD6/wQAAAACAAEAAAD5/wQAAAACAAEAAAD5/wMAAAACAAEAAAD4/wMAAAACAAEAAAD4/wIAAAACAAEAAAD4/wEAAAACAAEAAAD3/wEAAAACAAEAAAD3/wAAAAACAAEAAAD3////AAACAAEAAAD3//7/AAACAAEAAAD2//7/AAACAAEAAAD2//3/AAACAAEAAAD1//3/AAACAAEAAAD1//z/AAACAAEAAAD0//z/AAACAAEAAADz//v/AAACAAEAAAAHAAQAAAACAAEAAAAHAPv/AAACAAEAAAAGAAYAAAACAAEAAAAGAAQAAAACAAEAAAAGAAMAAAACAAEAAAAGAPz/AAACAAEAAAAGAPv/AAACAAEAAAAGAPn/AAACAAEAAAAFAAYAAAACAAEAAAAFAAMAAAACAAEAAAAFAPz/AAACAAEAAAAEAP7/AAACAAEAAAAEAP3/AAACAAEAAAADAP//AAACAAEAAAADAP7/AAACAAEAAAADAP3/AAACAAEAAAACAP//AAACAAEAAAACAP7/AAACAAEAAAABAAEAAAACAAEAAAAAAAAAAAACAAEAAAAAAP3/AAACAAEAAAD//wAAAAACAAEAAAD/////AAACAAEAAAD///3/AAACAAEAAAD+/wAAAAACAAEAAAD+////AAACAAEAAAD+//3/AAACAAEAAAD+//z/AAACAAEAAAD9/wAAAAACAAEAAAD9////AAACAAEAAAD9//z/AAACAAEAAAD8/wIAAAACAAEAAAD8/wEAAAACAAEAAAD8/wAAAAACAAEAAAD8////AAACAAEAAAD8//7/AAACAAEAAAD8//z/AAACAAEAAAD7/wMAAAACAAEAAAD7/wIAAAACAAEAAAD7/wEAAAACAAEAAAD7/wAAAAACAAEAAAD7////AAACAAEAAAD7//7/AAACAAEAAAD7//v/AAACAAEAAAD6/wMAAAACAAEAAAD6/wIAAAACAAEAAAD6/wEAAAACAAEAAAD6/wAAAAACAAEAAAD6////AAACAAEAAAD6//7/AAACAAEAAAD6//3/AAACAAEAAAD6//v/AAACAAEAAAD5/wIAAAACAAEAAAD5/wEAAAACAAEAAAD5/wAAAAACAAEAAAD5////AAACAAEAAAD5//7/AAACAAEAAAD5//3/AAACAAEAAAD4/wAAAAACAAEAAAD4////AAACAAEAAAD4//7/AAACAAEAAAD4//3/AAACAAEAAAD3//3/AAACAAEAAAD2//z/AAACAAEAAAD1//r/AAACAAEAAAD3//z/AAACAAEAAAD4//z/AAACAAEAAAAAAPv/AAACAAEAAAAEAPj/AAACAAEAAAADAPj/AAACAAEAAAADAAAAAAACAAEAAAAEAPz/AAACAAEAAAAFAPv/AAACAAEAAAAAAP//AAACAAEAAAA=")
@@ -36,3 +54,13 @@ position = Vector2(64, 49)
 
 [node name="Ranger2" parent="." instance=ExtResource("6_ceyvm")]
 position = Vector2(55, -48)
+
+[node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("7_cecmn")]
+position = Vector2(-76, -15)
+points = 150
+deactivated = SubResource("AtlasTexture_0yx6v")
+activated = SubResource("AtlasTexture_ixg1h")
+enemies = [NodePath("../Troll")]
+
+[node name="Player" parent="." instance=ExtResource("8_0yx6v")]
+position = Vector2(-35, 13)

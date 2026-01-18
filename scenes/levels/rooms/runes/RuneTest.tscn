@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://buyea2eyplfct"]
+[gd_scene load_steps=12 format=4 uid="uid://buyea2eyplfct"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_rrwwi"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_qndy6"]
@@ -7,7 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="5_4c8kl"]
 [ext_resource type="PackedScene" uid="uid://c0nitivffjy4q" path="res://scenes/enemies/slime/SlimeRanged.tscn" id="6_1cbj1"]
 [ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="7_bnrov"]
+[ext_resource type="Texture2D" uid="uid://q25ipy0ra5k8" path="res://assets/propietary/spritesheet_runes.png" id="8_01da0"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="8_kp3t4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxjh5"]
+atlas = ExtResource("8_01da0")
+region = Rect2(100, 244, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dtic"]
+atlas = ExtResource("8_01da0")
+region = Rect2(148, 244, 40, 40)
 
 [node name="RoomSlime_1" type="Node2D"]
 y_sort_enabled = true
@@ -51,6 +60,8 @@ position = Vector2(319, -33)
 [node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("8_kp3t4")]
 position = Vector2(163, 14)
 points = 50
+deactivated = SubResource("AtlasTexture_qxjh5")
+activated = SubResource("AtlasTexture_5dtic")
 enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeRanged"), NodePath("../SlimeRanged2")]
 
 [node name="Player" parent="." instance=ExtResource("7_bnrov")]
