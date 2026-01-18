@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_d6f4j"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_d12kh"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_i26u2"]
-[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="5_rwgjh"]
+[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/troll/Troll.tscn" id="5_rwgjh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wcqrr"]
 vertices = PackedVector2Array(94, 62, 174, 126, -62, 126, 18, 62, 174, -46, 94, 6, -62, -46, 18, -10, 62, -10, 62, 6)

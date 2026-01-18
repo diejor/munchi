@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://oykncgxk1pk7"]
-
-[ext_resource type="Texture2D" uid="uid://cg2qusq32s40u" path="res://assets/propietary/Enemies/Ranger/ranger.png" id="1_7vton"]
-
-[node name="Ranger" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7vton")
-offset = Vector2(3, -13)

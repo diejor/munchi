@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bnr7jegypx1qy" path="res://addons/gaea/renderers/2D/threaded_tilemap_gaea_renderer.gd" id="9_fy668"]
 [ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="9_wgg2v"]
 [ext_resource type="Resource" uid="uid://c1sn2jp6mh3ti" path="res://scenes/levels/Maps/generator_settings.tres" id="11_p2hyx"]
-[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="17_c2fwb"]
+[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/troll/Troll.tscn" id="17_c2fwb"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="18_fy668"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="19_wgg2v"]
 [ext_resource type="PackedScene" uid="uid://c0nitivffjy4q" path="res://scenes/enemies/slime/SlimeRanged.tscn" id="20_h3at4"]
@@ -22,6 +22,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 agent_radius = 15.0
 
 [node name="Main" type="Node2D"]
+visible = false
 y_sort_enabled = true
 script = ExtResource("1_c2fwb")
 

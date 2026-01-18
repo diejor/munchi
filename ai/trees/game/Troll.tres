@@ -1,4 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=3 format=3 uid="uid://b5p38etau7ieu"]
+[gd_resource type="BehaviorTree" load_steps=14 format=3 uid="uid://b5p38etau7ieu"]
+
+[ext_resource type="BehaviorTree" uid="uid://b7ccy1wx607rf" path="res://ai/trees/game/subtree/Pursue.tres" id="1_lab0m"]
+[ext_resource type="Script" uid="uid://d0jydcqyfe1ga" path="res://ai/tasks/use_ability.gd" id="2_4nvrk"]
+[ext_resource type="BehaviorTree" uid="uid://c8vogfbh3usfr" path="res://ai/trees/game/subtree/Wander.tres" id="3_s48ny"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_1of6j"]
 var/target_pos/name = &"target_pos"
@@ -8,11 +12,49 @@ var/target_pos/hint = 0
 var/target_pos/hint_string = ""
 var/spacing/name = &"spacing"
 var/spacing/type = 3
-var/spacing/value = 0.0
+var/spacing/value = 30.0
 var/spacing/hint = 0
 var/spacing/hint_string = ""
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_32n1m"]
+mapping/spacing = &"spacing"
+
+[sub_resource type="BTSubtree" id="BTSubtree_lab0m"]
+subtree = ExtResource("1_lab0m")
+blackboard_plan = SubResource("BlackboardPlan_32n1m")
+custom_name = "Pursue"
+
+[sub_resource type="BTAction" id="BTAction_4nvrk"]
+script = ExtResource("2_4nvrk")
+ability_name = &"attack"
+
+[sub_resource type="BTDelay" id="BTDelay_s48ny"]
+seconds = 0.5
+custom_name = "Prepare"
+children = [SubResource("BTAction_4nvrk")]
+
+[sub_resource type="BTSequence" id="BTSequence_4nnyi"]
+custom_name = "Attack"
+children = [SubResource("BTSubtree_lab0m"), SubResource("BTDelay_s48ny")]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_4sx0f"]
+var/spacing/name = &"spacing"
+var/spacing/type = 3
+var/spacing/value = 25.0
+var/spacing/hint = 0
+var/spacing/hint_string = ""
+mapping/spacing = &"spacing"
+
+[sub_resource type="BTSubtree" id="BTSubtree_q852v"]
+subtree = ExtResource("3_s48ny")
+blackboard_plan = SubResource("BlackboardPlan_4sx0f")
+custom_name = "Wander"
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_jajvc"]
+children = [SubResource("BTSequence_4nnyi"), SubResource("BTSubtree_q852v")]
+
 [sub_resource type="BTSequence" id="BTSequence_w4784"]
+children = [SubResource("BTDynamicSelector_jajvc")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_1of6j")

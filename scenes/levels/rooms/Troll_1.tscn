@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://d0ephwgotisnd"]
+[gd_scene load_steps=12 format=4 uid="uid://d0ephwgotisnd"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_q4rm3"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_nftgf"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_ysehg"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_k3sx0"]
-[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="5_dhj8a"]
+[ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/troll/Troll.tscn" id="5_dhj8a"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="6_nftgf"]
+[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="7_ysehg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
@@ -47,9 +48,11 @@ metadata/_custom_type_script = "uid://cjk8nronimk5r"
 
 [node name="Troll" parent="." instance=ExtResource("5_dhj8a")]
 
-[node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("6_nftgf")]
+[node name="RuneBase" parent="." instance=ExtResource("6_nftgf")]
 position = Vector2(39, 34)
 points = 150
 deactivated = SubResource("AtlasTexture_ysehg")
 activated = SubResource("AtlasTexture_k3sx0")
-enemies = [NodePath("../Troll")]
+
+[node name="Player" parent="." instance=ExtResource("7_ysehg")]
+position = Vector2(21, 35)

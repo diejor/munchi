@@ -1,0 +1,75 @@
+[gd_scene load_steps=17 format=3 uid="uid://oykncgxk1pk7"]
+
+[ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_0axiv"]
+[ext_resource type="Texture2D" uid="uid://cg2qusq32s40u" path="res://assets/propietary/Enemies/Ranger/ranger.png" id="2_cxipd"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="3_3bx0w"]
+[ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="4_vurcm"]
+[ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="5_cvie2"]
+[ext_resource type="PackedScene" uid="uid://cunxax0ebgs00" path="res://scenes/components/abilities/RangedAttack.tscn" id="6_2qpik"]
+[ext_resource type="PackedScene" uid="uid://bu6n6sj7wqgvd" path="res://assets/Audio/SlimeSpit.tscn" id="7_ndgdx"]
+[ext_resource type="PackedScene" uid="uid://dwqlrkb4p18m3" path="res://assets/Audio/SlimeDeath.tscn" id="8_pvol7"]
+[ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="9_w5a3f"]
+[ext_resource type="PackedScene" uid="uid://b8qlqsw4ut2a6" path="res://scenes/enemies/ranger/RangerArt.tscn" id="10_qm24i"]
+[ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="11_td1cd"]
+[ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="12_6pv1c"]
+[ext_resource type="PackedScene" uid="uid://c4uut2pu3ly0b" path="res://scenes/enemies/BtPlayer.tscn" id="13_3gg6j"]
+[ext_resource type="BehaviorTree" uid="uid://2j8t2rgmpfpi" path="res://ai/trees/game/SlimeRanged.tres" id="14_o4p2j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_004df"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_du5ho"]
+
+[node name="Ranger" type="CharacterBody2D"]
+script = ExtResource("1_0axiv")
+metadata/_custom_type_script = "uid://8kq5tk043j8c"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cxipd")
+offset = Vector2(3, -13)
+
+[node name="Shadow" parent="." instance=ExtResource("3_3bx0w")]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 3.0
+
+[node name="CombatComponent" parent="." instance=ExtResource("4_vurcm")]
+script = ExtResource("5_cvie2")
+health = 25
+
+[node name="ranged_attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("6_2qpik")]
+
+[node name="SlimeSpit" parent="CombatComponent/Abilities/ranged_attack" instance=ExtResource("7_ndgdx")]
+bus = &"SFX"
+
+[node name="HealthBar" parent="CombatComponent/Control" index="0"]
+offset_top = -22.0
+offset_bottom = -4.0
+
+[node name="SlimeDeath" parent="CombatComponent" instance=ExtResource("8_pvol7")]
+
+[node name="SightComponent" parent="." instance=ExtResource("9_w5a3f")]
+
+[node name="SlimeRangedArt" parent="." instance=ExtResource("10_qm24i")]
+
+[node name="WanderArea" parent="." instance=ExtResource("11_td1cd")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_004df")
+
+[node name="NavigationAgent2D" parent="." instance=ExtResource("12_6pv1c")]
+unique_name_in_owner = true
+
+[node name="BTPlayer" parent="." instance=ExtResource("13_3gg6j")]
+behavior_tree = ExtResource("14_o4p2j")
+blackboard_plan = SubResource("BlackboardPlan_du5ho")
+
+[connection signal="die" from="CombatComponent" to="CombatComponent/SlimeDeath" method="_on_play_sfx"]
+[connection signal="used" from="CombatComponent/Abilities/ranged_attack" to="CombatComponent/Abilities/ranged_attack/SlimeSpit" method="_on_play_sfx"]
+
+[editable path="CombatComponent"]
