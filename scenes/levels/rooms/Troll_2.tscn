@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cj1rveu4e4kdv"]
+[gd_scene load_steps=12 format=4 uid="uid://cj1rveu4e4kdv"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_cjsmo"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_c3s76"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/Troll.tscn" id="5_kblre"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="6_330c7"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="7_c3s76"]
-[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="8_bu3l1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
@@ -67,6 +66,3 @@ points = 150
 deactivated = SubResource("AtlasTexture_bu3l1")
 activated = SubResource("AtlasTexture_go0v8")
 enemies = [NodePath("../Troll"), NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4")]
-
-[node name="Player" parent="." instance=ExtResource("8_bu3l1")]
-position = Vector2(-28, 111)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bp4a6tfumfbyw"]
+[gd_scene load_steps=11 format=4 uid="uid://bp4a6tfumfbyw"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_de7yn"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_tn35u"]
@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_eu45s"]
 [ext_resource type="PackedScene" uid="uid://dixfq5ec6gn62" path="res://scenes/enemies/Summoner.tscn" id="5_46t1j"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="6_de7yn"]
-[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="7_tn35u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
@@ -54,6 +53,3 @@ position = Vector2(-74, -72)
 points = 150
 deactivated = SubResource("AtlasTexture_tn35u")
 activated = SubResource("AtlasTexture_a6d5x")
-
-[node name="Player" parent="." instance=ExtResource("7_tn35u")]
-position = Vector2(-98, -92)

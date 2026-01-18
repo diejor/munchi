@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ctm6rkketgity"]
+[gd_scene load_steps=12 format=4 uid="uid://ctm6rkketgity"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_su60a"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_6u1j0"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="5_p2x0m"]
 [ext_resource type="PackedScene" uid="uid://c0nitivffjy4q" path="res://scenes/enemies/slime/SlimeRanged.tscn" id="6_6u1j0"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="7_7hp38"]
-[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="8_p2x0m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
@@ -77,6 +76,3 @@ points = 50
 deactivated = SubResource("AtlasTexture_jstwu")
 activated = SubResource("AtlasTexture_1krax")
 enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeMelee5"), NodePath("../SlimeMelee6"), NodePath("../SlimeRanged"), NodePath("../SlimeRanged2")]
-
-[node name="Player" parent="." instance=ExtResource("8_p2x0m")]
-position = Vector2(-88, 282)
