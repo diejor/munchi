@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c04ajvxpv2x5a"]
+[gd_scene load_steps=17 format=4 uid="uid://c04ajvxpv2x5a"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_3hb0v"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="2_5gxmd"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://8damh0isrhjk" path="res://scenes/levels/rooms/Hallway_10.tscn" id="14_hlo5x"]
 [ext_resource type="PackedScene" uid="uid://b8s1sqmweq5bs" path="res://scenes/levels/rooms/Kamikaze_1.tscn" id="15_ygd5e"]
 [ext_resource type="PackedScene" uid="uid://cgbiq3vjg6lmk" path="res://scenes/levels/rooms/RoomSlime_1.tscn" id="16_lv7t4"]
+[ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="16_thxxa"]
 
 [node name="Lvl1Map03" type="Node2D"]
 
@@ -78,3 +79,6 @@ position = Vector2(200, 480)
 
 [node name="Kamikaze_3" parent="." instance=ExtResource("13_4pluj")]
 position = Vector2(-440, 944)
+
+[node name="Player" parent="." instance=ExtResource("16_thxxa")]
+position = Vector2(-16, 8)

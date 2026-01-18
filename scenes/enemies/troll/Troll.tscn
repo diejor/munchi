@@ -35,6 +35,7 @@ offset_bottom = 3.0
 
 [node name="CombatComponent" parent="." instance=ExtResource("3_1of31")]
 script = ExtResource("4_mrv23")
+health = 200
 
 [node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("5_eb27w")]
 
