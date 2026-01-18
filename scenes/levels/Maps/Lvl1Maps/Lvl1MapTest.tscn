@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://da38u5hn4kt0r"]
+[gd_scene load_steps=14 format=3 uid="uid://da38u5hn4kt0r"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_n62p6"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="2_5cb11"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ctm6rkketgity" path="res://scenes/levels/rooms/RoomSlime_2.tscn" id="8_a806v"]
 [ext_resource type="PackedScene" uid="uid://dkhy8v7le4lx5" path="res://scenes/levels/rooms/RoomSlime_3.tscn" id="9_qs1ku"]
 [ext_resource type="PackedScene" uid="uid://bwv70vlah6g5k" path="res://scenes/levels/rooms/RoomSlime_4.tscn" id="10_rbiuw"]
+[ext_resource type="PackedScene" uid="uid://ghhproc27nwq" path="res://scenes/levels/rooms/Hallway_5.tscn" id="11_a806v"]
+[ext_resource type="PackedScene" uid="uid://bp4a6tfumfbyw" path="res://scenes/levels/rooms/Summoner_1.tscn" id="12_rbiuw"]
+[ext_resource type="PackedScene" uid="uid://d0ephwgotisnd" path="res://scenes/levels/rooms/Troll_1.tscn" id="13_anctl"]
 
 [node name="Lvl1MapTest" type="Node2D"]
 
@@ -42,9 +45,6 @@ metadata/_custom_type_script = "uid://cjk8nronimk5r"
 [node name="Hallway_10" parent="." instance=ExtResource("5_n6m01")]
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("6_a806v")]
-position = Vector2(0, 8)
-
 [node name="RoomSlime_1" parent="." instance=ExtResource("7_n6m01")]
 position = Vector2(128, -24)
 
@@ -59,3 +59,15 @@ position = Vector2(-384, -152)
 
 [node name="RoomSlime_5" parent="." instance=ExtResource("10_rbiuw")]
 position = Vector2(-896, -152)
+
+[node name="Hallway_5" parent="." instance=ExtResource("11_a806v")]
+position = Vector2(328, 224)
+
+[node name="Summoner_1" parent="." instance=ExtResource("12_rbiuw")]
+position = Vector2(-552, -224)
+
+[node name="Troll_1" parent="." instance=ExtResource("13_anctl")]
+position = Vector2(440, -368)
+
+[node name="Player" parent="." instance=ExtResource("6_a806v")]
+position = Vector2(0, 8)
