@@ -36,7 +36,7 @@ func _on_rune_activated(rune: RuneBase) -> void:
 
 func _on_rune_deactivate(rune: RuneBase) -> void:
 	if current_points > 0:
-		current_points -= - rune.points
+		current_points -= rune.points
 	activated_runes.erase(rune)
 
 

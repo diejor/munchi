@@ -5,9 +5,14 @@ extends CharacterBodyBase
 
 var facing_vector: Vector2
 
+func _enter_tree() -> void:
+	if self != get_tree().current_scene.get_node("Player"):
+		queue_free()
+
 func _ready() -> void:
 	super._ready()
 	visibility_changed.emit()
+
 
 func _physics_process(_delta: float) -> void:
 	var input: Vector2

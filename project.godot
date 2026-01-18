@@ -23,9 +23,9 @@ buses/default_bus_layout="uid://m06yc06g3kvg"
 
 [autoload]
 
+PlayerManager="*res://scenes/player/PlayerManager.tscn"
 Settings="*res://scenes/ui/autoload/settings/Settings.tscn"
 AudioManager="*res://scenes/ui/autoload/AudioManager.tscn"
-PlayerManager="*res://scenes/player/PlayerManager.tscn"
 
 [display]
 
@@ -52,11 +52,6 @@ folder_colors={
 "res://scenes/levels/rooms/": "red",
 "res://scenes/ui/": "red"
 }
-
-[global_group]
-
-player=""
-runes=""
 
 [gui]
 

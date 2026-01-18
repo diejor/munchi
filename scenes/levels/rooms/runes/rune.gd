@@ -17,32 +17,16 @@ signal deactivate(rune: RuneBase)
 
 @onready var is_active: bool = false
 
-@onready var player_rune_component: RuneComponent:
+var player: CharacterPlayer:
 	get: 
-		var player = PlayerManager.player
-		if player == null:
-			return
-		return PlayerManager.player.get_node("%RuneComponent")
+		return get_tree().current_scene.get_node("Player")
 
+var player_rune_component: RuneComponent:
+	get: return player.get_node("%RuneComponent")
 
-var room: Node2D:
-	get: return owner
-
-
-@export var enemies: Array[CharacterNPC]:
+@onready var enemies:
 	get:
-		if not enemies.is_empty():
-			return enemies
-		
-		if owner == null:
-			return enemies
-		
-		for child in room.get_children():
-			if child is CharacterNPC:
-				enemies.append(child)
-		
-		return enemies
-
+		return owner.get_children().filter(func(child): return child is CharacterNPC)
 
 func _update_rune() -> void:
 	if is_active:
@@ -80,7 +64,5 @@ func _on_deactivate(_rune: RuneBase) -> void:
 
 
 func _on_player_pressed_rune() -> void:
-	if is_active:
-		return
 	is_active = not is_active
 	_update_rune()
