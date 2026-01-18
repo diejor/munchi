@@ -5,9 +5,11 @@ extends CharacterBodyBase
 
 var facing_vector: Vector2
 
+
 func _ready() -> void:
 	super._ready()
 	visibility_changed.emit()
+
 
 func _physics_process(_delta: float) -> void:
 	var input: Vector2

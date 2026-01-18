@@ -22,7 +22,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 agent_radius = 15.0
 
 [node name="Main" type="Node2D"]
-visible = false
 y_sort_enabled = true
 script = ExtResource("1_c2fwb")
 
@@ -97,6 +96,7 @@ generate_on_ready = false
 metadata/_custom_type_script = "uid://34dgcf0kpo3t"
 
 [node name="Player" parent="." instance=ExtResource("9_wgg2v")]
+test_player = false
 
 [node name="Troll" parent="." instance=ExtResource("17_c2fwb")]
 position = Vector2(148, -169)

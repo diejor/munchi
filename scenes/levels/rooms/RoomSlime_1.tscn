@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cgbiq3vjg6lmk"]
+[gd_scene load_steps=13 format=4 uid="uid://cgbiq3vjg6lmk"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_1xa00"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_yw7eo"]
@@ -8,6 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://c0nitivffjy4q" path="res://scenes/enemies/slime/SlimeRanged.tscn" id="6_6kurn"]
 [ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="7_g7dfb"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="8_a67sb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
+load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a67sb"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_7cwoa")
+region = Rect2(196, 292, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ppn5a"]
+load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmhd4"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_ppn5a")
+region = Rect2(196, 340, 40, 40)
 
 [node name="RoomSlime_1" type="Node2D"]
 y_sort_enabled = true
@@ -55,4 +71,6 @@ position = Vector2(17, 12)
 [node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("8_a67sb")]
 position = Vector2(313, -94)
 points = 50
+deactivated = SubResource("AtlasTexture_a67sb")
+activated = SubResource("AtlasTexture_vmhd4")
 enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeRanged"), NodePath("../SlimeRanged2")]

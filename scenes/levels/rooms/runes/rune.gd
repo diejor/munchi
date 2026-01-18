@@ -1,4 +1,3 @@
-@tool
 class_name RuneBase
 extends Node2D
 
@@ -19,36 +18,13 @@ signal deactivate(rune: RuneBase)
 @onready var is_active: bool = false
 
 var player: CharacterPlayer:
-	get:
-		var p = get_tree().get_nodes_in_group("player")
-		if not p.is_empty():
-			return p[0]
-		return null
+	get: 
+		return get_tree().current_scene.get_node("Player")
 
-@onready var player_rune_component: RuneComponent:
-	get:
-		if player == null:
-			return
-		return player.get_node("%RuneComponent")
+var player_rune_component: RuneComponent:
+	get: return player.get_node("%RuneComponent")
 
-
-var room: Node2D:
-	get: return owner
-
-
-@onready var enemies: Array[CharacterNPC]:
-	get:
-		if not enemies.is_empty():
-			return enemies
-		
-		if owner == null:
-			return enemies
-		
-		for child in room.get_children():
-			if child is CharacterNPC:
-				enemies.append(child)
-		
-		return enemies
+@export var enemies: Array[CharacterNPC]
 
 
 func _update_rune() -> void:
@@ -61,9 +37,8 @@ func _ready() -> void:
 	activate.connect(_on_activate.bind(self))
 	deactivate.connect(_on_deactivate.bind(self))
 	
-	if not OS.is_debug_build() and player_rune_component:
-		activate.connect(player_rune_component._on_rune_activated.bind(self))
-		deactivate.connect(player_rune_component._on_rune_deactivate.bind(self))
+	activate.connect(player_rune_component._on_rune_activated.bind(self))
+	deactivate.connect(player_rune_component._on_rune_deactivate.bind(self))
 	
 	_update_rune()
 
@@ -75,8 +50,6 @@ func release_enemies() -> void:
 
 func _on_activate(_rune: RuneBase) -> void:
 	rune_sprite.texture = activated
-	if OS.is_debug_build():
-		return
 	for enemy in enemies:
 		enemy.visible = true
 		enemy.modulate = vanish_enemy_color
@@ -84,15 +57,11 @@ func _on_activate(_rune: RuneBase) -> void:
 
 func _on_deactivate(_rune: RuneBase) -> void:
 	rune_sprite.texture = deactivated
-	if OS.is_debug_build():
-		return
 	for enemy in enemies:
 		enemy.visible = false
 		enemy.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_player_pressed_rune() -> void:
-	if is_active:
-		return
 	is_active = not is_active
 	_update_rune()
