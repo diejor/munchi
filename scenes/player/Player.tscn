@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bln2nurmvtfj1"]
+[gd_scene load_steps=32 format=3 uid="uid://bln2nurmvtfj1"]
 
 [ext_resource type="Script" uid="uid://bo73glj04t8qt" path="res://scenes/player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="2_5stf6"]
@@ -12,11 +12,52 @@
 [ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="6_c3xxp"]
 [ext_resource type="Script" uid="uid://bs60namhm35q0" path="res://scenes/player/rune_component.gd" id="7_20koh"]
 [ext_resource type="PackedScene" uid="uid://bo8xuh4i1afkb" path="res://scenes/ui/hud/HeartContainer.tscn" id="7_180ig"]
+[ext_resource type="AudioStream" uid="uid://b5giau2utccwx" path="res://assets/Audio/AudioImports/Magic/lightning-spell-386163.mp3" id="8_p1lr0"]
+[ext_resource type="Script" uid="uid://d25b248xf3isb" path="res://assets/Audio/play_sfx.gd" id="8_v5i4m"]
 [ext_resource type="PackedScene" uid="uid://gfbvivrwtd55" path="res://scenes/ui/hud/PauseMenu.tscn" id="10_7oing"]
+[ext_resource type="Texture2D" uid="uid://dvgppx5oia747" path="res://assets/propietary/ui/spritesheet_playerFXandUI.png" id="11_ov1oi"]
+[ext_resource type="Texture2D" uid="uid://dgjv1x4y6re7" path="res://assets/propietary/book/book01.png" id="15_rn7t0"]
+[ext_resource type="Script" uid="uid://drog5cw3e8iys" path="res://scenes/player/book.gd" id="16_8qjgm"]
+[ext_resource type="Texture2D" uid="uid://b5abfiocw5hri" path="res://assets/propietary/spritesheet_mc.png" id="17_ejd4k"]
+[ext_resource type="Script" uid="uid://g0mmety44khq" path="res://scenes/player/book_container.gd" id="18_2xrq6"]
+[ext_resource type="FontFile" uid="uid://i0ofaldl0lld" path="res://assets/fonts/madspixel.ttf" id="19_v5i4m"]
+[ext_resource type="Texture2D" uid="uid://q25ipy0ra5k8" path="res://assets/propietary/spritesheet_runes.png" id="20_kswpp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
 radius = 2.0
 height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn7t0"]
+atlas = ExtResource("11_ov1oi")
+region = Rect2(16, 208, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qjgm"]
+texture = SubResource("AtlasTexture_rn7t0")
+modulate_color = Color(1, 1, 1, 0.5647059)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ov1oi"]
+texture = SubResource("AtlasTexture_rn7t0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rn7t0"]
+texture = SubResource("AtlasTexture_rn7t0")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xrq6"]
+atlas = ExtResource("17_ejd4k")
+region = Rect2(0, 80, 32, 16)
+
+[sub_resource type="GDScript" id="GDScript_kswpp"]
+script/source = "extends Sprite2D
+
+var no_pixel: bool = false
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qjgm"]
+atlas = ExtResource("15_rn7t0")
+region = Rect2(62, 30, 258, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5i4m"]
+atlas = ExtResource("20_kswpp")
+region = Rect2(52, 4, 40, 40)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -50,6 +91,15 @@ bus = &"SFX"
 script = ExtResource("7_20koh")
 points_to_start = 300
 
+[node name="StartLevelSFX" type="AudioStreamPlayer2D" parent="RuneComponent"]
+stream = ExtResource("8_p1lr0")
+volume_db = -6.734
+pitch_scale = 1.03
+attenuation = 0.45062527
+bus = &"SFX"
+script = ExtResource("8_v5i4m")
+metadata/_custom_type_script = "uid://d25b248xf3isb"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 rotation = -1.5707964
@@ -78,17 +128,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasUI/HUD"]
+[node name="PointsContainer" type="HBoxContainer" parent="CanvasUI/HUD"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -28.0
-offset_right = 28.0
-offset_bottom = 22.0
+offset_left = -42.0
+offset_top = 10.0
+offset_right = 42.0
+offset_bottom = 32.0
 grow_horizontal = 2
 
-[node name="Points" type="Label" parent="CanvasUI/HUD/HBoxContainer"]
+[node name="Points" type="Label" parent="CanvasUI/HUD/PointsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -98,7 +149,7 @@ text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartLevelButton" type="Button" parent="CanvasUI/HUD/HBoxContainer"]
+[node name="StartLevelButton" type="Button" parent="CanvasUI/HUD/PointsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("6_c3xxp")
@@ -111,22 +162,323 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -51.0
 offset_top = 12.0
-offset_right = -14.0
-offset_bottom = 34.0
+offset_right = -22.0
+offset_bottom = 39.0
 grow_horizontal = 0
 focus_mode = 0
 theme = ExtResource("6_c3xxp")
-text = "Pause"
+theme_override_styles/normal = SubResource("StyleBoxTexture_8qjgm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ov1oi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rn7t0")
 script = ExtResource("3_4kuee")
+
+[node name="Label" type="Label" parent="CanvasUI/Pause"]
+modulate = Color(1, 1, 1, 0.6509804)
+layout_mode = 0
+offset_left = 19.0
+offset_top = -7.0
+offset_right = 44.0
+offset_bottom = 7.0
+theme = ExtResource("6_c3xxp")
+text = "(esq)"
 
 [node name="PauseMenu" parent="CanvasUI" instance=ExtResource("10_7oing")]
 unique_name_in_owner = true
 
 [node name="HeartContainer" parent="CanvasUI" instance=ExtResource("7_180ig")]
-offset_left = 10.0
-offset_top = 7.0
-offset_right = 106.44445
-offset_bottom = 35.0
+position = Vector2(64, 21)
+scale = Vector2(2, 2)
+
+[node name="Label2" type="Label" parent="CanvasUI"]
+modulate = Color(1, 1, 1, 0.63529414)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -89.0
+offset_right = 38.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_c3xxp")
+text = "(r)"
+
+[node name="attack" type="Sprite2D" parent="CanvasUI"]
+position = Vector2(15, 51)
+scale = Vector2(0.767534, 0.76753396)
+texture = SubResource("AtlasTexture_2xrq6")
+script = SubResource("GDScript_kswpp")
+
+[node name="Label3" type="Label" parent="CanvasUI/attack"]
+modulate = Color(1, 1, 1, 0.63529414)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.2741356
+offset_top = -18.422989
+offset_right = 31.725864
+offset_bottom = -4.422989
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_c3xxp")
+text = "(q)"
+
+[node name="book" type="Sprite2D" parent="CanvasUI"]
+modulate = Color(0.9815763, 0.9815763, 0.9815763, 1)
+position = Vector2(284, 65)
+scale = Vector2(0.10791339, 0.10791338)
+texture = SubResource("AtlasTexture_8qjgm")
+script = SubResource("GDScript_kswpp")
+
+[node name="rune" type="Sprite2D" parent="CanvasUI"]
+position = Vector2(14.999999, 65)
+scale = Vector2(0.33376703, 0.333767)
+texture = SubResource("AtlasTexture_v5i4m")
+script = SubResource("GDScript_kswpp")
+
+[node name="Label4" type="Label" parent="CanvasUI/rune"]
+modulate = Color(1, 1, 1, 0.63529414)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.9610195
+offset_top = -43.96882
+offset_right = 45.96102
+offset_bottom = -29.968819
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3217707, 2.3217707)
+theme = ExtResource("6_c3xxp")
+text = "(e)"
+
+[node name="Label" type="Label" parent="CanvasUI"]
+modulate = Color(1, 1, 1, 0.63529414)
+offset_left = 296.0
+offset_top = 40.0
+offset_right = 321.0
+offset_bottom = 54.0
+theme = ExtResource("6_c3xxp")
+text = "(b)"
+
+[node name="BookContainer" type="TabContainer" parent="CanvasUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tabs_visible = false
+script = ExtResource("18_2xrq6")
+
+[node name="Book1" type="TextureRect" parent="CanvasUI/BookContainer"]
+process_mode = 3
+layout_mode = 2
+texture = ExtResource("15_rn7t0")
+expand_mode = 2
+script = ExtResource("16_8qjgm")
+metadata/_tab_index = 0
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="CanvasUI/BookContainer/Book1"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 84.0
+offset_right = 147.0
+offset_bottom = 124.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasUI/BookContainer/Book1"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 128.0
+offset_right = 143.0
+offset_bottom = 156.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasUI/BookContainer/Book1"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 125.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasUI/BookContainer/Book1"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 129.0
+offset_right = 272.0
+offset_bottom = 157.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="Book2" type="TextureRect" parent="CanvasUI/BookContainer"]
+process_mode = 3
+visible = false
+layout_mode = 2
+texture = ExtResource("15_rn7t0")
+expand_mode = 2
+script = ExtResource("16_8qjgm")
+metadata/_tab_index = 1
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="CanvasUI/BookContainer/Book2"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 84.0
+offset_right = 147.0
+offset_bottom = 124.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasUI/BookContainer/Book2"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 128.0
+offset_right = 143.0
+offset_bottom = 156.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasUI/BookContainer/Book2"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 125.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasUI/BookContainer/Book2"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 129.0
+offset_right = 272.0
+offset_bottom = 157.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="Book3" type="TextureRect" parent="CanvasUI/BookContainer"]
+process_mode = 3
+visible = false
+layout_mode = 2
+texture = ExtResource("15_rn7t0")
+expand_mode = 2
+script = ExtResource("16_8qjgm")
+metadata/_tab_index = 2
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="CanvasUI/BookContainer/Book3"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 84.0
+offset_right = 147.0
+offset_bottom = 124.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasUI/BookContainer/Book3"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 128.0
+offset_right = 143.0
+offset_bottom = 156.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasUI/BookContainer/Book3"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 125.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasUI/BookContainer/Book3"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 129.0
+offset_right = 272.0
+offset_bottom = 157.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="Book4" type="TextureRect" parent="CanvasUI/BookContainer"]
+process_mode = 3
+visible = false
+layout_mode = 2
+texture = ExtResource("15_rn7t0")
+expand_mode = 2
+script = ExtResource("16_8qjgm")
+metadata/_tab_index = 3
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="CanvasUI/BookContainer/Book4"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 84.0
+offset_right = 147.0
+offset_bottom = 124.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasUI/BookContainer/Book4"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 128.0
+offset_right = 143.0
+offset_bottom = 156.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasUI/BookContainer/Book4"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 125.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasUI/BookContainer/Book4"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 129.0
+offset_right = 272.0
+offset_bottom = 157.0
+theme = ExtResource("6_c3xxp")
+theme_override_fonts/normal_font = ExtResource("19_v5i4m")
+theme_override_font_sizes/normal_font_size = 9
+text = "sadsadsadsasadadsadadasdadsadadadadadsadadadadadsada"
 
 [connection signal="visibility_changed" from="." to="CanvasUI" method="_on_player_visibility_changed"]
 [connection signal="dissapearing" from="CombatComponent" to="CombatComponent" method="_on_dissapearing"]

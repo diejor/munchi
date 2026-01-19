@@ -59,4 +59,3 @@ position = Vector2(-76, -15)
 points = 150
 deactivated = SubResource("AtlasTexture_0yx6v")
 activated = SubResource("AtlasTexture_ixg1h")
-enemies = [NodePath("../Troll")]

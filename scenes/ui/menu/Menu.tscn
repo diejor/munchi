@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://7eww7ww1n5aw"]
+[gd_scene load_steps=9 format=3 uid="uid://7eww7ww1n5aw"]
 
 [ext_resource type="Script" uid="uid://eqtmbu472rhv" path="res://scenes/ui/menu/change_scene_button.gd" id="1_0dynd"]
 [ext_resource type="Script" uid="uid://d2qo5jse23tk6" path="res://scenes/ui/menu/menu.gd" id="1_sh3q5"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="1_vhthp"]
+[ext_resource type="Texture2D" uid="uid://twbbn2umg2v" path="res://assets/propietary/ui/illustration_noTitle.png" id="3_bwacy"]
 [ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="3_yw5m1"]
 [ext_resource type="PackedScene" uid="uid://btelkhsadrkhe" path="res://scenes/ui/menu/SettingsButton.tscn" id="5_yw5m1"]
+[ext_resource type="Texture2D" uid="uid://b7j6lpoaj5x8n" path="res://assets/propietary/ui/title.png" id="7_avtg6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_avtg6"]
+texture = ExtResource("3_bwacy")
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_sh3q5")
@@ -18,41 +23,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_avtg6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/PanelContainer"]
+[node name="Title" type="Sprite2D" parent="CanvasUI/PanelContainer"]
+position = Vector2(169, 45.00001)
+scale = Vector2(0.4833912, 0.4833912)
+texture = ExtResource("7_avtg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasUI/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasUI/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/separation = 8
 
-[node name="Label" type="RichTextLabel" parent="CanvasUI/PanelContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="CanvasUI/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_yw5m1")
-theme_override_font_sizes/normal_font_size = 44
-bbcode_enabled = true
-text = "[wave amp=25.0 freq=7. connected=1]Munchi[/wave]"
-fit_content = true
-autowrap_mode = 0
 
-[node name="HSeparator" type="HSeparator" parent="CanvasUI/PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="HSeparator" type="HSeparator" parent="CanvasUI/PanelContainer/MarginContainer/VBoxContainer/HSeparator"]
+layout_mode = 0
 
-[node name="PlayGame" type="Button" parent="CanvasUI/PanelContainer/VBoxContainer"]
+[node name="PlayGame" type="Button" parent="CanvasUI/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_yw5m1")
 text = "Play Game"
 script = ExtResource("1_0dynd")
-scene_path = "uid://deghq0uhw45c4"
+scene_path = "uid://c34wr20dqd7hs"
 
-[node name="Credits" type="Button" parent="CanvasUI/PanelContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="CanvasUI/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_yw5m1")
 text = "Credits"
 script = ExtResource("1_0dynd")
 scene_path = "uid://brluhpwy2ngsi"
 
-[node name="SettingsButton" parent="CanvasUI/PanelContainer/VBoxContainer" instance=ExtResource("5_yw5m1")]
+[node name="SettingsButton" parent="CanvasUI/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_yw5m1")]
 layout_mode = 2
 theme = ExtResource("3_yw5m1")
 
-[connection signal="pressed" from="CanvasUI/PanelContainer/VBoxContainer/PlayGame" to="CanvasUI/PanelContainer/VBoxContainer/PlayGame" method="_on_pressed"]
+[node name="HSeparator2" type="HSeparator" parent="CanvasUI/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_yw5m1")
+
+[connection signal="pressed" from="CanvasUI/PanelContainer/MarginContainer/VBoxContainer/PlayGame" to="CanvasUI/PanelContainer/MarginContainer/VBoxContainer/PlayGame" method="_on_pressed"]

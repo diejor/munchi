@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://coolk4p7g2k5y"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://coolk4p7g2k5y"]
 
 [ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/fonts/bookxel.ttf" id="1_kqku0"]
 
@@ -7,12 +7,12 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0.09411765)
+border_color = Color(1, 0, 0.8, 0.09411765)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -24,13 +24,13 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
 draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0.09411765)
+border_color = Color(1, 0, 0.8, 0.09411765)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -46,12 +46,12 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0.09411765)
+border_color = Color(1, 0, 0.8, 0.09411765)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -68,7 +68,7 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0.09411765)
+border_color = Color(1, 0, 0.8, 0.09411765)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -80,17 +80,20 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0.8039216)
+border_color = Color(1, 0, 0.8, 0.09411765)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_k02ik"]
+color = Color(0.4, 0, 0.91764706, 0.30980393)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erji4"]
 content_margin_left = 0.0
@@ -102,7 +105,7 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.21176471, 0.4509804, 1, 1)
+border_color = Color(0.4, 0, 0.91764706, 0.2784314)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -122,5 +125,6 @@ Button/styles/focus = SubResource("StyleBoxFlat_hloo0")
 Button/styles/hover = SubResource("StyleBoxFlat_8yjnm")
 Button/styles/normal = SubResource("StyleBoxFlat_fwucf")
 Button/styles/pressed = SubResource("StyleBoxFlat_t24c4")
+HSeparator/styles/separator = SubResource("StyleBoxLine_k02ik")
 Label/fonts/font = ExtResource("1_kqku0")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_erji4")

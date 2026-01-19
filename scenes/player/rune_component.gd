@@ -21,7 +21,7 @@ var current_points: int:
 		else:
 			start_level_button.disabled = true
 			
-		points.text = str(current_points)
+		points.text = str(current_points) + "/" +str(points_to_start)
 
 var activated_runes: Array[RuneBase]
 
@@ -29,6 +29,10 @@ func _ready() -> void:
 	current_points = 0
 	start_level_button.pressed.connect(start_level.emit)
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("start"):
+		if not start_level_button.disabled:
+			start_level_button.pressed.emit()
 
 func _on_rune_activated(rune: RuneBase) -> void:
 	current_points += rune.points

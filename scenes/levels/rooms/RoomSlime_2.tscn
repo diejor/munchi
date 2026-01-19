@@ -50,7 +50,7 @@ metadata/_custom_type_script = "uid://cjk8nronimk5r"
 position = Vector2(-93, 113)
 
 [node name="SlimeMelee2" parent="." instance=ExtResource("5_p2x0m")]
-position = Vector2(49, 112)
+position = Vector2(56, 112)
 
 [node name="SlimeMelee3" parent="." instance=ExtResource("5_p2x0m")]
 position = Vector2(-49, 111)
@@ -70,9 +70,8 @@ position = Vector2(26, 79)
 [node name="SlimeRanged2" parent="." instance=ExtResource("6_6u1j0")]
 position = Vector2(-36, 77)
 
-[node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("7_7hp38")]
+[node name="RuneBase" parent="." instance=ExtResource("7_7hp38")]
 position = Vector2(-1, 177)
 points = 50
 deactivated = SubResource("AtlasTexture_jstwu")
 activated = SubResource("AtlasTexture_1krax")
-enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeMelee5"), NodePath("../SlimeMelee6"), NodePath("../SlimeRanged"), NodePath("../SlimeRanged2")]

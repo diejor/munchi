@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmr2cxwscf04t"]
+[gd_scene load_steps=7 format=3 uid="uid://cmr2cxwscf04t"]
 
 [ext_resource type="Script" uid="uid://b8an1xtb4pw6x" path="res://scenes/ui/hud/loading_control.gd" id="1_5uob3"]
 [ext_resource type="FontFile" uid="uid://bvrtmsdwkh8k6" path="res://assets/fonts/bookxel.ttf" id="2_1xd2b"]
+[ext_resource type="Texture2D" uid="uid://twbbn2umg2v" path="res://assets/propietary/ui/illustration_noTitle.png" id="2_i5722"]
 
 [sub_resource type="Animation" id="Animation_5uob3"]
 length = 0.001
@@ -72,14 +73,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5uob3")
 
-[node name="LoadingScreen" type="ColorRect" parent="."]
+[node name="LoadingScreen" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+texture = ExtResource("2_i5722")
+expand_mode = 2
 
 [node name="GeneratorProgress" type="ProgressBar" parent="."]
 layout_mode = 1
@@ -89,9 +91,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -62.75
-offset_top = -30.0
+offset_top = -146.0
 offset_right = 62.75
-offset_bottom = -12.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_1xd2b")

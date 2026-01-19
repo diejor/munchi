@@ -4,4 +4,4 @@
 
 [node name="PowerUp" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_asy0n")
-pitch_scale = 1.37
+pitch_scale = 0.39

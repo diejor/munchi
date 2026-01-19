@@ -58,9 +58,8 @@ position = Vector2(-84, 6)
 [node name="Ranger2" parent="." instance=ExtResource("6_jk0d0")]
 position = Vector2(74, 10)
 
-[node name="RuneBase" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("7_i1i7u")]
+[node name="RuneBase" parent="." instance=ExtResource("7_i1i7u")]
 position = Vector2(-7, 13)
 points = 50
 deactivated = SubResource("AtlasTexture_2rv1l")
 activated = SubResource("AtlasTexture_63t1h")
-enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2")]

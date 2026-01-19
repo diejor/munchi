@@ -19,14 +19,20 @@ signal deactivate(rune: RuneBase)
 
 var player: CharacterPlayer:
 	get: 
-		return get_tree().current_scene.get_node("Player")
+		return get_tree().current_scene.get_node_or_null("Player")
 
 var player_rune_component: RuneComponent:
-	get: return player.get_node("%RuneComponent")
-
-@onready var enemies:
 	get:
-		return owner.get_children().filter(func(child): return child is CharacterNPC)
+		if player: 
+			return player.get_node("%RuneComponent")
+		return null
+
+@onready var enemies: Array[Node]:
+	get:
+		return owner.get_children().filter(func(child):
+			var is_enemy = child is CharacterNPC
+			return is_enemy)
+
 
 func _update_rune() -> void:
 	if is_active:
@@ -42,6 +48,13 @@ func _ready() -> void:
 	deactivate.connect(player_rune_component._on_rune_deactivate.bind(self))
 	
 	_update_rune()
+
+
+func _on_enemy_died(enemy: CharacterNPC) -> void:
+	enemies.erase(enemy)
+	if enemies.is_empty():
+		deactivate.emit()
+
 
 func release_enemies() -> void:
 	for enemy in enemies:

@@ -29,44 +29,48 @@ layout_mode = 2
 
 [node name="HSeparator4" type="HSeparator" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_0vyhu")
 
 [node name="Emily" type="RichTextLabel" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_fe6nt")
 bbcode_enabled = true
-text = "[center] emily yuan[/center]
-art, animation,  game design, prodcedural generation"
+text = "[center] Emily Yuan[/center]
+visual art/design, game design, soundtrack, UI"
 vertical_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_0vyhu")
 
 [node name="Diego" type="RichTextLabel" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_fe6nt")
 bbcode_enabled = true
-text = "[center] diego rodrigues [/center]
-developer"
+text = "[center] Diego Rodrigues [/center]
+programming, game design, UI"
 fit_content = true
 vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_0vyhu")
 
 [node name="Nick" type="RichTextLabel" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_fe6nt")
 bbcode_enabled = true
-text = "[center] nick [/center]
-level and game design"
+text = "[center] Nick Moye [/center]
+level design, game design, sound effects"
 fit_content = true
 vertical_alignment = 1
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasUI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_0vyhu")
 
 [node name="Back" type="Button" parent="CanvasUI"]
 offset_left = 4.0

@@ -62,7 +62,6 @@ position = Vector2(163, 14)
 points = 50
 deactivated = SubResource("AtlasTexture_qxjh5")
 activated = SubResource("AtlasTexture_5dtic")
-enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeRanged"), NodePath("../SlimeRanged2")]
 
 [node name="Player" parent="." instance=ExtResource("7_bnrov")]
 position = Vector2(25, 7)

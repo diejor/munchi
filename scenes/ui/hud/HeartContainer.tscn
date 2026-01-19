@@ -1,36 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo8xuh4i1afkb"]
+[gd_scene load_steps=5 format=3 uid="uid://bo8xuh4i1afkb"]
 
 [ext_resource type="Texture2D" uid="uid://dvgppx5oia747" path="res://assets/propietary/ui/spritesheet_playerFXandUI.png" id="1_2gt56"]
 [ext_resource type="Script" uid="uid://c4rk03a30esrx" path="res://scenes/ui/hud/heart_container.gd" id="1_fs0us"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ilkcd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gt56"]
 atlas = ExtResource("1_2gt56")
 region = Rect2(16, 112, 59, 16)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hx6wq"]
-texture = SubResource("AtlasTexture_ilkcd")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs0us"]
 atlas = ExtResource("1_2gt56")
 region = Rect2(96, 117, 7, 6)
 
-[node name="HeartContainer" type="PanelContainer"]
-offset_right = 96.44445
-offset_bottom = 28.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_hx6wq")
+[node name="HeartContainer" type="Sprite2D"]
+texture = SubResource("AtlasTexture_2gt56")
 script = ExtResource("1_fs0us")
 
 [node name="Container" type="Control" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -47.0
+offset_top = -14.0
+offset_right = 49.44445
+offset_bottom = 14.0
 
 [node name="Heart1" type="TextureRect" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 31.0
-offset_top = 5.0
-offset_right = 43.0
-offset_bottom = 23.0
+offset_left = 36.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 20.0
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_fs0us")
 expand_mode = 1
@@ -39,10 +39,10 @@ stretch_mode = 5
 [node name="Heart2" type="TextureRect" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 47.0
-offset_top = 5.0
-offset_right = 59.0
-offset_bottom = 23.0
+offset_left = 46.0
+offset_top = 8.0
+offset_right = 54.0
+offset_bottom = 20.0
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_fs0us")
 expand_mode = 1
@@ -51,10 +51,10 @@ stretch_mode = 5
 [node name="Heart3" type="TextureRect" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 63.0
-offset_top = 5.0
-offset_right = 76.0
-offset_bottom = 23.0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 20.0
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_fs0us")
 expand_mode = 1

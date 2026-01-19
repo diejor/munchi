@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3mcgd3xelvx0"]
+
+[ext_resource type="Texture2D" uid="uid://twbbn2umg2v" path="res://assets/propietary/ui/illustration_noTitle.png" id="2_7lrfo"]
+[ext_resource type="Theme" uid="uid://coolk4p7g2k5y" path="res://scenes/ui/settings_theme.tres" id="2_p8km8"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingScreen" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7lrfo")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.999996
+offset_top = 12.000001
+offset_right = 185.0
+offset_bottom = 35.0
+scale = Vector2(1.7707909, 1.7707909)
+theme = ExtResource("2_p8km8")
+text = "Munchi killed all the monsters!"

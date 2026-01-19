@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c68wmnei5lnyq"]
+[gd_scene load_steps=11 format=3 uid="uid://c68wmnei5lnyq"]
 
 [ext_resource type="Script" uid="uid://f8u6x6wh1nbe" path="res://scenes/levels/rooms/runes/rune.gd" id="1_4ts5p"]
 [ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="3_7cwoa"]
 [ext_resource type="Script" uid="uid://rstr4u84xtnq" path="res://scenes/levels/rooms/runes/input.gd" id="3_g3s0i"]
+[ext_resource type="AudioStream" uid="uid://crluhjroot5yu" path="res://assets/Audio/AudioImports/Magic/dark-magic-6-378652.mp3" id="4_ppn5a"]
+[ext_resource type="Script" uid="uid://d25b248xf3isb" path="res://assets/Audio/play_sfx.gd" id="5_j810n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]
 load_path = "res://.godot/imported/spritesheet_runes.png-c10a5932a6dcd7b2cb59d402fe6673b2.ctex"
@@ -49,4 +51,20 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7cwoa")
 
+[node name="ActivateSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ppn5a")
+bus = &"SFX"
+script = ExtResource("5_j810n")
+metadata/_custom_type_script = "uid://d25b248xf3isb"
+
+[node name="DeactivateSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ppn5a")
+pitch_scale = 0.43
+attenuation = 1.4640857
+bus = &"SFX"
+script = ExtResource("5_j810n")
+metadata/_custom_type_script = "uid://d25b248xf3isb"
+
+[connection signal="activate" from="." to="ActivateSFX" method="_on_play_sfx"]
+[connection signal="deactivate" from="." to="DeactivateSFX" method="_on_play_sfx"]
 [connection signal="player_pressed_rune" from="Input" to="." method="_on_player_pressed_rune"]

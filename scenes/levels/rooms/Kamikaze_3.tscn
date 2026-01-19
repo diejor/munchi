@@ -75,4 +75,3 @@ position = Vector2(-2, 10)
 points = 50
 deactivated = SubResource("AtlasTexture_7dhlw")
 activated = SubResource("AtlasTexture_npbkc")
-enemies = [NodePath("../SlimeMelee"), NodePath("../SlimeMelee2"), NodePath("../SlimeMelee3"), NodePath("../SlimeMelee4"), NodePath("../SlimeMelee5"), NodePath("../SlimeMelee6")]

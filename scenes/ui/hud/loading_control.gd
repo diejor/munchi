@@ -2,7 +2,7 @@
 class_name LoadingControl
 extends Control
 
-@onready var loading_screen: ColorRect = $LoadingScreen
+@onready var loading_screen: TextureRect = $LoadingScreen
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var generator_progress: ProgressBar = $GeneratorProgress
 @export var nav_region: NavigationRegion2D
