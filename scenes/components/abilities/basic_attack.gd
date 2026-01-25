@@ -1,6 +1,5 @@
 extends AbilityBase
 
-@onready var character: CharacterBody2D = owner
 @onready var pivot: Node2D = $Pivot
 
 func _physics_process(_delta: float) -> void:

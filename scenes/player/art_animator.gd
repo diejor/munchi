@@ -1,18 +1,23 @@
+@tool
 class_name ArtAnimator
 extends AnimationTree
 
 @onready var character: CharacterBody2D = owner.owner
-@onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @onready var combat: CombatComponent = character.get_node_or_null("%CombatComponent")
 
 var is_moving: bool = false
 var is_dead: bool = false
-var ability_done: bool = false
 var _playback: AnimationNodeStateMachinePlayback = get("parameters/playback")
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		process_mode = Node.PROCESS_MODE_DISABLED
+		return
+	
 	active = true
+	process_mode = Node.PROCESS_MODE_INHERIT
 	assert(tree_root is AnimationNodeStateMachine)
 	
 	if combat:
@@ -36,20 +41,12 @@ func _physics_process(_delta: float) -> void:
 
 func _on_ability_used(ability: AbilityBase) -> void:
 	_playback.travel(ability.name, false)
-	await animated_sprite.animation_finished
-	ability.refresh()
-	ability_done = true
-	await _playback.state_finished
-	ability_done = false
 	
-	# For some reason, even though we left the state, the tree 
-	# tries to plays the previous state, for a single frame. So skip it.
-	await get_tree().physics_frame 
-	
-	# Resume because ability animations are single shot
-	animated_sprite.play(animated_sprite.autoplay)
-	
-	
+	var try_refresh = func(anim_name):
+		if anim_name == ability.name:
+			ability.refresh()
+	_playback.state_finished.connect(try_refresh)
+
 
 func _on_die() -> void:
 	_playback.travel("idle")

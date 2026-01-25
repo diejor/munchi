@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dixfq5ec6gn62"]
-
-[ext_resource type="Texture2D" uid="uid://cejxhtrduxnei" path="res://assets/propietary/Enemies/Summoner/Summoner/summoner.png" id="1_5qssv"]
-
-[node name="Summoner" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5qssv")
-offset = Vector2(4, -14)

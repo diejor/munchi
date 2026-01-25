@@ -1,0 +1,77 @@
+[gd_scene load_steps=16 format=3 uid="uid://dixfq5ec6gn62"]
+
+[ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_lvwj5"]
+[ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="2_un3de"]
+[ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_bnwu8"]
+[ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="4_5ftkh"]
+[ext_resource type="PackedScene" uid="uid://cuoe6vo14ajmk" path="res://scenes/enemies/kamikaze/ExplodeAttack.tscn" id="5_8ou84"]
+[ext_resource type="PackedScene" uid="uid://bsnpc6a2vqltp" path="res://assets/Audio/Kamikaze.tscn" id="6_rsd6y"]
+[ext_resource type="PackedScene" uid="uid://dwqlrkb4p18m3" path="res://assets/Audio/SlimeDeath.tscn" id="7_n5qtw"]
+[ext_resource type="PackedScene" uid="uid://cmxvvqc5vbvkh" path="res://scenes/enemies/summoner/SummonerArt.tscn" id="8_sve06"]
+[ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="9_fdnvg"]
+[ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="10_66xxt"]
+[ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="11_v25wy"]
+[ext_resource type="PackedScene" uid="uid://c4uut2pu3ly0b" path="res://scenes/enemies/BtPlayer.tscn" id="12_cxmw8"]
+[ext_resource type="BehaviorTree" uid="uid://dvfd6mqu4vf8s" path="res://ai/trees/game/Kamikaze.tres" id="13_pui00"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ksevn"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_f1duu"]
+
+[node name="Summoner" type="CharacterBody2D"]
+script = ExtResource("1_lvwj5")
+metadata/_custom_type_script = "uid://8kq5tk043j8c"
+
+[node name="Shadow" parent="." instance=ExtResource("2_un3de")]
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 2.0
+
+[node name="CombatComponent" parent="." instance=ExtResource("3_bnwu8")]
+script = ExtResource("4_5ftkh")
+health = 25
+knockback_force = 500.0
+
+[node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("5_8ou84")]
+
+[node name="CollisionShape2D" parent="CombatComponent/Abilities/attack/Hitbox" index="0"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_ksevn")
+
+[node name="Kamikaze" parent="CombatComponent/Abilities/attack" instance=ExtResource("6_rsd6y")]
+process_mode = 3
+
+[node name="HealthBar" parent="CombatComponent/Control" index="0"]
+offset_top = -22.0
+offset_bottom = -4.0
+
+[node name="SlimeDeath" parent="CombatComponent" instance=ExtResource("7_n5qtw")]
+
+[node name="SummonerArt" parent="." instance=ExtResource("8_sve06")]
+metadata/_edit_lock_ = true
+
+[node name="SightComponent" parent="." instance=ExtResource("9_fdnvg")]
+
+[node name="WanderArea" parent="." instance=ExtResource("10_66xxt")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_ksevn")
+
+[node name="NavigationAgent2D" parent="." instance=ExtResource("11_v25wy")]
+unique_name_in_owner = true
+
+[node name="BTPlayer" parent="." instance=ExtResource("12_cxmw8")]
+behavior_tree = ExtResource("13_pui00")
+blackboard_plan = SubResource("BlackboardPlan_f1duu")
+
+[connection signal="die" from="CombatComponent" to="CombatComponent/SlimeDeath" method="_on_play_sfx"]
+[connection signal="used" from="CombatComponent/Abilities/attack" to="CombatComponent/Abilities/attack/Kamikaze" method="_on_play_sfx"]
+
+[editable path="CombatComponent"]
+[editable path="CombatComponent/Abilities/attack"]

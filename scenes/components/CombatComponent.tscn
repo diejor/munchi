@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bogyxdhq27qba" path="res://assets/Audio/AudioImports/Sword/hit-swing-sword-small-2-95566.mp3" id="5_fob8r"]
 
 [node name="CombatComponent" type="Node2D"]
+unique_name_in_owner = true
 script = ExtResource("1_n2m83")
 health = 100
 damage_taken_sfx = ExtResource("5_fob8r")

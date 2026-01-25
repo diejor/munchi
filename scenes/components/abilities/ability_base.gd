@@ -8,23 +8,23 @@ signal used
 signal refreshed
 
 @export var damage: int = 1
-@export var no_animation: bool = false
 
-@onready var combat_component: CombatComponent = owner.get_node("%CombatComponent")
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
+var character: CharacterBodyBase:
+	get: return owner
+var combat_component: CombatComponent:
+	get: return character.get_node("%CombatComponent")
+var animation_component: AnimatedSpritePlayer:
+	get: return character.get_node("%AnimationComponent")
 
 var can_use: bool = true
 
 func _ready() -> void:
 	refresh()
-	if no_animation:
-			animation_player.animation_finished.connect(refresh)
 
 
 func try_use() -> AbilityBase:
 	if can_use:
 		can_use = false
-		animation_player.play("use_ability")
 		return self
 	return null
 
@@ -33,5 +33,4 @@ func emit_used() -> void:
 
 func refresh(_ignore = null) -> void:
 	can_use = true
-	animation_player.play("RESET")
 	refreshed.emit()

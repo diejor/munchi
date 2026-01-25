@@ -25,10 +25,15 @@ script = ExtResource("1_eb27w")
 movement_speed = 20.0
 mass = 30.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_qg875")
+
 [node name="Shadow" parent="." instance=ExtResource("2_1of31")]
-offset_left = -8.0
+offset_left = -10.0
 offset_top = -5.0
-offset_right = 8.0
+offset_right = 10.0
 offset_bottom = 3.0
 
 [node name="SightComponent" parent="." instance=ExtResource("2_lpb37")]
@@ -48,12 +53,7 @@ offset_bottom = -21.0
 [node name="WanderArea" parent="." instance=ExtResource("6_1lqy5")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_qg875")
-
-[node name="TrollArt" parent="." instance=ExtResource("7_k6ad0")]
+[node name="AnimationComponent" parent="." instance=ExtResource("7_k6ad0")]
 
 [node name="NavigationAgent2D" parent="." instance=ExtResource("8_72jje")]
 

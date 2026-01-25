@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvrxx37cadml3"
-path="res://.godot/imported/icon.png-da96aeb1cefa89623806accca5367a8f.ctex"
+uid="uid://cii7p86vnd4uf"
+path="res://.godot/imported/icon.png-73cacad60784a2c80ae0af484d864445.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/AutoKey_SpriteFrames/icon.png"
-dest_files=["res://.godot/imported/icon.png-da96aeb1cefa89623806accca5367a8f.ctex"]
+source_file="res://scenes/components/art/icon.png"
+dest_files=["res://.godot/imported/icon.png-73cacad60784a2c80ae0af484d864445.ctex"]
 
 [params]
 
