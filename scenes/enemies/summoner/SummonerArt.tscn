@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cmxvvqc5vbvkh"]
+[gd_scene format=3 uid="uid://cmxvvqc5vbvkh"]
 
 [ext_resource type="Script" uid="uid://c1chiips77b4m" path="res://scenes/components/art/animated_sprite.gd" id="1_pb856"]
 [ext_resource type="Texture2D" uid="uid://cdb2v1gcjwcds" path="res://assets/propietary/Enemies/Summoner/Summoner/spritesheet_summoner.png" id="1_pryhy"]
@@ -148,23 +148,21 @@ states/walk/position = Vector2(312, 173)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_86hx8"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wc1ps"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2cde0"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_g1wux")]
 graph_offset = Vector2(-137, 48)
 
-[node name="SummonerArt" type="AnimatedSprite2D" node_paths=PackedStringArray("animation_player")]
+[node name="SummonerArt" type="AnimatedSprite2D" unique_id=259580671]
+unique_name_in_owner = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_pryhy")
 animation = &"idle_left"
 autoplay = "idle_left"
 script = ExtResource("1_pb856")
-animation_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://c1chiips77b4m"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1181406205]
 unique_name_in_owner = true
 callback_mode_process = 0
-libraries = {
-&"": SubResource("AnimationLibrary_pryhy")
-}
+libraries/ = SubResource("AnimationLibrary_pryhy")
 
-[node name="ArtAnimator" type="AnimationTree" parent="."]
+[node name="ArtAnimator" type="AnimationTree" parent="." unique_id=1028449]
 unique_name_in_owner = true
 active = false
 root_node = NodePath("%ArtAnimator/..")

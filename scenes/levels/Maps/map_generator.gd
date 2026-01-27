@@ -94,10 +94,6 @@ func _generate_world() -> void:
 
 
 func _process_room_recursive(node: Node, room_root: Node2D, valid_tiles: Dictionary, blocked_tiles: Dictionary) -> void:
-	if "player" in node.name.to_lower():
-		node.queue_free()
-		return
-
 	if node is TileMapLayer:
 		var absolute_pos = room_root.position + (node.global_position - room_root.global_position)
 		absolute_pos = objects_container.to_local(node.to_global(Vector2.ZERO))

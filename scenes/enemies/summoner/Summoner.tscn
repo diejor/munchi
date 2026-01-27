@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dixfq5ec6gn62"]
+[gd_scene format=3 uid="uid://dixfq5ec6gn62"]
 
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_lvwj5"]
 [ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="2_un3de"]
@@ -20,53 +20,53 @@ height = 18.0
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_f1duu"]
 
-[node name="Summoner" type="CharacterBody2D"]
+[node name="Summoner" type="CharacterBody2D" unique_id=1431570217]
 script = ExtResource("1_lvwj5")
 metadata/_custom_type_script = "uid://8kq5tk043j8c"
 
-[node name="Shadow" parent="." instance=ExtResource("2_un3de")]
+[node name="Shadow" parent="." unique_id=15107282 instance=ExtResource("2_un3de")]
 offset_left = -5.0
 offset_top = -6.0
 offset_right = 5.0
 offset_bottom = 2.0
 
-[node name="CombatComponent" parent="." instance=ExtResource("3_bnwu8")]
+[node name="CombatComponent" parent="." unique_id=794985184 instance=ExtResource("3_bnwu8")]
 script = ExtResource("4_5ftkh")
 health = 25
 knockback_force = 500.0
 
-[node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("5_8ou84")]
+[node name="attack" parent="CombatComponent/Abilities" index="0" unique_id=929718552 instance=ExtResource("5_8ou84")]
 
-[node name="CollisionShape2D" parent="CombatComponent/Abilities/attack/Hitbox" index="0"]
-scale = Vector2(1.5, 1.5)
+[node name="CollisionShape2D" parent="CombatComponent/Abilities/attack/Hitbox" parent_id_path=PackedInt32Array(929718552, 546272301) index="0" unique_id=1140687877]
+scale = Vector2(5, 5)
 shape = SubResource("CapsuleShape2D_ksevn")
 
-[node name="Kamikaze" parent="CombatComponent/Abilities/attack" instance=ExtResource("6_rsd6y")]
+[node name="Kamikaze" parent="CombatComponent/Abilities/attack" unique_id=1154443031 instance=ExtResource("6_rsd6y")]
 process_mode = 3
 
 [node name="HealthBar" parent="CombatComponent/Control" index="0"]
 offset_top = -22.0
 offset_bottom = -4.0
 
-[node name="SlimeDeath" parent="CombatComponent" instance=ExtResource("7_n5qtw")]
+[node name="SlimeDeath" parent="CombatComponent" unique_id=558603537 instance=ExtResource("7_n5qtw")]
 
-[node name="SummonerArt" parent="." instance=ExtResource("8_sve06")]
+[node name="AnimationComponent" parent="." unique_id=1770648001 instance=ExtResource("8_sve06")]
 metadata/_edit_lock_ = true
 
-[node name="SightComponent" parent="." instance=ExtResource("9_fdnvg")]
+[node name="SightComponent" parent="." unique_id=1030992134 instance=ExtResource("9_fdnvg")]
 
-[node name="WanderArea" parent="." instance=ExtResource("10_66xxt")]
+[node name="WanderArea" parent="." unique_id=815017409 instance=ExtResource("10_66xxt")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465177843]
 position = Vector2(0, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_ksevn")
 
-[node name="NavigationAgent2D" parent="." instance=ExtResource("11_v25wy")]
+[node name="NavigationAgent2D" parent="." unique_id=530746955 instance=ExtResource("11_v25wy")]
 unique_name_in_owner = true
 
-[node name="BTPlayer" parent="." instance=ExtResource("12_cxmw8")]
+[node name="BTPlayer" parent="." unique_id=842163322 instance=ExtResource("12_cxmw8")]
 behavior_tree = ExtResource("13_pui00")
 blackboard_plan = SubResource("BlackboardPlan_f1duu")
 

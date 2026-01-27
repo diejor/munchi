@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://b8qlqsw4ut2a6"]
+[gd_scene format=3 uid="uid://b8qlqsw4ut2a6"]
 
+[ext_resource type="Script" uid="uid://c1chiips77b4m" path="res://scenes/components/art/animated_sprite.gd" id="1_al4f4"]
 [ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="2_gydw6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ow3di"]
@@ -141,20 +142,18 @@ states/walk/position = Vector2(364, 147)
 transitions = ["walk", "idle", SubResource("AnimationNodeStateMachineTransition_tnk4i"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_pgk33"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_fqbdg"), "die", "idle", SubResource("AnimationNodeStateMachineTransition_lp2lf"), "idle", "ranged_attack", SubResource("AnimationNodeStateMachineTransition_fpf8w"), "ranged_attack", "idle", SubResource("AnimationNodeStateMachineTransition_v254w"), "ranged_attack", "walk", SubResource("AnimationNodeStateMachineTransition_sje88"), "walk", "ranged_attack", SubResource("AnimationNodeStateMachineTransition_bn4do"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_4ydha")]
 graph_offset = Vector2(68, -57)
 
-[node name="SlimeRangedArt" type="Node2D"]
+[node name="SlimeRangedArt" type="AnimatedSprite2D" unique_id=1713991914]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ow3di")
+script = ExtResource("1_al4f4")
+metadata/_custom_type_script = "uid://c1chiips77b4m"
 metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-y_sort_enabled = true
-position = Vector2(0, -8)
-sprite_frames = SubResource("SpriteFrames_ow3di")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=779813880]
 unique_name_in_owner = true
 callback_mode_process = 0
 
-[node name="ArtAnimator" type="AnimationTree" parent="."]
+[node name="ArtAnimator" type="AnimationTree" parent="." unique_id=1807886571]
 unique_name_in_owner = true
 active = false
 root_node = NodePath("%ArtAnimator/..")

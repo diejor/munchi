@@ -29,11 +29,8 @@ func _ready() -> void:
 	if sprite_frames:
 		_connect_signals()
 	
-	if not Engine.is_editor_hint():
-		name = "AnimationComponent"
-	
 	if not art_animator.animation_finished.is_connected(_on_animator_anim_finished):
-			art_animator.animation_finished.connect(_on_animator_anim_finished)
+		art_animator.animation_finished.connect(_on_animator_anim_finished)
 	
 
 func _set(property: StringName, value: Variant) -> bool:
