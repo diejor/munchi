@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://cqftbnd18rpum"]
+[gd_scene format=4 uid="uid://cqftbnd18rpum"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_sad86"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_v7ph1"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_45xst"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_7dhlw"]
-[ext_resource type="PackedScene" uid="uid://0u58n7h8pxwg" path="res://scenes/enemies/Kamikaze.tscn" id="5_npbkc"]
+[ext_resource type="PackedScene" uid="uid://0u58n7h8pxwg" path="res://scenes/enemies/kamikaze/Kamikaze.tscn" id="5_npbkc"]
 [ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="6_v7ph1"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="7_45xst"]
 

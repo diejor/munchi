@@ -1,10 +1,10 @@
-[gd_scene load_steps=87 format=3 uid="uid://pgvc0k1prf8g"]
+[gd_scene format=3 uid="uid://pgvc0k1prf8g"]
 
 [ext_resource type="Script" uid="uid://dpsvv771vwd1q" path="res://scenes/components/abilities/projectile.gd" id="1_lrjuy"]
 [ext_resource type="Texture2D" uid="uid://ckpmaxqtqvgom" path="res://assets/propietary/Enemies/Slime/spritesheet_slimes.png" id="2_mw4xc"]
 [ext_resource type="AudioStream" uid="uid://c2mjiqe85ef7e" path="res://assets/Audio/AudioImports/Sword/quick-swing-sound-419581.mp3" id="3_psnfp"]
 [ext_resource type="Script" uid="uid://c4q4c0oj7hoat" path="res://scenes/components/abilities/collision_ranged.gd" id="4_lrjuy"]
-[ext_resource type="Script" uid="uid://t3smq82q7rqb" path="res://scenes/components/abilities/hitbox.gd" id="4_mw4xc"]
+[ext_resource type="PackedScene" uid="uid://f5ipoy07f0ni" path="res://scenes/components/abilities/components/Hitbox.tscn" id="4_mw4xc"]
 [ext_resource type="PackedScene" uid="uid://x8ch0k6v7vba" path="res://scenes/components/DebugLabel.tscn" id="5_mw4xc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pme31"]
@@ -660,55 +660,48 @@ states/projectile/node = SubResource("AnimationNodeBlendSpace2D_u3thn")
 states/projectile/position = Vector2(405, 57)
 transitions = ["Start", "projectile", SubResource("AnimationNodeStateMachineTransition_bo0ic")]
 
-[node name="Projectile" type="StaticBody2D"]
+[node name="Projectile" type="StaticBody2D" unique_id=1056261987]
 process_mode = 4
 show_behind_parent = true
 collision_layer = 0
 script = ExtResource("1_lrjuy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1297955954]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_be4w8")
-animation = &"down_left"
+animation = &"down"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=77434273]
 stream = SubResource("AudioStreamRandomizer_i4vim")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1253567418]
 shape = SubResource("CircleShape2D_fk8lc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u3thn")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1222087627]
+libraries/ = SubResource("AnimationLibrary_u3thn")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=666100063]
 unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_0aawk")
 anim_player = NodePath("../AnimationPlayer")
 parameters/projectile/blend_position = Vector2(0, 0)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" parent="." unique_id=913148499 instance=ExtResource("4_mw4xc")]
 unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-script = ExtResource("4_mw4xc")
-metadata/_custom_type_script = "uid://t3smq82q7rqb"
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox" unique_id=999703900]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_fk8lc")
 debug_color = Color(0.66642976, 0.48523962, 0.4499498, 0.41960785)
 script = ExtResource("4_lrjuy")
 
-[node name="DebugLabel" parent="Hitbox" instance=ExtResource("5_mw4xc")]
+[node name="DebugLabel" parent="Hitbox" unique_id=609498517 instance=ExtResource("5_mw4xc")]
 offset_left = 9.0
 offset_top = -4.0
-offset_right = 83.0
+offset_right = 92.0
 offset_bottom = 10.0
 theme_override_font_sizes/font_size = 16
 text = "RANGED ATTACK"

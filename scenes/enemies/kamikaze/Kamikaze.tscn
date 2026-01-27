@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://0u58n7h8pxwg"]
+[gd_scene format=3 uid="uid://0u58n7h8pxwg"]
 
 [ext_resource type="Script" uid="uid://8kq5tk043j8c" path="res://scenes/components/character_npc.gd" id="1_lnivl"]
 [ext_resource type="PackedScene" uid="uid://de2o54e1h1o41" path="res://scenes/components/Shadow.tscn" id="1_p4oww"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="2_sm4od"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="3_lnivl"]
 [ext_resource type="PackedScene" uid="uid://cuoe6vo14ajmk" path="res://scenes/enemies/kamikaze/ExplodeAttack.tscn" id="4_p4oww"]
-[ext_resource type="PackedScene" uid="uid://dwqlrkb4p18m3" path="res://assets/Audio/SlimeDeath.tscn" id="5_7xp0d"]
-[ext_resource type="PackedScene" uid="uid://bsnpc6a2vqltp" path="res://assets/Audio/Kamikaze.tscn" id="5_sm4od"]
 [ext_resource type="PackedScene" uid="uid://v4ihlcpoaosc" path="res://scenes/enemies/kamikaze/KamikazeArt.tscn" id="6_p4oww"]
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="7_uq0o4"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="8_p1nnb"]
@@ -20,56 +18,49 @@ height = 18.0
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_w5350"]
 
-[node name="Kamikaze" type="CharacterBody2D"]
+[node name="Kamikaze" type="CharacterBody2D" unique_id=1634547059]
 script = ExtResource("1_lnivl")
 metadata/_custom_type_script = "uid://8kq5tk043j8c"
 
-[node name="Shadow" parent="." instance=ExtResource("1_p4oww")]
+[node name="Shadow" parent="." unique_id=716525705 instance=ExtResource("1_p4oww")]
 offset_left = -5.0
 offset_top = -6.0
 offset_right = 5.0
 offset_bottom = 2.0
 
-[node name="CombatComponent" parent="." instance=ExtResource("2_sm4od")]
+[node name="CombatComponent" parent="." unique_id=1529464819 instance=ExtResource("2_sm4od")]
 script = ExtResource("3_lnivl")
 health = 25
 knockback_force = 500.0
 
-[node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("4_p4oww")]
+[node name="attack" parent="CombatComponent/Abilities" index="0" unique_id=911541011 instance=ExtResource("4_p4oww")]
 
-[node name="CollisionShape2D" parent="CombatComponent/Abilities/attack/Hitbox" index="0"]
+[node name="CollisionShape2D" parent="CombatComponent/Abilities/attack/Hitbox" parent_id_path=PackedInt32Array(911541011, 546272301) index="0" unique_id=1140687877]
+scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_4x46e")
-
-[node name="Kamikaze" parent="CombatComponent/Abilities/attack" instance=ExtResource("5_sm4od")]
-process_mode = 3
 
 [node name="HealthBar" parent="CombatComponent/Control" index="0"]
 offset_top = -22.0
 offset_bottom = -4.0
 
-[node name="SlimeDeath" parent="CombatComponent" instance=ExtResource("5_7xp0d")]
+[node name="AnimationComponent" parent="." unique_id=1111031478 instance=ExtResource("6_p4oww")]
 
-[node name="KamikazeArt" parent="." instance=ExtResource("6_p4oww")]
+[node name="SightComponent" parent="." unique_id=75877414 instance=ExtResource("7_uq0o4")]
 
-[node name="SightComponent" parent="." instance=ExtResource("7_uq0o4")]
-
-[node name="WanderArea" parent="." instance=ExtResource("8_p1nnb")]
+[node name="WanderArea" parent="." unique_id=2045496613 instance=ExtResource("8_p1nnb")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=7559423]
 position = Vector2(0, -1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_4x46e")
 
-[node name="NavigationAgent2D" parent="." instance=ExtResource("9_xpgmw")]
+[node name="NavigationAgent2D" parent="." unique_id=1368103321 instance=ExtResource("9_xpgmw")]
 unique_name_in_owner = true
 
-[node name="BTPlayer" parent="." instance=ExtResource("10_7ijun")]
+[node name="BTPlayer" parent="." unique_id=368344643 instance=ExtResource("10_7ijun")]
 behavior_tree = ExtResource("11_sm4od")
 blackboard_plan = SubResource("BlackboardPlan_w5350")
-
-[connection signal="die" from="CombatComponent" to="CombatComponent/SlimeDeath" method="_on_play_sfx"]
-[connection signal="used" from="CombatComponent/Abilities/attack" to="CombatComponent/Abilities/attack/Kamikaze" method="_on_play_sfx"]
 
 [editable path="CombatComponent"]
 [editable path="CombatComponent/Abilities/attack"]

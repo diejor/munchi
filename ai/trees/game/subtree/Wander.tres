@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=11 format=3 uid="uid://c8vogfbh3usfr"]
+[gd_resource type="BehaviorTree" format=3 uid="uid://c8vogfbh3usfr"]
 
 [ext_resource type="Script" uid="uid://bp7yimy46fc3l" path="res://ai/tasks/navigate_to.gd" id="1_4jxwk"]
 [ext_resource type="Script" uid="uid://20u5su0vxp8h" path="res://ai/tasks/get_wander_point.gd" id="2_6rpom"]

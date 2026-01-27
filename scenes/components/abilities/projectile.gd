@@ -17,6 +17,7 @@ var direction: Vector2
 
 func _ready() -> void:
 	animate_and_die()
+	hitbox.fire()
 	
 func _physics_process(delta: float) -> void:
 	animation_tree.set("parameters/projectile/blend_position", direction)

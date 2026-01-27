@@ -1,9 +1,10 @@
 extends AbilityBase
 
-@onready var character: CharacterBody2D = owner
+
 @onready var sight: SightComponent:
-		get: return owner.get_node("%SightComponent")
+		get: return character.get_node("%SightComponent")
 @onready var projectile: ProjectileBase = %Projectile
+
 
 func _ready() -> void:
 	super._ready()
@@ -17,5 +18,6 @@ func _on_projectile_used() -> void:
 	to_launch.process_mode = Node.PROCESS_MODE_INHERIT
 	to_launch.visible = true
 	to_launch.hitbox.ability = self
-	get_tree().current_scene.add_child.call_deferred(to_launch)
+	to_launch.tree_entered.connect(to_launch.set.bind("owner", self))
+	add_child(to_launch)
 	

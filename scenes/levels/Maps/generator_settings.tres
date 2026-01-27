@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WalkerGeneratorSettings" load_steps=24 format=3 uid="uid://c1sn2jp6mh3ti"]
+[gd_resource type="Resource" script_class="WalkerGeneratorSettings" format=3 uid="uid://c1sn2jp6mh3ti"]
 
 [ext_resource type="Script" uid="uid://x7cyg6qqvu6j" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="1_cd7es"]
 [ext_resource type="Script" uid="uid://cn1ywgre3exxh" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="2_rks23"]
@@ -89,7 +89,7 @@ expand_bottom = 10
 metadata/_custom_type_script = "uid://rbn4duitehfa"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
-seed = 2066836131
+seed = -1546784599
 frequency = 0.0486
 
 [sub_resource type="Resource" id="Resource_eb6dy"]
@@ -138,6 +138,6 @@ tile = SubResource("Resource_o6xl0")
 fullness_check = 1
 fullness_percentage = 0.1
 constrain_world_size = true
-world_size = Vector2i(200, 200)
+world_size = Vector2i(100, 100)
 modifiers = Array[ExtResource("1_cd7es")]([SubResource("Resource_wgg2v"), SubResource("Resource_jp52f"), SubResource("Resource_b84is"), SubResource("Resource_jfn2o"), SubResource("Resource_jaijs"), SubResource("Resource_eb6dy"), SubResource("Resource_gceky"), SubResource("Resource_4cbap")])
 metadata/_custom_type_script = "uid://cobdt6g73o1a8"

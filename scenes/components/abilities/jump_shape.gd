@@ -1,6 +1,8 @@
 @tool
 extends CollisionShape2D
 
+@export var resize_scale: float = 1.5
+
 var character: CharacterBodyBase:
 	get:
 		if owner != null and owner.owner != null:
@@ -13,4 +15,4 @@ func _ready() -> void:
 		var c_shape: CollisionShape2D = character.get_node("CollisionShape2D")
 		shape = c_shape.shape
 		transform = c_shape.transform
-		scale *= 1.5
+		scale *= resize_scale

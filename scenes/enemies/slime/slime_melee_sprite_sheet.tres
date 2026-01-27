@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=106 format=3 uid="uid://de7ppbjsohoqt"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://de7ppbjsohoqt"]
 
 [ext_resource type="Texture2D" uid="uid://ckpmaxqtqvgom" path="res://assets/propietary/Enemies/Slime/spritesheet_slimes.png" id="1_g7avr"]
 

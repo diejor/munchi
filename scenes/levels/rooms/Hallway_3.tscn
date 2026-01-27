@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cyylbdg7onsku"]
+[gd_scene format=4 uid="uid://cyylbdg7onsku"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_p72dx"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_ojmog"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_h327p"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_bg312"]
-[ext_resource type="PackedScene" uid="uid://0u58n7h8pxwg" path="res://scenes/enemies/Kamikaze.tscn" id="5_tds47"]
+[ext_resource type="PackedScene" uid="uid://0u58n7h8pxwg" path="res://scenes/enemies/kamikaze/Kamikaze.tscn" id="5_tds47"]
 
 [node name="Hallway_3" type="Node2D"]
 y_sort_enabled = true

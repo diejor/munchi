@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://8s4gfwoqyfoc"]
+[gd_scene format=4 uid="uid://8s4gfwoqyfoc"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_jkcdd"]
 [ext_resource type="TileSet" uid="uid://hd7g5syrjw80" path="res://assets/resources/tileset/plains-dual.tres" id="2_cxsgi"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_t63t2"]
 [ext_resource type="TileSet" uid="uid://d73ldl63ty60" path="res://assets/resources/tileset/plains-high.tres" id="4_pau3a"]
 [ext_resource type="PackedScene" uid="uid://cec3a451xe070" path="res://scenes/enemies/Boombat.tscn" id="5_ar0xy"]
-[ext_resource type="PackedScene" uid="uid://0u58n7h8pxwg" path="res://scenes/enemies/Kamikaze.tscn" id="6_cxsgi"]
+[ext_resource type="PackedScene" uid="uid://0u58n7h8pxwg" path="res://scenes/enemies/kamikaze/Kamikaze.tscn" id="6_cxsgi"]
 [ext_resource type="PackedScene" uid="uid://c68wmnei5lnyq" path="res://scenes/levels/rooms/runes/RuneBase.tscn" id="7_t63t2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7cwoa"]

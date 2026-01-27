@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=3 uid="uid://c26libpeyrrm3"]
+[gd_scene format=3 uid="uid://c26libpeyrrm3"]
 
 [ext_resource type="Texture2D" uid="uid://b5abfiocw5hri" path="res://assets/propietary/spritesheet_mc.png" id="1_0irw0"]
 [ext_resource type="Script" uid="uid://buvf0lwh8j81p" path="res://scenes/player/player_animator.gd" id="2_j10wx"]
@@ -1883,7 +1883,6 @@ advance_mode = 2
 advance_expression = "!is_moving"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r7d8p"]
-state_machine_type = 1
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_qre0u")
 states/attack/position = Vector2(576, 100)
 states/dead/node = SubResource("AnimationNodeBlendSpace2D_ucvi7")
@@ -1895,31 +1894,29 @@ states/walk/position = Vector2(406.625, 191.91013)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_qre0u"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_6nlk4"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_niuu5"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_irckj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_arko6"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_3nggj")]
 graph_offset = Vector2(-39.174667, 43.910126)
 
-[node name="AnimationComponent" type="AnimatedSprite2D" node_paths=PackedStringArray("animation_player")]
+[node name="PlayerArt" type="AnimatedSprite2D" unique_id=866348325]
 unique_name_in_owner = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_fwwho")
-animation = &"move_up"
+animation = &"idle_down"
+autoplay = "idle_down"
 script = ExtResource("2_qre0u")
-animation_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://c1chiips77b4m"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2012525301]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_ht74u")
-}
+libraries/ = SubResource("AnimationLibrary_ht74u")
+autoplay = &"idle_down"
 
-[node name="ArtAnimator" type="AnimationTree" parent="."]
+[node name="ArtAnimator" type="AnimationTree" parent="." unique_id=2029870769]
 unique_name_in_owner = true
-process_mode = 4
 active = false
 root_node = NodePath("%ArtAnimator/..")
 tree_root = SubResource("AnimationNodeStateMachine_r7d8p")
 anim_player = NodePath("../AnimationPlayer")
 parameters/attack/blend_position = Vector2(0, 0)
 parameters/dead/blend_position = Vector2(0, 0)
-parameters/idle/idle/blend_position = Vector2(0, 0)
+parameters/idle/idle/blend_position = Vector2(-0.15391707, 0.57345974)
 parameters/idle/idle_prepared/blend_position = Vector2(-0.24724722, -0.91139245)
 parameters/walk/walk/blend_position = Vector2(0, 0)
 parameters/walk/walk_prepared/blend_position = Vector2(0, 0)

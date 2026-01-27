@@ -8,9 +8,6 @@ signal marker()
 func mark() -> void:
 	marker.emit()
 
-### Configuration
-@export var animation_player: AnimationPlayer
-
 ## If true, adding/removing frames in the SpriteFrames panel will instantly update the AnimationPlayer for the active animation.
 @export var auto_sync: bool = false
 
@@ -24,6 +21,9 @@ var sync_all = sync_all_animations
 
 ### Lifecycle
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var art_animator: ArtAnimator = %ArtAnimator
+
 func _ready() -> void:
 	unique_name_in_owner = true
 	if sprite_frames:
@@ -31,6 +31,10 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		name = "AnimationComponent"
+	
+	if not art_animator.animation_finished.is_connected(_on_animator_anim_finished):
+			art_animator.animation_finished.connect(_on_animator_anim_finished)
+	
 
 func _set(property: StringName, value: Variant) -> bool:
 	if property == "sprite_frames" and value != sprite_frames:
@@ -171,3 +175,7 @@ func _update_track(anim: Animation, track_path: String, times: PackedFloat32Arra
 		
 	for i in range(times.size()):
 		anim.track_insert_key(track_idx, times[i], values[i])
+
+
+func _on_animator_anim_finished(_anim_name: StringName) -> void:
+	animation_finished.emit()

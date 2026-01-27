@@ -1,4 +1,3 @@
-@tool
 class_name ArtAnimator
 extends AnimationTree
 
@@ -15,12 +14,7 @@ var _blend_positions: Array[Dictionary]
 
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		process_mode = Node.PROCESS_MODE_DISABLED
-		return
-	
 	active = true
-	process_mode = Node.PROCESS_MODE_INHERIT
 	assert(tree_root is AnimationNodeStateMachine)
 	
 	if combat:
@@ -39,11 +33,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	for blend_poition in _blend_positions:
 		set(blend_poition.name, character.facing_vector)
-	
-	for ability in combat.abilities.get_children():
-		var ability_name: String = ability.name
-		assert(tree_root.has_node(ability_name))
-		set("parameters/%s/blend_position" % ability_name, character.facing_vector)
 	
 	is_moving = not character.velocity.length_squared() < 1.
 

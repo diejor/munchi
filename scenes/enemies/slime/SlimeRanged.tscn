@@ -49,7 +49,7 @@ offset_bottom = -4.0
 
 [node name="SightComponent" parent="." instance=ExtResource("6_yscn4")]
 
-[node name="SlimeRangedArt" parent="." instance=ExtResource("6_njf0f")]
+[node name="AnimationComponent" parent="." instance=ExtResource("6_njf0f")]
 
 [node name="WanderArea" parent="." instance=ExtResource("7_gqtwx")]
 unique_name_in_owner = true

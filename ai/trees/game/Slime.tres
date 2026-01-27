@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=14 format=3 uid="uid://dxug7yr0o3ae5"]
+[gd_resource type="BehaviorTree" format=3 uid="uid://dxug7yr0o3ae5"]
 
 [ext_resource type="BehaviorTree" uid="uid://b7ccy1wx607rf" path="res://ai/trees/game/subtree/Pursue.tres" id="1_7pwua"]
 [ext_resource type="BehaviorTree" uid="uid://c8vogfbh3usfr" path="res://ai/trees/game/subtree/Wander.tres" id="3_c1g87"]

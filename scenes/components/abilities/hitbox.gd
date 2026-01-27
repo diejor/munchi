@@ -17,6 +17,7 @@ func find_owner_with_type(type: Variant) -> Node:
 		return owner
 	elif owner and is_instance_of(owner.owner, type):
 		return owner.owner
+	push_error("Hitbox couldn't find the ability that generated it.")
 	return null
 
 

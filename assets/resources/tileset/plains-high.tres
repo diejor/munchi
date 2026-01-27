@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d73ldl63ty60"]
+[gd_resource type="TileSet" format=3 uid="uid://d73ldl63ty60"]
 
 [ext_resource type="Texture2D" uid="uid://kom4qc5ai6ry" path="res://assets/dual-grid/plains_high_dual.png" id="1_w2c5w"]
 

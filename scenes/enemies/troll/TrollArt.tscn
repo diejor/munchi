@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dn1cppwsismqk"]
+[gd_scene format=3 uid="uid://dn1cppwsismqk"]
 
 [ext_resource type="Texture2D" uid="uid://t0rrvrd2x76e" path="res://assets/propietary/Enemies/Troll/spritesheet_troll.png" id="1_7ro3f"]
 [ext_resource type="Script" uid="uid://c1chiips77b4m" path="res://scenes/components/art/animated_sprite.gd" id="2_84y5t"]
@@ -937,27 +937,23 @@ states/walk/position = Vector2(354, 200)
 transitions = ["walk", "idle", SubResource("AnimationNodeStateMachineTransition_tnk4i"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_pgk33"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_4ydha"), "idle", "die_down", SubResource("AnimationNodeStateMachineTransition_84y5t"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_laftj"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_x7bgw"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_u2sye"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_drvkn")]
 graph_offset = Vector2(-166, -24)
 
-[node name="AnimationComponent" type="AnimatedSprite2D" node_paths=PackedStringArray("animation_player")]
+[node name="AnimationComponent" type="AnimatedSprite2D" unique_id=1475456972]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rlimp")
 animation = &"idle_down"
 autoplay = "idle_down"
 offset = Vector2(0, -16)
 script = ExtResource("2_84y5t")
-animation_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://c1chiips77b4m"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=346280662]
 unique_name_in_owner = true
 callback_mode_process = 0
-libraries = {
-&"": SubResource("AnimationLibrary_5wu8c")
-}
-autoplay = "idle_down"
+libraries/ = SubResource("AnimationLibrary_5wu8c")
+autoplay = &"idle_down"
 
-[node name="ArtAnimator" type="AnimationTree" parent="."]
+[node name="ArtAnimator" type="AnimationTree" parent="." unique_id=386048444]
 unique_name_in_owner = true
-process_mode = 4
 root_node = NodePath("%ArtAnimator/..")
 tree_root = SubResource("AnimationNodeStateMachine_jb8yv")
 anim_player = NodePath("../AnimationPlayer")
