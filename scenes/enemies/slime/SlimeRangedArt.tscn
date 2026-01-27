@@ -1,7 +1,7 @@
 [gd_scene load_steps=187 format=3 uid="uid://bv8ivj18q1b5q"]
 
 [ext_resource type="Texture2D" uid="uid://ckpmaxqtqvgom" path="res://assets/propietary/Enemies/Slime/spritesheet_slimes.png" id="1_ixsxe"]
-[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="3_licmn"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="3_licmn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aik8p"]
 atlas = ExtResource("1_ixsxe")
@@ -1455,6 +1455,7 @@ libraries = {
 
 [node name="ArtAnimator" type="AnimationTree" parent="."]
 unique_name_in_owner = true
+process_mode = 4
 root_node = NodePath("%ArtAnimator/..")
 tree_root = SubResource("AnimationNodeStateMachine_fcsgy")
 anim_player = NodePath("../AnimationPlayer")

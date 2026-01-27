@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://deghq0uhw45c4"]
+[gd_scene load_steps=17 format=4 uid="uid://deghq0uhw45c4"]
 
 [ext_resource type="Script" uid="uid://ef0603hpvrkx" path="res://scenes/levels/main.gd" id="1_c2fwb"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_p2hyx"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bln2nurmvtfj1" path="res://scenes/player/Player.tscn" id="9_wgg2v"]
 [ext_resource type="Resource" uid="uid://c1sn2jp6mh3ti" path="res://scenes/levels/Maps/generator_settings.tres" id="11_p2hyx"]
 [ext_resource type="PackedScene" uid="uid://lkln0c1oqkbp" path="res://scenes/enemies/troll/Troll.tscn" id="14_ki7k8"]
+[ext_resource type="PackedScene" uid="uid://c0wqf8iq3tflv" path="res://scenes/enemies/slime/SlimeMelee.tscn" id="15_p2hyx"]
 [ext_resource type="PackedScene" uid="uid://dsj0i2l57v8nh" path="res://scenes/ui/CanvasUi.tscn" id="18_fy668"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c2fwb"]
@@ -21,7 +22,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 agent_radius = 15.0
 
 [node name="Main" type="Node2D"]
-visible = false
 y_sort_enabled = true
 script = ExtResource("1_c2fwb")
 
@@ -102,6 +102,10 @@ metadata/_custom_type_script = "uid://34dgcf0kpo3t"
 [node name="Player" parent="." instance=ExtResource("9_wgg2v")]
 
 [node name="Troll" parent="." instance=ExtResource("14_ki7k8")]
+position = Vector2(-144, -18)
+
+[node name="SlimeMelee" parent="." instance=ExtResource("15_p2hyx")]
+position = Vector2(-55, 18)
 
 [connection signal="level_loaded" from="CanvasUI/LoadingControl" to="." method="_on_level_loaded"]
 [connection signal="area_rendered" from="ThreadedTilemapGaeaRenderer" to="." method="_on_area_rendered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://co7ph8xbf3n2f"]
+[gd_scene load_steps=33 format=3 uid="uid://co7ph8xbf3n2f"]
 
 [ext_resource type="SpriteFrames" uid="uid://de7ppbjsohoqt" path="res://scenes/enemies/slime/slime_melee_sprite_sheet.tres" id="1_86hx8"]
 [ext_resource type="AnimationLibrary" uid="uid://ceh7wlqamimey" path="res://scenes/enemies/slime/slime_melee_anim_library.tres" id="2_86hx8"]
-[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="3_86hx8"]
+[ext_resource type="Script" uid="uid://c1chiips77b4m" path="res://scenes/components/art/animated_sprite.gd" id="2_wc1ps"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="4_wc1ps"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m3i4k"]
 animation = &"dead_left"
@@ -110,8 +111,8 @@ advance_expression = "!is_moving"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uk55v"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfm60"]
+switch_mode = 2
 advance_mode = 2
-advance_expression = "ability_done"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxywy"]
 advance_mode = 2
@@ -135,16 +136,14 @@ states/walk/position = Vector2(312, 173)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_86hx8"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wc1ps"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2cde0"), "idle", "jump_attack", SubResource("AnimationNodeStateMachineTransition_uk55v"), "jump_attack", "idle", SubResource("AnimationNodeStateMachineTransition_bfm60"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_fxywy"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_fcane")]
 graph_offset = Vector2(-165, -53)
 
-[node name="SlimeMeleeArt" type="Node2D"]
-metadata/_edit_lock_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimationComponent" type="AnimatedSprite2D" node_paths=PackedStringArray("animation_player")]
 unique_name_in_owner = true
-y_sort_enabled = true
 position = Vector2(0, -8)
 sprite_frames = ExtResource("1_86hx8")
-animation = &"idle_left_sprite"
-autoplay = "idle_down"
+animation = &"attack_right"
+script = ExtResource("2_wc1ps")
+animation_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://c1chiips77b4m"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -152,9 +151,11 @@ callback_mode_process = 0
 libraries = {
 &"": ExtResource("2_86hx8")
 }
+autoplay = "idle_down"
 
 [node name="ArtAnimator" type="AnimationTree" parent="."]
 unique_name_in_owner = true
+process_mode = 4
 root_node = NodePath("%ArtAnimator/..")
 tree_root = SubResource("AnimationNodeStateMachine_2cde0")
 anim_player = NodePath("../AnimationPlayer")
@@ -162,5 +163,5 @@ parameters/dead/blend_position = Vector2(-0.004460275, -0.97321427)
 parameters/idle/blend_position = Vector2(0, -0.9551569)
 parameters/jump_attack/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0.14410484, 1.0986547)
-script = ExtResource("3_86hx8")
+script = ExtResource("4_wc1ps")
 metadata/_custom_type_script = "uid://dplmlv1itv6ca"

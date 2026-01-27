@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t0rrvrd2x76e" path="res://assets/propietary/Enemies/Troll/spritesheet_troll.png" id="1_7ro3f"]
 [ext_resource type="Script" uid="uid://c1chiips77b4m" path="res://scenes/components/art/animated_sprite.gd" id="2_84y5t"]
-[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="2_fqsfn"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="2_fqsfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqsfn"]
 atlas = ExtResource("1_7ro3f")
@@ -445,7 +445,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(1.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [null],
+"args": [],
 "method": &"mark"
 }]
 }
@@ -927,13 +927,13 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jb8yv"]
 states/attack/node = SubResource("AnimationNodeAnimation_7ro3f")
-states/attack/position = Vector2(552, 73)
+states/attack/position = Vector2(535, 100)
 states/die_down/node = SubResource("AnimationNodeAnimation_fqsfn")
-states/die_down/position = Vector2(208, 2)
+states/die_down/position = Vector2(354, -6)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_qat6w")
-states/idle/position = Vector2(364, 33)
+states/idle/position = Vector2(354, 100)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_f0yot")
-states/walk/position = Vector2(371, 147)
+states/walk/position = Vector2(354, 200)
 transitions = ["walk", "idle", SubResource("AnimationNodeStateMachineTransition_tnk4i"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_pgk33"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_4ydha"), "idle", "die_down", SubResource("AnimationNodeStateMachineTransition_84y5t"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_laftj"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_x7bgw"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_u2sye"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_drvkn")]
 graph_offset = Vector2(-166, -24)
 
@@ -941,6 +941,7 @@ graph_offset = Vector2(-166, -24)
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rlimp")
 animation = &"idle_down"
+autoplay = "idle_down"
 offset = Vector2(0, -16)
 script = ExtResource("2_84y5t")
 animation_player = NodePath("AnimationPlayer")

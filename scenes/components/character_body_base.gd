@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var movement_speed: float = 50.0
 @export_exp_easing var mass: float = 15.0
 
+var facing_vector: Vector2
+
 func _init() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 

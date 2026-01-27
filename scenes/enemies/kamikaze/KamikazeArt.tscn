@@ -1,7 +1,7 @@
 [gd_scene load_steps=84 format=3 uid="uid://v4ihlcpoaosc"]
 
 [ext_resource type="Texture2D" uid="uid://cd10uhthdr7h7" path="res://assets/propietary/Enemies/Kamikaze/spritesheet_kamikaze.png" id="2_f0chh"]
-[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="3_3hu8d"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="3_3hu8d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3cr8"]
 atlas = ExtResource("2_f0chh")

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cp7eggsvmb5r5" path="res://scenes/enemies/Sight.tscn" id="2_lpb37"]
 [ext_resource type="PackedScene" uid="uid://6gcho5ivfbv" path="res://scenes/components/CombatComponent.tscn" id="3_1of31"]
 [ext_resource type="Script" uid="uid://bjtthgbmnn7xy" path="res://scenes/components/combat_npc.gd" id="4_mrv23"]
-[ext_resource type="PackedScene" uid="uid://ck7uq4uhoe2oh" path="res://scenes/enemies/troll/TrollAttack.tscn" id="5_eb27w"]
 [ext_resource type="PackedScene" uid="uid://0caq0535itks" path="res://scenes/enemies/WanderArea.tscn" id="6_1lqy5"]
+[ext_resource type="PackedScene" uid="uid://cptpufpq3ks8q" path="res://scenes/components/abilities/BasicAttack.tscn" id="6_1of31"]
 [ext_resource type="PackedScene" uid="uid://crjpevbv3n5fl" path="res://assets/Audio/TrollSlam.tscn" id="7_1of31"]
 [ext_resource type="PackedScene" uid="uid://dn1cppwsismqk" path="res://scenes/enemies/troll/TrollArt.tscn" id="7_k6ad0"]
 [ext_resource type="PackedScene" uid="uid://c70imj4cff2nw" path="res://scenes/enemies/NavigationAgent2d.tscn" id="8_72jje"]
@@ -42,7 +42,7 @@ offset_bottom = 3.0
 script = ExtResource("4_mrv23")
 health = 200
 
-[node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("5_eb27w")]
+[node name="attack" parent="CombatComponent/Abilities" index="0" instance=ExtResource("6_1of31")]
 
 [node name="HealthBar" parent="CombatComponent/Control" index="0"]
 offset_top = -39.0
@@ -60,7 +60,4 @@ unique_name_in_owner = true
 [node name="BTPlayer" parent="." instance=ExtResource("9_82mae")]
 behavior_tree = ExtResource("10_x4q7j")
 
-[connection signal="used" from="CombatComponent/Abilities/attack" to="CombatComponent/TrollSlam" method="_on_play_sfx"]
-
 [editable path="CombatComponent"]
-[editable path="CombatComponent/Abilities/attack"]

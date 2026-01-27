@@ -20,7 +20,7 @@ var can_use: bool = true
 
 func _ready() -> void:
 	refresh()
-
+	animation_component.marker.connect(emit_used)
 
 func try_use() -> AbilityBase:
 	if can_use:

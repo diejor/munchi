@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://b8qlqsw4ut2a6"]
 
-[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="2_gydw6"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="2_gydw6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ow3di"]
 

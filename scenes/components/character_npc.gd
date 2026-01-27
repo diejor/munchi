@@ -7,7 +7,6 @@ const iSQRT2 = 0.70710678118
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 @onready var wander_area: WanderArea = %WanderArea
 
-var facing_vector: Vector2
 
 func _ready() -> void:
 	super._ready()

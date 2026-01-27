@@ -3,10 +3,10 @@
 class_name AnimatedSpritePlayer
 extends AnimatedSprite2D
 
-signal marker(event: Variant)
+signal marker()
 
-func mark(event: Variant) -> void:
-	marker.emit(event)
+func mark() -> void:
+	marker.emit()
 
 ### Configuration
 @export var animation_player: AnimationPlayer

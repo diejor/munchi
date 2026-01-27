@@ -47,7 +47,7 @@ offset_bottom = -4.0
 
 [node name="SlimeDeath" parent="CombatComponent" instance=ExtResource("5_ipisy")]
 
-[node name="SlimeMeleeArt" parent="." instance=ExtResource("1_ib43c")]
+[node name="AnimationComponent" parent="." instance=ExtResource("1_ib43c")]
 
 [node name="SightComponent" parent="." instance=ExtResource("2_sdtwm")]
 

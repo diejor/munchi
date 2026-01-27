@@ -2,7 +2,7 @@
 class_name ArtAnimator
 extends AnimationTree
 
-@onready var character: CharacterBody2D = owner.owner
+@onready var character: CharacterBodyBase = owner.owner
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @onready var combat: CombatComponent = character.get_node_or_null("%CombatComponent")
@@ -10,6 +10,9 @@ extends AnimationTree
 var is_moving: bool = false
 var is_dead: bool = false
 var _playback: AnimationNodeStateMachinePlayback = get("parameters/playback")
+
+var _blend_positions: Array[Dictionary]
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -25,12 +28,18 @@ func _ready() -> void:
 		combat.die.connect(_on_die)
 		for ability in combat.abilities.get_children():
 			assert(tree_root.has_node(ability.name))
+	
+	var blend_positions_filter := func(prop: Dictionary):
+		var pname: String = prop["name"]
+		return pname.begins_with("parameters/") and pname.contains("blend_position")
+	
+	_blend_positions = get_property_list().filter(blend_positions_filter)
 
 
 func _physics_process(_delta: float) -> void:
-	set("parameters/idle/blend_position", character.facing_vector)
-	set("parameters/walk/blend_position", character.facing_vector)
-	set("parameters/dead/blend_position", character.facing_vector)
+	for blend_poition in _blend_positions:
+		set(blend_poition.name, character.facing_vector)
+	
 	for ability in combat.abilities.get_children():
 		var ability_name: String = ability.name
 		assert(tree_root.has_node(ability_name))

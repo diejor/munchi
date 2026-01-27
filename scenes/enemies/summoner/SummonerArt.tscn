@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1chiips77b4m" path="res://scenes/components/art/animated_sprite.gd" id="1_pb856"]
 [ext_resource type="Texture2D" uid="uid://cdb2v1gcjwcds" path="res://assets/propietary/Enemies/Summoner/Summoner/spritesheet_summoner.png" id="1_pryhy"]
-[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/player/art_animator.gd" id="2_pryhy"]
+[ext_resource type="Script" uid="uid://dplmlv1itv6ca" path="res://scenes/components/art/art_animator.gd" id="2_pryhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5css"]
 atlas = ExtResource("1_pryhy")
